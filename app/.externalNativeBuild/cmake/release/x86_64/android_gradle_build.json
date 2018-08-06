@@ -1,0 +1,56 @@
+
+{
+	"buildFiles" : [ "/home/delhivery/Documents/PROJECTS/LibFilter/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"effector-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "effector",
+			"buildCommand" : "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64 --target effector",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/home/delhivery/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64 --sysroot=/home/delhivery/Android/Sdk/ndk-bundle/sysroot  -Deffector_EXPORTS -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /home/delhivery/Android/Sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/delhivery/Documents/PROJECTS/LibFilter/app/src/main/cpp/effector.cpp",
+					"workingDirectory" : "/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64"
+				}
+			],
+			"output" : "/home/delhivery/Documents/PROJECTS/LibFilter/app/build/intermediates/cmake/release/obj/x86_64/libeffector.so",
+			"toolchain" : "15970175873937404842"
+		},
+		"native-lib-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "native-lib",
+			"buildCommand" : "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64 --target native-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/home/delhivery/Android/Sdk/ndk-bundle/toolchains/x86_64-4.9/prebuilt/linux-x86_64 --sysroot=/home/delhivery/Android/Sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /home/delhivery/Android/Sdk/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/delhivery/Documents/PROJECTS/LibFilter/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64"
+				}
+			],
+			"output" : "/home/delhivery/Documents/PROJECTS/LibFilter/app/build/intermediates/cmake/release/obj/x86_64/libnative-lib.so",
+			"toolchain" : "15970175873937404842"
+		}
+	},
+	"toolchains" : 
+	{
+		"15970175873937404842" : 
+		{
+			"cCompilerExecutable" : "/home/delhivery/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/delhivery/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}

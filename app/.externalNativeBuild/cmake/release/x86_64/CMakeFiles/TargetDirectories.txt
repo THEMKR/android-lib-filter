@@ -1,0 +1,4 @@
+/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/rebuild_cache.dir
+/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/effector.dir
+/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/edit_cache.dir
+/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/x86_64/CMakeFiles/native-lib.dir
