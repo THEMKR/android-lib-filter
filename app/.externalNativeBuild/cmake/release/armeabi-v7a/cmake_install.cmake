@@ -1,4 +1,4 @@
-# Install script for directory: /home/delhivery/Documents/PROJECTS/LibFilter/app
+# Install script for directory: /home/delhivery/Documents/PROJECTS/lib-filter/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/release/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

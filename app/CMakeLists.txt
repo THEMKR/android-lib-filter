@@ -55,6 +55,7 @@ target_link_libraries( # Specifies the target library.
 target_link_libraries( # Specifies the target library.
                        effector
                        -ljnigraphics
+                       -landroid
 
                        # Links the target library to the log library
                        # included in the NDK.

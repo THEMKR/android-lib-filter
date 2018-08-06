@@ -1,6 +1,6 @@
 package com.mkrworld.libfilter
 
-abstract class BaseConventionalEffect : BaseEffect {
+open class BaseConventionalEffect : BaseEffect {
 
     constructor() : super() {
 

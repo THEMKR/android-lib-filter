@@ -1,7 +1,11 @@
 package com.mkrworld.libfilter
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,8 +14,41 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // Example of a call to a native method
-        sample_text.text = stringFromJNI() + "  " + BaseEffect.count
+        button.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+                Log.e("MKR", "PROCESS 1")
+                val srcImage = getSrcImage() ?: return
+                Log.e("MKR", "PROCESS 2")
+                val destImage = getDestImage(srcImage.width, srcImage.height) ?: return
+                Log.e("MKR", "PROCESS 3")
+                val overlayImage = getOverlayImage() ?: return
+                Log.e("MKR", "PROCESS 4")
+                val currentTimeMillis = System.currentTimeMillis()
+                Log.e("MKR", "START TIME : $currentTimeMillis")
+                BaseEffect().getOverLayBitmap(srcImage, overlayImage, destImage)
+                Log.e("MKR", "PROCESS 5")
+                Log.e("MKR", "START TIME : ${System.currentTimeMillis() - currentTimeMillis}")
+                imageView.setImageBitmap(destImage)
+                Log.e("MKR", "PROCESS 6")
+            }
+        })
+    }
 
+    fun getSrcImage(): Bitmap? {
+        val options = BitmapFactory.Options()
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888
+        return BitmapFactory.decodeResource(resources, R.drawable.mf, options)
+    }
+
+    fun getOverlayImage(): Bitmap? {
+        val options = BitmapFactory.Options()
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888
+        return BitmapFactory.decodeResource(resources, R.drawable.o, options)
+    }
+
+
+    fun getDestImage(width: Int, height: Int): Bitmap? {
+        return Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
     }
 
     /**
@@ -25,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
+            System.loadLibrary("effector")
         }
     }
 }

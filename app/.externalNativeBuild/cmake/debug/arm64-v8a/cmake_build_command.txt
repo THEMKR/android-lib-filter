@@ -1,10 +1,10 @@
 Executable : /home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake
 arguments : 
--H/home/delhivery/Documents/PROJECTS/LibFilter/app
--B/home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/debug/arm64-v8a
+-H/home/delhivery/Documents/PROJECTS/lib-filter/app
+-B/home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a
 -DANDROID_ABI=arm64-v8a
 -DANDROID_PLATFORM=android-21
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/delhivery/Documents/PROJECTS/LibFilter/app/build/intermediates/cmake/debug/obj/arm64-v8a
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/debug/obj/arm64-v8a
 -DCMAKE_BUILD_TYPE=Debug
 -DANDROID_NDK=/home/delhivery/Android/Sdk/ndk-bundle
 -DCMAKE_CXX_FLAGS=-frtti -fexceptions

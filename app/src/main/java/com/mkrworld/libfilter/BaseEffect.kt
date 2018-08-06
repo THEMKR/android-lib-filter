@@ -1,20 +1,8 @@
 package com.mkrworld.libfilter
 
-abstract class BaseEffect {
+import android.graphics.Bitmap
 
-    companion object {
-
-        // Used to load the 'native-lib' library on application startup.
-        init {
-            System.loadLibrary("effector")
-        }
-
-        var count = 10
-    }
-
-    constructor() {
-
-    }
+open class BaseEffect {
 
     /**
      * Method to get conventional bitmap, Bitmap Dimension must be same
@@ -53,5 +41,9 @@ abstract class BaseEffect {
      * @param overlayBitmap
      * @param destBitmap
      */
-    external fun getOverLayBitmap(srcBitmap: Any, overlayBitmap: Any, destBitmap: Any)
+    external fun getOverLayBitmap(srcBitmap: Bitmap, overlayBitmap: Bitmap, destBitmap: Bitmap)
+
+    constructor() {
+
+    }
 }

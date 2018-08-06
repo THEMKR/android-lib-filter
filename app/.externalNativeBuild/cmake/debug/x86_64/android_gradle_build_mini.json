@@ -1,22 +1,22 @@
 {
   "buildFiles": [
-    "/home/delhivery/Documents/PROJECTS/LibFilter/app/CMakeLists.txt"
+    "/home/delhivery/Documents/PROJECTS/lib-filter/app/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/debug/x86_64 --target clean"
+    "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/x86_64 --target clean"
   ],
   "libraries": {
     "native-lib-Debug-x86_64": {
       "artifactName": "native-lib",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/debug/x86_64 --target native-lib",
+      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/x86_64 --target native-lib",
       "abi": "x86_64",
-      "output": "/home/delhivery/Documents/PROJECTS/LibFilter/app/build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so"
+      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so"
     },
     "effector-Debug-x86_64": {
       "artifactName": "effector",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/LibFilter/app/.externalNativeBuild/cmake/debug/x86_64 --target effector",
+      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/x86_64 --target effector",
       "abi": "x86_64",
-      "output": "/home/delhivery/Documents/PROJECTS/LibFilter/app/build/intermediates/cmake/debug/obj/x86_64/libeffector.so"
+      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/debug/obj/x86_64/libeffector.so"
     }
   }
 }
