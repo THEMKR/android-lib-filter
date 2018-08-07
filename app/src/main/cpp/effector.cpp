@@ -26,8 +26,25 @@ int getColorValue(float value) {
     return (int) value;
 }
 
-int getOverlayMultiplyColor(float cS, float cO) {
-    return 255 * cS * cO;
+/**
+ * Method to get the color value in 0-255 range
+ */
+float getFloatColorValue(float value) {
+    return value / 255.0;
+}
+
+int getMultiplyColor(float srcColor, float overlayColor) {
+    return 255 * getFloatColorValue(srcColor) * getFloatColorValue(overlayColor);
+}
+
+int getOverlayColor(float srcColor, float overlayColor) {
+    if (srcColor < 128) {
+        return 2 * 255 * getFloatColorValue(srcColor) * getFloatColorValue(overlayColor);
+    } else {
+        return 255 * (1 -
+                      (2 * (1 - getFloatColorValue(srcColor)) *
+                       (1 - getFloatColorValue(overlayColor))));
+    }
 }
 
 extern "C" JNIEXPORT void JNICALL
@@ -253,6 +270,85 @@ Java_com_mkrworld_libfilter_BaseEffect_getInvertColorEffectedBitmap(JNIEnv *jEnv
 }
 
 extern "C" JNIEXPORT void JNICALL
+Java_com_mkrworld_libfilter_BaseEffect_getMultiplyBitmap(JNIEnv *jEnv, jobject obj,
+                                                         jobject bitmapOrignal,
+                                                         jobject bitmapOverlay,
+                                                         jobject bitmapEffecte) {
+    AndroidBitmapInfo bitmapInfoOrignal;
+    void *pixelsOrignal;
+    AndroidBitmapInfo bitmapInfoOverlay;
+    void *pixelsOverlay;
+    AndroidBitmapInfo bitmapInfoEffected;
+    void *pixelsEffected;
+    int ret;
+    int x, y;
+
+    if ((ret = AndroidBitmap_getInfo(jEnv, bitmapOrignal, &bitmapInfoOrignal)) < 0) {
+        LOGE("AndroidBitmap_getInfo() bitmapOrignal failed ! error=%d", ret);
+        return;
+    }
+    if ((ret = AndroidBitmap_getInfo(jEnv, bitmapOverlay, &bitmapInfoOverlay)) < 0) {
+        LOGE("AndroidBitmap_getInfo() bitmapOverlay failed ! error=%d", ret);
+        return;
+    }
+    if ((ret = AndroidBitmap_getInfo(jEnv, bitmapEffecte, &bitmapInfoEffected)) < 0) {
+        LOGE("AndroidBitmap_getInfo()  bitmapEffecte failed ! error=%d", ret);
+        return;
+    }
+    if (bitmapInfoOrignal.format != ANDROID_BITMAP_FORMAT_RGBA_8888) {
+        LOGE("BitmapOrignal format is not 88888 !");
+        return;
+    }
+    if (bitmapInfoOverlay.format != ANDROID_BITMAP_FORMAT_RGBA_8888) {
+        LOGE("BitmapOverlay format is not 88888 !");
+        return;
+    }
+    if (bitmapInfoEffected.format != ANDROID_BITMAP_FORMAT_RGBA_8888) {
+        LOGE("BitmapEFFECTE format is not 88888 !");
+        return;
+    }
+    if ((ret = AndroidBitmap_lockPixels(jEnv, bitmapOrignal, &pixelsOrignal)) < 0) {
+        LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
+    }
+    if ((ret = AndroidBitmap_lockPixels(jEnv, bitmapOverlay, &pixelsOverlay)) < 0) {
+        LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
+    }
+    if ((ret = AndroidBitmap_lockPixels(jEnv, bitmapEffecte, &pixelsEffected)) < 0) {
+        LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
+    }
+
+    LOGE("Overlay EFFECT");
+    for (y = 0; y < bitmapInfoOrignal.height; ++y) {
+        argb *orignalLine = (argb *) pixelsOrignal;
+        argb *ovelayLine = (argb *) pixelsOverlay;
+        argb *effectedLine = (argb *) pixelsEffected;
+        for (x = 0; x < bitmapInfoOrignal.width; ++x) {
+            float red = orignalLine[x].red;
+            float green = orignalLine[x].green;
+            float blue = orignalLine[x].blue;
+            float alpha = orignalLine[x].alpha;
+
+            float redOverlay = ovelayLine[x].red;
+            float greenOverlay = ovelayLine[x].green;
+            float blueOverlay = ovelayLine[x].blue;
+            float alphaOverlay = ovelayLine[x].alpha;
+
+            effectedLine[x].red = getColorValue(getMultiplyColor(red, redOverlay));
+            effectedLine[x].green = getColorValue(getMultiplyColor(green, greenOverlay));
+            effectedLine[x].blue = getColorValue(getMultiplyColor(blue, blueOverlay));
+            effectedLine[x].alpha = getColorValue(getMultiplyColor(alpha, alphaOverlay));
+        }
+        pixelsOrignal = (char *) pixelsOrignal + bitmapInfoOrignal.stride;
+        pixelsOverlay = (char *) pixelsOverlay + bitmapInfoOverlay.stride;
+        pixelsEffected = (char *) pixelsEffected + bitmapInfoEffected.stride;
+    }
+    LOGE("5");
+
+    AndroidBitmap_unlockPixels(jEnv, bitmapOrignal);
+    AndroidBitmap_unlockPixels(jEnv, bitmapEffecte);
+}
+
+extern "C" JNIEXPORT void JNICALL
 Java_com_mkrworld_libfilter_BaseEffect_getOverLayBitmap(JNIEnv *jEnv, jobject obj,
                                                         jobject bitmapOrignal,
                                                         jobject bitmapOverlay,
@@ -316,13 +412,10 @@ Java_com_mkrworld_libfilter_BaseEffect_getOverLayBitmap(JNIEnv *jEnv, jobject ob
             float blueOverlay = ovelayLine[x].blue;
             float alphaOverlay = ovelayLine[x].alpha;
 
-            effectedLine[x].red = getColorValue(getOverlayMultiplyColor(red / 255.0, redOverlay / 255.0));
-            effectedLine[x].green = getColorValue(
-                    getOverlayMultiplyColor(green / 255.0, greenOverlay / 255.0));
-            effectedLine[x].blue = getColorValue(
-                    getOverlayMultiplyColor(blue / 255.0, blueOverlay / 255.0));
-            effectedLine[x].alpha = getColorValue(
-                    alpha + ((float) alphaOverlay * ((255.0 - alpha) / 255.0)));
+            effectedLine[x].red = getColorValue(getOverlayColor(red, redOverlay));
+            effectedLine[x].green = getColorValue(getOverlayColor(green, greenOverlay));
+            effectedLine[x].blue = getColorValue(getOverlayColor(blue, blueOverlay));
+            effectedLine[x].alpha = getColorValue(getOverlayColor(alpha, alphaOverlay));
         }
         pixelsOrignal = (char *) pixelsOrignal + bitmapInfoOrignal.stride;
         pixelsOverlay = (char *) pixelsOverlay + bitmapInfoOverlay.stride;

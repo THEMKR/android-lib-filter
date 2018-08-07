@@ -4,6 +4,12 @@ import android.graphics.Bitmap
 
 open class BaseEffect {
 
+    companion object {
+        init {
+            System.loadLibrary("effector")
+        }
+    }
+
     /**
      * Method to get conventional bitmap, Bitmap Dimension must be same
      *
@@ -33,6 +39,15 @@ open class BaseEffect {
      * @param offSet
      */
     external fun getInvertColorEffectedBitmap(srcBitmap: Any, destBitmap: Any, multiplier: Float, offSet: Int)
+
+    /**
+     * Method to get overlay bitmap, Bitmap Dimension must be same
+     *
+     * @param srcBitmap
+     * @param overlayBitmap
+     * @param destBitmap
+     */
+    external fun getMultiplyBitmap(srcBitmap: Bitmap, overlayBitmap: Bitmap, destBitmap: Bitmap)
 
     /**
      * Method to get overlay bitmap, Bitmap Dimension must be same

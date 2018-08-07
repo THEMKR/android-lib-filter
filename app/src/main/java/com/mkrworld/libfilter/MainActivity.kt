@@ -19,17 +19,27 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MKR", "PROCESS 1")
                 val srcImage = getSrcImage() ?: return
                 Log.e("MKR", "PROCESS 2")
-                val destImage = getDestImage(srcImage.width, srcImage.height) ?: return
-                Log.e("MKR", "PROCESS 3")
                 val overlayImage = getOverlayImage() ?: return
+                Log.e("MKR", "PROCESS 3")
+                var destImage = getDestImage(srcImage.width, srcImage.height) ?: return
                 Log.e("MKR", "PROCESS 4")
-                val currentTimeMillis = System.currentTimeMillis()
+                var currentTimeMillis = System.currentTimeMillis()
+                Log.e("MKR", "START TIME : $currentTimeMillis")
+                BaseEffect().getMultiplyBitmap(srcImage, overlayImage, destImage)
+                Log.e("MKR", "PROCESS 5")
+                Log.e("MKR", "END TIME : ${System.currentTimeMillis() - currentTimeMillis}")
+                imageView1.setImageBitmap(destImage)
+                Log.e("MKR", "PROCESS 6")
+
+                destImage = getDestImage(srcImage.width, srcImage.height) ?: return
+                Log.e("MKR", "PROCESS 7")
+                currentTimeMillis = System.currentTimeMillis()
                 Log.e("MKR", "START TIME : $currentTimeMillis")
                 BaseEffect().getOverLayBitmap(srcImage, overlayImage, destImage)
-                Log.e("MKR", "PROCESS 5")
-                Log.e("MKR", "START TIME : ${System.currentTimeMillis() - currentTimeMillis}")
-                imageView.setImageBitmap(destImage)
-                Log.e("MKR", "PROCESS 6")
+                Log.e("MKR", "PROCESS 8")
+                Log.e("MKR", "END TIME : ${System.currentTimeMillis() - currentTimeMillis}")
+                imageView2.setImageBitmap(destImage)
+                Log.e("MKR", "PROCESS 9")
             }
         })
     }
@@ -62,7 +72,6 @@ class MainActivity : AppCompatActivity() {
         // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
-            System.loadLibrary("effector")
         }
     }
 }
