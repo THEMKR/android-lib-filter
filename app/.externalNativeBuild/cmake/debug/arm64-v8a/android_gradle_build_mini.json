@@ -11,12 +11,6 @@
       "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target effector",
       "abi": "arm64-v8a",
       "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so"
-    },
-    "native-lib-Debug-arm64-v8a": {
-      "artifactName": "native-lib",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target native-lib",
-      "abi": "arm64-v8a",
-      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so"
     }
   }
 }

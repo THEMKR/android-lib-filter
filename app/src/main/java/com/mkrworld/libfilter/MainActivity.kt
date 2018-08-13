@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.mkrworld.libfilter.effect.BaseEffect
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MKR", "PROCESS 4")
                 var currentTimeMillis = System.currentTimeMillis()
                 Log.e("MKR", "START TIME : $currentTimeMillis")
-                BaseEffect().getMultiplyBitmap(srcImage, overlayImage, destImage)
+                //BaseEffect().getMultiplyBitmap(srcImage, overlayImage, destImage, 1F)
                 Log.e("MKR", "PROCESS 5")
                 Log.e("MKR", "END TIME : ${System.currentTimeMillis() - currentTimeMillis}")
                 imageView1.setImageBitmap(destImage)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MKR", "PROCESS 7")
                 currentTimeMillis = System.currentTimeMillis()
                 Log.e("MKR", "START TIME : $currentTimeMillis")
-                BaseEffect().getOverLayBitmap(srcImage, overlayImage, destImage)
+                //BaseEffect().getOverLayBitmap(srcImage, overlayImage, destImage, 1F)
                 Log.e("MKR", "PROCESS 8")
                 Log.e("MKR", "END TIME : ${System.currentTimeMillis() - currentTimeMillis}")
                 imageView2.setImageBitmap(destImage)
