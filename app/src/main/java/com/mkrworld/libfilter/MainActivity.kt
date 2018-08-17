@@ -2,11 +2,12 @@ package com.mkrworld.libfilter
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import com.mkrworld.libfilter.effect.BaseEffect
+import com.mkrworld.libfilter.effect.coloreffect.GrayScale
+import com.mkrworld.libfilter.enums.PixelFormat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,30 +18,16 @@ class MainActivity : AppCompatActivity() {
         // Example of a call to a native method
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                Log.e("MKR", "PROCESS 1")
                 val srcImage = getSrcImage() ?: return
-                Log.e("MKR", "PROCESS 2")
-                val overlayImage = getOverlayImage() ?: return
-                Log.e("MKR", "PROCESS 3")
-                var destImage = getDestImage(srcImage.width, srcImage.height) ?: return
-                Log.e("MKR", "PROCESS 4")
-                var currentTimeMillis = System.currentTimeMillis()
-                Log.e("MKR", "START TIME : $currentTimeMillis")
-                //BaseEffect().getMultiplyBitmap(srcImage, overlayImage, destImage, 1F)
-                Log.e("MKR", "PROCESS 5")
-                Log.e("MKR", "END TIME : ${System.currentTimeMillis() - currentTimeMillis}")
-                imageView1.setImageBitmap(destImage)
-                Log.e("MKR", "PROCESS 6")
-
-                destImage = getDestImage(srcImage.width, srcImage.height) ?: return
-                Log.e("MKR", "PROCESS 7")
-                currentTimeMillis = System.currentTimeMillis()
-                Log.e("MKR", "START TIME : $currentTimeMillis")
-                //BaseEffect().getOverLayBitmap(srcImage, overlayImage, destImage, 1F)
-                Log.e("MKR", "PROCESS 8")
-                Log.e("MKR", "END TIME : ${System.currentTimeMillis() - currentTimeMillis}")
-                imageView2.setImageBitmap(destImage)
-                Log.e("MKR", "PROCESS 9")
+                Log.e("MKR", "SRC  ${srcImage.config.name}")
+                var intArray: IntArray = IntArray(srcImage.width * srcImage.height)
+                srcImage.getPixels(intArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height);
+                Log.e("MKR", "SRC srcImage.width:${srcImage.width}   srcImage.height:${srcImage.height}   srcImage.byteCount:${srcImage.byteCount}  srcImage.rowBytes:${srcImage.rowBytes}  " + intArray.size)
+                val applyEffect = GrayScale(intArray, PixelFormat.ARGB_8888).applyEffect()
+                val newEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
+                newEffectedBitmap.setPixels(applyEffect, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
+                imageView1.setImageBitmap(newEffectedBitmap)
+                imageView2.setImageBitmap(srcImage)
             }
         })
     }
@@ -53,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getOverlayImage(): Bitmap? {
         val options = BitmapFactory.Options()
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888
+        //options.inPreferredConfig = Bitmap.Config.ARGB_8888
         return BitmapFactory.decodeResource(resources, R.drawable.o, options)
     }
 
@@ -72,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         // Used to load the 'native-lib' library on application startup.
         init {
-            System.loadLibrary("native-lib")
+            //System.loadLibrary("native-lib")
         }
     }
 }
