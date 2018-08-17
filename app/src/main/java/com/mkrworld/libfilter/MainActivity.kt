@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import com.mkrworld.libfilter.effect.coloreffect.GrayScale
+import com.mkrworld.libfilter.effect.coloreffect.Invert
+import com.mkrworld.libfilter.effect.conventionaleffect.Sketch
 import com.mkrworld.libfilter.enums.PixelFormat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,15 +21,29 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 val srcImage = getSrcImage() ?: return
+                imageView1.setImageBitmap(srcImage)
+                val currentTimeMillis = System.currentTimeMillis()
+                Log.e("MKR", "START  ${currentTimeMillis}")
                 Log.e("MKR", "SRC  ${srcImage.config.name}")
                 var intArray: IntArray = IntArray(srcImage.width * srcImage.height)
                 srcImage.getPixels(intArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height);
-                Log.e("MKR", "SRC srcImage.width:${srcImage.width}   srcImage.height:${srcImage.height}   srcImage.byteCount:${srcImage.byteCount}  srcImage.rowBytes:${srcImage.rowBytes}  " + intArray.size)
-                val applyEffect = GrayScale(intArray, PixelFormat.ARGB_8888).applyEffect()
-                val newEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
-                newEffectedBitmap.setPixels(applyEffect, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
-                imageView1.setImageBitmap(newEffectedBitmap)
-                imageView2.setImageBitmap(srcImage)
+
+                val colorIntArray = GrayScale(intArray, PixelFormat.ARGB_8888).applyEffect()
+                val colorEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
+                colorEffectedBitmap.setPixels(colorIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
+                imageView2.setImageBitmap(colorEffectedBitmap)
+
+                val conventionalIntArray = Sketch(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
+                val conventionalEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
+                conventionalEffectedBitmap.setPixels(conventionalIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
+                imageView3.setImageBitmap(conventionalEffectedBitmap)
+
+                val invertColorEffect = Invert(intArray, PixelFormat.ARGB_8888).applyEffect()
+                val invertEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
+                invertEffectedBitmap.setPixels(invertColorEffect, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
+                imageView4.setImageBitmap(invertEffectedBitmap)
+
+                Log.e("MKR", "END  ${System.currentTimeMillis() - currentTimeMillis}")
             }
         })
     }
