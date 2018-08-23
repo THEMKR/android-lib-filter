@@ -18,7 +18,7 @@ public class Offset {
     /**
      * Constructor
      *
-     * @param offSetR Red-Color OffSet
+     * @param offSetR ColorRed-Color OffSet
      * @param offSetG Green-Color OffSet
      * @param offSetB Blue-Color OffSet
      */
@@ -29,7 +29,7 @@ public class Offset {
     }
 
     /**
-     * Metho dto get the Red Color Offset
+     * Metho dto get the ColorRed Color Offset
      *
      * @return
      */

@@ -1,4 +1,4 @@
-package com.mkrworld.libfilter.effect.conventionaleffect;
+package com.mkrworld.libfilter.dto;
 
 import com.mkrworld.libfilter.dto.EffectMatrix;
 import com.mkrworld.libfilter.enums.EffectCategory;

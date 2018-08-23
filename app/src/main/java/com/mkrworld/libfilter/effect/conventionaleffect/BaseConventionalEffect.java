@@ -3,6 +3,7 @@ package com.mkrworld.libfilter.effect.conventionaleffect;
 import android.util.Log;
 
 import com.mkrworld.libfilter.dto.EffectMatrix;
+import com.mkrworld.libfilter.dto.EffectSeparator;
 import com.mkrworld.libfilter.effect.BaseEffect;
 import com.mkrworld.libfilter.enums.EffectCategory;
 import com.mkrworld.libfilter.enums.PixelFormat;

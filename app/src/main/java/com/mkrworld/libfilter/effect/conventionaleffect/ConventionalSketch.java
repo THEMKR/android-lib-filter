@@ -8,7 +8,7 @@ import com.mkrworld.libfilter.enums.PixelFormat;
 
 import java.util.ArrayList;
 
-public class Sketch extends BaseConventionalEffect {
+public class ConventionalSketch extends BaseConventionalEffect {
 
     /**
      * Constructor
@@ -17,7 +17,7 @@ public class Sketch extends BaseConventionalEffect {
      * @param pixelFormat
      * @param imageWidth
      */
-    public Sketch(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
+    public ConventionalSketch(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
         super(pixelArray, pixelFormat, imageWidth);
     }
 
