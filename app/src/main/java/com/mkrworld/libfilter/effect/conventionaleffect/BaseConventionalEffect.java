@@ -1,5 +1,7 @@
 package com.mkrworld.libfilter.effect.conventionaleffect;
 
+import android.util.Log;
+
 import com.mkrworld.libfilter.dto.EffectMatrix;
 import com.mkrworld.libfilter.effect.BaseEffect;
 import com.mkrworld.libfilter.enums.EffectCategory;
@@ -33,17 +35,63 @@ public abstract class BaseConventionalEffect extends BaseEffect {
 
     @Override
     public int[] applyEffect() throws Exception {
+        long l = System.currentTimeMillis();
         ArrayList<EffectMatrix> effectMatrixArray = getEffectMatrixArray();
-        for (EffectMatrix effectMatrix : effectMatrixArray) {
-            switch (effectMatrix.getEffectCategory()) {
-                case COLOR:
-                    mPixelArray = Effector.setColorEffect(mPixelArray, effectMatrix.getMultiplier(), effectMatrix.getMatrix());
-                    break;
-                case CONVENTIONAL:
-                    mPixelArray = Effector.setConventionalEffect(mPixelArray, mImageWidth, effectMatrix.getMultiplier(), effectMatrix.getMatrix());
-                    break;
+        if (effectMatrixArray.size() == 1) {
+            EffectMatrix effectMatrix = effectMatrixArray.get(0);
+            if (effectMatrix.getEffectCategory() == EffectCategory.CONVENTIONAL) {
+                mPixelArray = Effector.setConventionalEffect(mPixelArray, mImageWidth, effectMatrix.getMultiplier(), effectMatrix.getMatrix());
+            }
+        } else {
+            ArrayList<EffectSeparator> effectSeparatorList = new ArrayList<>();
+            EffectSeparator effectSeparatorTemp = null;
+            for (EffectMatrix effectMatrix : effectMatrixArray) {
+                switch (effectMatrix.getEffectCategory()) {
+                    case COLOR:
+                        if (effectSeparatorTemp == null) {
+                            effectSeparatorTemp = new EffectSeparator();
+                        }
+                        effectSeparatorTemp.addColorEffect(effectMatrix);
+                        break;
+                    case CONVENTIONAL:
+                        if (effectSeparatorTemp != null) {
+                            effectSeparatorList.add(effectSeparatorTemp);
+                        }
+                        effectSeparatorTemp = new EffectSeparator(effectMatrix);
+                        break;
+                }
+            }
+            effectSeparatorList.add(effectSeparatorTemp);
+            for (EffectSeparator effectSeparator : effectSeparatorList) {
+                ArrayList<EffectMatrix> colorEffectMatrixArray = effectSeparator.getColorEffectMatrixArray();
+                ArrayList<Float> effectMatrixFloatArray = new ArrayList<>();
+                ArrayList<Float> multiplierFloatArray = new ArrayList<>();
+                for (EffectMatrix effectMatrix : colorEffectMatrixArray) {
+                    if (effectMatrix.getEffectCategory() == EffectCategory.COLOR) {
+                        float[] matrix = effectMatrix.getMatrix();
+                        for (float val : matrix) {
+                            effectMatrixFloatArray.add(val);
+                        }
+                        multiplierFloatArray.add(effectMatrix.getMultiplier());
+                    }
+                }
+                float[] matrixArray = new float[effectMatrixFloatArray.size()];
+                float[] multiplier = new float[multiplierFloatArray.size()];
+                for (int index = 0; index < effectMatrixFloatArray.size(); index++) {
+                    matrixArray[index] = effectMatrixFloatArray.get(index);
+                }
+                for (int index = 0; index < multiplierFloatArray.size(); index++) {
+                    multiplier[index] = multiplierFloatArray.get(index);
+                }
+                if (effectSeparator.isHaveConventionalEffect()) {
+                    EffectMatrix conventionalEffectMatrix = effectSeparator.getConventionalEffectMatrix();
+                    mPixelArray = Effector.setConventionalMultiColorEffect(mPixelArray, mImageWidth, conventionalEffectMatrix.getMultiplier(), conventionalEffectMatrix.getMatrix(), multiplier, matrixArray);
+                } else {
+                    mPixelArray = Effector.setMultiColorEffect(mPixelArray, mImageWidth, multiplier, matrixArray);
+                }
             }
         }
+        Log.e("MKR", "TIME TAKEN : BaseConventionalEffect(" + this + "):      " + (System.currentTimeMillis() - l));
         return mPixelArray;
     }
 }

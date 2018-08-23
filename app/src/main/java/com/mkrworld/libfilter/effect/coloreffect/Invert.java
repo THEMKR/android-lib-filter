@@ -15,9 +15,10 @@ public class Invert extends BaseColorEffect {
      *
      * @param pixelArray  Array of Pixel
      * @param pixelFormat
+     * @param imageWidth
      */
-    public Invert(int[] pixelArray, PixelFormat pixelFormat) {
-        super(pixelArray, pixelFormat);
+    public Invert(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
+        super(pixelArray, pixelFormat, imageWidth);
     }
 
     @Override

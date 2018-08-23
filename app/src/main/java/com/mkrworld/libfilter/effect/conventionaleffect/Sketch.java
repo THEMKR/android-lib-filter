@@ -24,15 +24,16 @@ public class Sketch extends BaseConventionalEffect {
     @Override
     protected ArrayList<EffectMatrix> getEffectMatrixArray() {
         ArrayList<EffectMatrix> effectMatrixArray = new ArrayList<EffectMatrix>();
-        effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, 0.3333F, new float[]{
-                1F, 1F, 1F,
-                1F, 1F, 1F,
-                1F, 1F, 1F
-        }));
         effectMatrixArray.add(new EffectMatrix(EffectCategory.CONVENTIONAL, new float[]{
                 2F, 3F, -3F,
                 1F, -1F, 1F,
                 -2F, 1F, -2F
+        }));
+
+        effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, 0.3333F, new float[]{
+                1F, 1F, 1F,
+                1F, 1F, 1F,
+                1F, 1F, 1F
         }));
 
         effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, new Offset(255F), new float[]{
