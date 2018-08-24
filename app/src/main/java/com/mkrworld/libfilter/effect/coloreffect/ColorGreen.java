@@ -7,7 +7,7 @@ import com.mkrworld.libfilter.enums.PixelFormat;
 
 import java.util.ArrayList;
 
-public class ColorRed extends BaseColorEffect {
+public class ColorGreen extends BaseColorEffect {
 
     /**
      * Constructor
@@ -16,7 +16,7 @@ public class ColorRed extends BaseColorEffect {
      * @param pixelFormat
      * @param imageWidth
      */
-    public ColorRed(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
+    public ColorGreen(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
         super(pixelArray, pixelFormat, imageWidth);
     }
 
@@ -36,9 +36,9 @@ public class ColorRed extends BaseColorEffect {
         }));
 
         effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, new float[]{
-                -0.244F, 0.271F, 0.972F,
-                0.417F, 0.754F, -0.172F,
-                -0.461F, 1.623F, -0.162F
+                -0.063F, 1.71F, -0.646F,
+                0.2186F, 0.436F, 0.345F,
+                0.979F, 0.539F, -0.519F
         }));
 
         return effectMatrixArray;

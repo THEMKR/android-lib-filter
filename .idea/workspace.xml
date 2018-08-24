@@ -11,10 +11,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1c3e2f6-8d67-4b34-9032-861470a55aae" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorBlue.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorGreen.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/Effects.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/utils/FilterUtil.java" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/GrayScale.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/BaseConventionalEffect.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/BaseConventionalEffect.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/EffectSeparator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/EffectSeparator.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorRed.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorRed.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorEffect.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalEffect.java" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,22 +51,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Effector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/jnicaller/Effector.java">
+      <file leaf-file-name="Effects.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/Effects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-117">
-              <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+            <state relative-caret-position="165">
+              <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EffectSeparator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/EffectSeparator.java">
+      <file leaf-file-name="MainActivity.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ColorBlue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorBlue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+              <folding>
+                <element signature="e#537#538#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ColorGreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorGreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="41" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ColorRed.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorRed.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="e#738#752#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="effector.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/effector.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="44" column="66" lean-forward="false" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
+              <folding>
+                <element signature="e#38#285#0" expanded="false" />
+                <element signature="e#1869#3469#0" expanded="false" />
+                <element signature="e#6749#8000#0" expanded="false" />
+                <element signature="e#8022#9758#0" expanded="false" />
+                <element signature="e#9780#11613#0" expanded="false" />
+                <element signature="e#11635#14598#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,6 +152,8 @@
       <find>jobjectArray</find>
       <find>conventionalMultiplier</find>
       <find>setConventionalEffect</find>
+      <find>red</find>
+      <find>inv</find>
     </findStrings>
     <replaceStrings>
       <replace>1F,</replace>
@@ -2241,12 +2309,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/constants/EffectCategory.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterUtil.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/EffectMatrix.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/EffectMatrix.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/Offset.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/BaseConventionalEffect.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorEffectBlue.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/constants/ColorEffect.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorEffectGrayScale.kt" />
@@ -2270,7 +2332,6 @@
         <option value="$PROJECT_DIR$/app/src/main/cpp/argb8888.cpp" />
         <option value="$PROJECT_DIR$/app/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/BaseEffect.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorEffect.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalEffect.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/EffectCategory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/OverlayEffect.java" />
@@ -2290,8 +2351,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/Sketch.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/BaseColorEffect.java" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/effector.cpp" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/EffectSeparator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/utils/FilterUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/utils/FilterUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorEffect.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/Effects.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorRed.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorGreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorBlue.java" />
       </list>
     </option>
   </component>
@@ -2394,16 +2462,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="libfilter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lib-filter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lib-filter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="libfilter" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lib-filter" type="b2602c69:ProjectViewProjectNode" />
@@ -2639,6 +2697,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -2649,13 +2708,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7205882" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04738562" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2875817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18036711" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17478053" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3529412" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.251634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980047" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -2669,7 +2729,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.251634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2704,10 +2763,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Effector.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterUtil.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/constants/EffectCategory.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/NegativeOriginal.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/Pink.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/Yellow.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/Sepia.kt" />
@@ -2736,31 +2791,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorEffect.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/Offset.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/OverlayEffect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/EffectCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -2841,7 +2875,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/Invert.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorInvert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
@@ -2849,15 +2883,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/Red.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/Sketch.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/conventionaleffect/ConventionalSketch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
@@ -2870,21 +2896,6 @@
         <state relative-caret-position="371">
           <caret line="87" column="43" lean-forward="false" selection-start-line="87" selection-start-column="43" selection-end-line="87" selection-end-column="43" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/effector.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="112" column="51" lean-forward="true" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
-          <folding>
-            <element signature="e#38#285#0" expanded="false" />
-            <element signature="e#1869#3469#0" expanded="false" />
-            <element signature="e#6749#8000#0" expanded="false" />
-            <element signature="e#8022#9758#0" expanded="false" />
-            <element signature="e#9780#11613#0" expanded="false" />
-            <element signature="e#11635#14598#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2904,26 +2915,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/utils/FilterUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/EffectCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/jnicaller/Effector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117">
+        <state relative-caret-position="-103">
           <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/effector.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="44" column="66" lean-forward="false" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
+          <folding>
+            <element signature="e#38#285#0" expanded="false" />
+            <element signature="e#1869#3469#0" expanded="false" />
+            <element signature="e#6749#8000#0" expanded="false" />
+            <element signature="e#8022#9758#0" expanded="false" />
+            <element signature="e#9780#11613#0" expanded="false" />
+            <element signature="e#11635#14598#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/EffectSeparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/Effects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorRed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#738#752#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorGreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="41" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/effect/coloreffect/ColorBlue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>

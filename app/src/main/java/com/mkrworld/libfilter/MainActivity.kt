@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import com.mkrworld.libfilter.effect.coloreffect.ColorBlue
 import com.mkrworld.libfilter.effect.coloreffect.ColorGrayScale
+import com.mkrworld.libfilter.effect.coloreffect.ColorGreen
 import com.mkrworld.libfilter.effect.coloreffect.ColorRed
 import com.mkrworld.libfilter.effect.conventionaleffect.ConventionalSketch
 import com.mkrworld.libfilter.enums.PixelFormat
@@ -27,12 +29,12 @@ class MainActivity : AppCompatActivity() {
                 var intArray: IntArray = IntArray(srcImage.width * srcImage.height)
                 srcImage.getPixels(intArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height);
 
-                val colorIntArray = ColorGrayScale(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
+                val colorIntArray = ColorGreen(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
                 val colorEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
                 colorEffectedBitmap.setPixels(colorIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
                 imageView2.setImageBitmap(colorEffectedBitmap)
 
-                val conventionalIntArray = ConventionalSketch(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
+                val conventionalIntArray = ColorBlue(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
                 val conventionalEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
                 conventionalEffectedBitmap.setPixels(conventionalIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
                 imageView3.setImageBitmap(conventionalEffectedBitmap)
