@@ -1,67 +1,67 @@
 package com.mkrworld.libfilter.dto;
 
-import com.mkrworld.libfilter.enums.EffectCategory;
+import com.mkrworld.libfilter.enums.FilterCategory;
 
-public class EffectMatrix {
+public class FilterMatrix {
 
     private float[] mMatrix;
     private float mMultiplier;
-    private EffectCategory mEffectCategory;
+    private FilterCategory mFilterCategory;
     private Offset mOffSet;
 
     /**
      * Constructor
      *
-     * @param effectCategory
+     * @param filterCategory
      * @param matrix         3X3 mMatrix
      */
-    public EffectMatrix(EffectCategory effectCategory, float[] matrix) {
-        this(effectCategory, new Offset(0F), 1F, matrix);
+    public FilterMatrix(FilterCategory filterCategory, float[] matrix) {
+        this(filterCategory, new Offset(0F), 1F, matrix);
     }
 
     /**
      * Constructor
      *
-     * @param effectCategory
+     * @param filterCategory
      * @param multiplier
      * @param matrix         3X3 mMatrix
      */
-    public EffectMatrix(EffectCategory effectCategory, Float multiplier, float[] matrix) {
-        this(effectCategory, new Offset(0F), multiplier, matrix);
+    public FilterMatrix(FilterCategory filterCategory, Float multiplier, float[] matrix) {
+        this(filterCategory, new Offset(0F), multiplier, matrix);
     }
 
     /**
      * Constructor
      *
-     * @param effectCategory
+     * @param filterCategory
      * @param offSet
      * @param matrix         3X3 mMatrix
      */
-    public EffectMatrix(EffectCategory effectCategory, Offset offSet, float[] matrix) {
-        this(effectCategory, offSet, 1F, matrix);
+    public FilterMatrix(FilterCategory filterCategory, Offset offSet, float[] matrix) {
+        this(filterCategory, offSet, 1F, matrix);
     }
 
     /**
      * Constructor
      *
-     * @param effectCategory
+     * @param filterCategory
      * @param offSet
      * @param multiplier
      * @param matrix         3X3 mMatrix
      */
-    public EffectMatrix(EffectCategory effectCategory, Offset offSet, Float multiplier, float[] matrix) {
-        this.mEffectCategory = effectCategory;
+    public FilterMatrix(FilterCategory filterCategory, Offset offSet, Float multiplier, float[] matrix) {
+        this.mFilterCategory = filterCategory;
         this.mMultiplier = multiplier;
         this.mOffSet = offSet;
-        this.mMatrix = getMatrix(effectCategory, offSet, matrix);
+        this.mMatrix = getMatrix(filterCategory, offSet, matrix);
     }
 
     /**
-     * Method to create Effect mMatrix from Input mMatrix
+     * Method to create Filter mMatrix from Input mMatrix
      */
-    private float[] getMatrix(EffectCategory effectCategory, Offset offSet, float[] matrix) {
+    private float[] getMatrix(FilterCategory filterCategory, Offset offSet, float[] matrix) {
         if (matrix.length == 0) {
-            switch (effectCategory) {
+            switch (filterCategory) {
                 case COLOR:
                     matrix = new float[]{
                             1F, 0F, 0F,
@@ -78,7 +78,7 @@ public class EffectMatrix {
                     matrix = new float[]{0F};
             }
         }
-        switch (effectCategory) {
+        switch (filterCategory) {
             case COLOR:
                 return new float[]{
                         matrix[0], matrix[1], matrix[2], 0F, offSet.getmR(),
@@ -96,16 +96,16 @@ public class EffectMatrix {
     }
 
     /**
-     * Method to get the Effect Category
+     * Method to get the Filter Category
      *
      * @return
      */
-    public EffectCategory getEffectCategory() {
-        return mEffectCategory;
+    public FilterCategory getFilterCategory() {
+        return mFilterCategory;
     }
 
     /**
-     * Method to get the Effect Multiplier
+     * Method to get the Filter Multiplier
      *
      * @return
      */
@@ -114,7 +114,7 @@ public class EffectMatrix {
     }
 
     /**
-     * Method to get the Effect Matrix.<br>
+     * Method to get the Filter Matrix.<br>
      * <UL>
      * <li>4X5 for Color</li>
      * <li>3X3 for Conventional</li>

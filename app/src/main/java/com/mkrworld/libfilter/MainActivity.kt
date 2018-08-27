@@ -4,11 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
-import com.mkrworld.libfilter.effect.coloreffect.ColorContrasBlue
-import com.mkrworld.libfilter.effect.coloreffect.ColorGrayScale
-import com.mkrworld.libfilter.effect.coloreffect.ColorSepia
+import com.mkrworld.libfilter.enums.Filter
+import com.mkrworld.libfilter.utils.AndroidFilterCreator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,25 +19,9 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(p0: View?) {
                 val srcImage = getSrcImage() ?: return
                 imageView1.setImageBitmap(srcImage)
-                val currentTimeMillis = System.currentTimeMillis()
-                Log.e("MKR", "SRC  ${srcImage.config.name}")
-                var intArray: IntArray = IntArray(srcImage.width * srcImage.height)
-                srcImage.getPixels(intArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height);
-
-                val colorIntArray = ColorGrayScale(intArray, srcImage.width).applyEffect()
-                val colorEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
-                colorEffectedBitmap.setPixels(colorIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
-                imageView2.setImageBitmap(colorEffectedBitmap)
-
-                val conventionalIntArray = ColorContrasBlue(intArray, srcImage.width).applyEffect()
-                val conventionalEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
-                conventionalEffectedBitmap.setPixels(conventionalIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
-                imageView3.setImageBitmap(conventionalEffectedBitmap)
-
-                val invertColorEffect = ColorSepia(intArray, srcImage.width).applyEffect()
-                val invertEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
-                invertEffectedBitmap.setPixels(invertColorEffect, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
-                imageView4.setImageBitmap(invertEffectedBitmap)
+                imageView2.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_GRAY_SCALE).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_GREEN).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView4.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_INVERT).setSrcImage(srcImage).build().createFilteredBitmap())
             }
         })
     }

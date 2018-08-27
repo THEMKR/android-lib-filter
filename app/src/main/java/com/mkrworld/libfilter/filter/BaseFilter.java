@@ -1,6 +1,6 @@
-package com.mkrworld.libfilter.effect;
+package com.mkrworld.libfilter.filter;
 
-public abstract class BaseEffect {
+public abstract class BaseFilter {
 
     private int[] mPixelArray;
     private int mImageWidth;
@@ -11,24 +11,24 @@ public abstract class BaseEffect {
      * @param pixelArray Array of Pixel
      * @param imageWidth
      */
-    public BaseEffect(int[] pixelArray, int imageWidth) {
+    public BaseFilter(int[] pixelArray, int imageWidth) {
         mPixelArray = pixelArray;
         mImageWidth = imageWidth;
     }
 
     /**
-     * Method to apply Effect and Get final Value
+     * Method to apply Filter and Get final Value
      *
-     * @return Effected PixelArray
+     * @return Filtered PixelArray
      */
-    public abstract int[] applyEffect() throws Exception;
+    public abstract int[] applyFilter() throws Exception;
 
     /**
      * Method to get the Image Width
      *
      * @return
      */
-    public int getImageWidth() {
+    protected int getImageWidth() {
         return mImageWidth;
     }
 
@@ -37,7 +37,7 @@ public abstract class BaseEffect {
      *
      * @return
      */
-    public int[] getPixelArray() {
+    protected int[] getPixelArray() {
         return mPixelArray;
     }
 }
