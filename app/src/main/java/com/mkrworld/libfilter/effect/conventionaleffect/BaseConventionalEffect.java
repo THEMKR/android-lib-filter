@@ -6,27 +6,20 @@ import com.mkrworld.libfilter.dto.EffectMatrix;
 import com.mkrworld.libfilter.dto.EffectSeparator;
 import com.mkrworld.libfilter.effect.BaseEffect;
 import com.mkrworld.libfilter.enums.EffectCategory;
-import com.mkrworld.libfilter.enums.PixelFormat;
 import com.mkrworld.libfilter.jnicaller.Effector;
 
 import java.util.ArrayList;
 
 public abstract class BaseConventionalEffect extends BaseEffect {
 
-    private int[] mPixelArray;
-    private int mImageWidth;
-
     /**
      * Constructor
      *
-     * @param pixelArray  Array of Pixel
-     * @param pixelFormat
+     * @param pixelArray Array of Pixel
      * @param imageWidth
      */
-    public BaseConventionalEffect(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
-        super(pixelFormat);
-        mPixelArray = pixelArray;
-        mImageWidth = imageWidth;
+    public BaseConventionalEffect(int[] pixelArray, int imageWidth) {
+        super(pixelArray, imageWidth);
     }
 
     /**
@@ -36,12 +29,13 @@ public abstract class BaseConventionalEffect extends BaseEffect {
 
     @Override
     public int[] applyEffect() throws Exception {
+        int[] pixelArray = getPixelArray();
         long l = System.currentTimeMillis();
         ArrayList<EffectMatrix> effectMatrixArray = getEffectMatrixArray();
         if (effectMatrixArray.size() == 1) {
             EffectMatrix effectMatrix = effectMatrixArray.get(0);
             if (effectMatrix.getEffectCategory() == EffectCategory.CONVENTIONAL) {
-                mPixelArray = Effector.setConventionalEffect(mPixelArray, mImageWidth, effectMatrix.getMultiplier(), effectMatrix.getMatrix());
+                pixelArray = Effector.setConventionalEffect(pixelArray, getImageWidth(), effectMatrix.getMultiplier(), effectMatrix.getMatrix());
             }
         } else {
             ArrayList<EffectSeparator> effectSeparatorList = new ArrayList<>();
@@ -86,13 +80,14 @@ public abstract class BaseConventionalEffect extends BaseEffect {
                 }
                 if (effectSeparator.isHaveConventionalEffect()) {
                     EffectMatrix conventionalEffectMatrix = effectSeparator.getConventionalEffectMatrix();
-                    mPixelArray = Effector.setConventionalMultiColorEffect(mPixelArray, mImageWidth, conventionalEffectMatrix.getMultiplier(), conventionalEffectMatrix.getMatrix(), multiplier, matrixArray);
+                    pixelArray = Effector.setConventionalMultiColorEffect(pixelArray, getImageWidth(), conventionalEffectMatrix.getMultiplier(), conventionalEffectMatrix.getMatrix(), multiplier, matrixArray);
                 } else {
-                    mPixelArray = Effector.setMultiColorEffect(mPixelArray, mImageWidth, multiplier, matrixArray);
+                    pixelArray = Effector.setMultiColorEffect(pixelArray, getImageWidth(), multiplier,
+                            matrixArray);
                 }
             }
         }
         Log.e("MKR", "TIME TAKEN : BaseConventionalEffect(" + this + "):      " + (System.currentTimeMillis() - l));
-        return mPixelArray;
+        return pixelArray;
     }
 }

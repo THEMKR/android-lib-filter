@@ -5,28 +5,20 @@ import android.util.Log;
 import com.mkrworld.libfilter.dto.EffectMatrix;
 import com.mkrworld.libfilter.effect.BaseEffect;
 import com.mkrworld.libfilter.enums.EffectCategory;
-import com.mkrworld.libfilter.enums.PixelFormat;
 import com.mkrworld.libfilter.jnicaller.Effector;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public abstract class BaseColorEffect extends BaseEffect {
-
-    private int[] mPixelArray;
-    private int mImageWidth;
 
     /**
      * Constructor
      *
-     * @param pixelArray  Array of Pixel
-     * @param pixelFormat
+     * @param pixelArray Array of Pixel
      * @param imageWidth
      */
-    public BaseColorEffect(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
-        super(pixelFormat);
-        mPixelArray = pixelArray;
-        mImageWidth = imageWidth;
+    public BaseColorEffect(int[] pixelArray, int imageWidth) {
+        super(pixelArray, imageWidth);
     }
 
     /**
@@ -36,12 +28,13 @@ public abstract class BaseColorEffect extends BaseEffect {
 
     @Override
     public int[] applyEffect() throws Exception {
+        int[] pixelArray = getPixelArray();
         long l = System.currentTimeMillis();
         ArrayList<EffectMatrix> effectMatrixArray = getEffectMatrixArray();
         if (effectMatrixArray.size() == 1) {
             EffectMatrix effectMatrix = effectMatrixArray.get(0);
             if (effectMatrix.getEffectCategory() == EffectCategory.COLOR) {
-                mPixelArray = Effector.setColorEffect(mPixelArray, effectMatrix.getMultiplier(), effectMatrix.getMatrix());
+                pixelArray = Effector.setColorEffect(pixelArray, effectMatrix.getMultiplier(), effectMatrix.getMatrix());
             }
         } else {
             ArrayList<Float> effectMatrixFloatArray = new ArrayList<>();
@@ -63,9 +56,9 @@ public abstract class BaseColorEffect extends BaseEffect {
             for (int index = 0; index < multiplierFloatArray.size(); index++) {
                 multiplier[index] = multiplierFloatArray.get(index);
             }
-            mPixelArray = Effector.setMultiColorEffect(mPixelArray, mImageWidth, multiplier, matrixArray);
+            pixelArray = Effector.setMultiColorEffect(pixelArray, getImageWidth(), multiplier, matrixArray);
         }
         Log.e("MKR", "TIME TAKEN : BaseColorEffect(" + this + "):      " + (System.currentTimeMillis() - l));
-        return mPixelArray;
+        return pixelArray;
     }
 }

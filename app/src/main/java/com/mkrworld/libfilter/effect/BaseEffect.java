@@ -1,33 +1,19 @@
 package com.mkrworld.libfilter.effect;
 
-import android.graphics.Bitmap;
-
-import com.mkrworld.libfilter.enums.PixelFormat;
-
-import java.util.ArrayList;
-
-import kotlin.jvm.Throws;
-
 public abstract class BaseEffect {
 
-    private PixelFormat mPixelFormat;
+    private int[] mPixelArray;
+    private int mImageWidth;
 
     /**
      * Constructor
      *
-     * @param pixelFormat
+     * @param pixelArray Array of Pixel
+     * @param imageWidth
      */
-    public BaseEffect(PixelFormat pixelFormat) {
-        mPixelFormat = pixelFormat;
-    }
-
-    /**
-     * Method to get the Pixel Format
-     *
-     * @return
-     */
-    public PixelFormat getPixelFormat() {
-        return mPixelFormat;
+    public BaseEffect(int[] pixelArray, int imageWidth) {
+        mPixelArray = pixelArray;
+        mImageWidth = imageWidth;
     }
 
     /**
@@ -36,4 +22,22 @@ public abstract class BaseEffect {
      * @return Effected PixelArray
      */
     public abstract int[] applyEffect() throws Exception;
+
+    /**
+     * Method to get the Image Width
+     *
+     * @return
+     */
+    public int getImageWidth() {
+        return mImageWidth;
+    }
+
+    /**
+     * Method to get the Image Pixel Array
+     *
+     * @return
+     */
+    public int[] getPixelArray() {
+        return mPixelArray;
+    }
 }

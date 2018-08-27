@@ -6,7 +6,7 @@ import com.mkrworld.libfilter.enums.EffectCategory;
 
 import java.util.ArrayList;
 
-public class ColorInvert extends BaseColorEffect {
+public class ColorContrasBlue extends BaseColorEffect {
 
     /**
      * Constructor
@@ -14,18 +14,25 @@ public class ColorInvert extends BaseColorEffect {
      * @param pixelArray  Array of Pixel
      * @param imageWidth
      */
-    public ColorInvert(int[] pixelArray, int imageWidth) {
+    public ColorContrasBlue(int[] pixelArray, int imageWidth) {
         super(pixelArray, imageWidth);
     }
 
     @Override
     protected ArrayList<EffectMatrix> getEffectMatrixArray() {
         ArrayList<EffectMatrix> effectMatrixArray = new ArrayList<EffectMatrix>();
-        effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, new Offset(255F), new float[]{
-                -1F, 0F, 0F,
-                0F, -1F, 0F,
-                0F, 0F, -1F
+        effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, 0.3333F, new float[]{
+                1F, 1F, 1F,
+                1F, 1F, 1F,
+                1F, 1F, 1F
         }));
+
+        effectMatrixArray.add(new EffectMatrix(EffectCategory.COLOR, new Offset(0F, 0F, 86F), new float[]{
+                1F, 0F, 0.5F,
+                0F, 1F, 0.5F,
+                0F, 0F, 1F
+        }));
+
         return effectMatrixArray;
     }
 }

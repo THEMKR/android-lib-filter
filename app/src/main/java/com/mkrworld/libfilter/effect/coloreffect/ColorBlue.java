@@ -3,7 +3,6 @@ package com.mkrworld.libfilter.effect.coloreffect;
 import com.mkrworld.libfilter.dto.EffectMatrix;
 import com.mkrworld.libfilter.dto.Offset;
 import com.mkrworld.libfilter.enums.EffectCategory;
-import com.mkrworld.libfilter.enums.PixelFormat;
 
 import java.util.ArrayList;
 
@@ -13,11 +12,10 @@ public class ColorBlue extends BaseColorEffect {
      * Constructor
      *
      * @param pixelArray  Array of Pixel
-     * @param pixelFormat
      * @param imageWidth
      */
-    public ColorBlue(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
-        super(pixelArray, pixelFormat, imageWidth);
+    public ColorBlue(int[] pixelArray, int imageWidth) {
+        super(pixelArray, imageWidth);
     }
 
     @Override

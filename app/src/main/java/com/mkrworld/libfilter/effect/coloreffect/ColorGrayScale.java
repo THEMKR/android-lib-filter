@@ -1,10 +1,7 @@
 package com.mkrworld.libfilter.effect.coloreffect;
 
 import com.mkrworld.libfilter.dto.EffectMatrix;
-import com.mkrworld.libfilter.dto.Offset;
-import com.mkrworld.libfilter.effect.BaseEffect;
 import com.mkrworld.libfilter.enums.EffectCategory;
-import com.mkrworld.libfilter.enums.PixelFormat;
 
 import java.util.ArrayList;
 
@@ -14,11 +11,10 @@ public class ColorGrayScale extends BaseColorEffect {
      * Constructor
      *
      * @param pixelArray  Array of Pixel
-     * @param pixelFormat
      * @param imageWidth
      */
-    public ColorGrayScale(int[] pixelArray, PixelFormat pixelFormat, int imageWidth) {
-        super(pixelArray, pixelFormat, imageWidth);
+    public ColorGrayScale(int[] pixelArray, int imageWidth) {
+        super(pixelArray, imageWidth);
     }
 
     @Override

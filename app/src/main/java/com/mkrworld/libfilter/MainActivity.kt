@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import com.mkrworld.libfilter.effect.coloreffect.*
-import com.mkrworld.libfilter.effect.conventionaleffect.ConventionalSketch
-import com.mkrworld.libfilter.enums.PixelFormat
+import com.mkrworld.libfilter.effect.coloreffect.ColorContrasBlue
+import com.mkrworld.libfilter.effect.coloreffect.ColorGrayScale
+import com.mkrworld.libfilter.effect.coloreffect.ColorSepia
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,17 +26,17 @@ class MainActivity : AppCompatActivity() {
                 var intArray: IntArray = IntArray(srcImage.width * srcImage.height)
                 srcImage.getPixels(intArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height);
 
-                val colorIntArray = ColorGrayScale(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
+                val colorIntArray = ColorGrayScale(intArray, srcImage.width).applyEffect()
                 val colorEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
                 colorEffectedBitmap.setPixels(colorIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
                 imageView2.setImageBitmap(colorEffectedBitmap)
 
-                val conventionalIntArray = ColorYellow(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
+                val conventionalIntArray = ColorContrasBlue(intArray, srcImage.width).applyEffect()
                 val conventionalEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
                 conventionalEffectedBitmap.setPixels(conventionalIntArray, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
                 imageView3.setImageBitmap(conventionalEffectedBitmap)
 
-                val invertColorEffect = ColorSepia(intArray, PixelFormat.ARGB_8888, srcImage.width).applyEffect()
+                val invertColorEffect = ColorSepia(intArray, srcImage.width).applyEffect()
                 val invertEffectedBitmap = Bitmap.createBitmap(srcImage.width, srcImage.height, srcImage.config)
                 invertEffectedBitmap.setPixels(invertColorEffect, 0, srcImage.width, 0, 0, srcImage.width, srcImage.height)
                 imageView4.setImageBitmap(invertEffectedBitmap)

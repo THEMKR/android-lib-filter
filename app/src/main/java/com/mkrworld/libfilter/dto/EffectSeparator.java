@@ -1,6 +1,5 @@
 package com.mkrworld.libfilter.dto;
 
-import com.mkrworld.libfilter.dto.EffectMatrix;
 import com.mkrworld.libfilter.enums.EffectCategory;
 
 import java.util.ArrayList;
