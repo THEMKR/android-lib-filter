@@ -48,7 +48,7 @@ class FilterCreator {
      * @return
      * @throws Exception
      */
-    BaseFilter getFilterGenerator() throws Exception {
+    BaseFilter getFilter() throws Exception {
         // VALIDATE BASIC RES USED BY EVERY EFFECT
         if (mFilter == null) {
             throw new Exception("Effect should not be null");
@@ -77,7 +77,7 @@ class FilterCreator {
         }
 
         // Find the Linked Effect Class
-        return getFilter(mFilter);
+        return getBaseFilter(mFilter);
     }
 
     /**
@@ -85,7 +85,7 @@ class FilterCreator {
      *
      * @param filter Filter to be set by user
      */
-    private BaseFilter getFilter(Filter filter) {
+    private BaseFilter getBaseFilter(Filter filter) {
         switch (filter) {
             case COLOR_RED:
                 return new ColorRed(mSrcImagePixelsArray, mImageWidth);

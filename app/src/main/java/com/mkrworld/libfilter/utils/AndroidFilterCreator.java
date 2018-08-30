@@ -64,7 +64,7 @@ public class AndroidFilterCreator {
         // SET MULTIPLIER
         filterBuilder.setMultiplier(mMultiplier);
         // Apply Filter and Create a New Filtered Bitmap
-        return convertPixelArrayIntoBitmap(filterBuilder.build().getFilterGenerator().applyFilter(), mSrcImage.getWidth(), mSrcImage.getHeight());
+        return convertPixelArrayIntoBitmap(filterBuilder.build().getFilter().applyFilter(), mSrcImage.getWidth(), mSrcImage.getHeight());
     }
 
     /**
