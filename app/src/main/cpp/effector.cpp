@@ -33,27 +33,27 @@ jint getJavaColor(jfloat alpha, jfloat red, jfloat green, jfloat blue) {
  * @param offSet 1st Index, and count 20 element as this effect element
  * @return New Effected Color
  */
-jint setColorEffect(jint pixel, jfloat *pointerMatrixItem, int offSet, jfloat multiplier) {
+jint setColorEffect(jint pixel, jfloat *pointerMatrixItem, jfloat multiplier) {
     jfloat a = (pixel & 0xFF000000) >> 24;
     jfloat r = (pixel & 0x00FF0000) >> 16;
     jfloat g = (pixel & 0x0000FF00) >> 8;
     jfloat b = (pixel & 0x000000FF);
 
     jfloat R = getJavaColorValue(
-            (((pointerMatrixItem[offSet + 0] * r) +
-              (pointerMatrixItem[offSet + 1] * g) +
-              (pointerMatrixItem[offSet + 2] * b)) * multiplier) +
-            pointerMatrixItem[offSet + 4]);
+            (((pointerMatrixItem[0] * r) +
+              (pointerMatrixItem[1] * g) +
+              (pointerMatrixItem[2] * b)) * multiplier) +
+            pointerMatrixItem[4]);
     jfloat G = getJavaColorValue(
-            (((pointerMatrixItem[offSet + 5] * r) +
-              (pointerMatrixItem[offSet + 6] * g) +
-              (pointerMatrixItem[offSet + 7] * b)) * multiplier) +
-            pointerMatrixItem[offSet + 9]);
+            (((pointerMatrixItem[5] * r) +
+              (pointerMatrixItem[6] * g) +
+              (pointerMatrixItem[7] * b)) * multiplier) +
+            pointerMatrixItem[9]);
     jfloat B = getJavaColorValue(
-            (((pointerMatrixItem[offSet + 10] * r) +
-              (pointerMatrixItem[offSet + 11] * g) +
-              (pointerMatrixItem[offSet + 12] * b)) * multiplier) +
-            pointerMatrixItem[offSet + 14]);
+            (((pointerMatrixItem[10] * r) +
+              (pointerMatrixItem[11] * g) +
+              (pointerMatrixItem[12] * b)) * multiplier) +
+            pointerMatrixItem[14]);
     return getJavaColor(a, R, G, B);
 }
 
@@ -70,6 +70,7 @@ jint setColorEffect(jint pixel, jfloat *pointerMatrixItem, int colorMatrixCount,
     jfloat R = (pixel & 0x00FF0000) >> 16;
     jfloat G = (pixel & 0x0000FF00) >> 8;
     jfloat B = (pixel & 0x000000FF);
+
     for (jint matrixIndex = 0; matrixIndex < colorMatrixCount; ++matrixIndex) {
         int offSet = matrixIndex * 20;
         jfloat multiplier = pointerMultiplier[matrixIndex];
@@ -184,7 +185,7 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setColorEffect(JNIEnv *jEnv, jcla
 
     for (jint index = 0; index < imagePixelCount; ++index) {
         pointerEffectedPixel[index] = setColorEffect(pointerImagePixel[index], pointerEffectMatrix,
-                                                     0, multiplier);
+                                                     multiplier);
     }
 
     jEnv->ReleaseIntArrayElements(effectedPixelArray, pointerEffectedPixel, 0);
