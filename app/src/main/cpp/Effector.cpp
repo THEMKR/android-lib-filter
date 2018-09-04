@@ -306,3 +306,16 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setConventionalMultiColorEffect(J
     jEnv->ReleaseIntArrayElements(effectedPixelArray, effectedPointerPixel, NULL);
     return effectedPixelArray;
 }
+
+extern "C"
+JNIEXPORT jbyteArray JNICALL
+Java_com_mkrworld_libfilter_jnicaller_FilterApplier_setColorEffect(JNIEnv *jEnv, jclass type,
+                                                                   jbyteArray byteArray_,
+                                                                   jfloat multiplier,
+                                                                   jfloatArray effectMatrix_) {
+    jbyte *byteArray = jEnv->GetByteArrayElements(byteArray_, NULL);
+    jfloat *effectMatrix = jEnv->GetFloatArrayElements(effectMatrix_, NULL);
+
+    jEnv->ReleaseByteArrayElements(byteArray_, byteArray, 0);
+    jEnv->ReleaseFloatArrayElements(effectMatrix_, effectMatrix, 0);
+}

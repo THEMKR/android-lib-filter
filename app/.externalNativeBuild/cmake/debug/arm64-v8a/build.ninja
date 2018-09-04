@@ -49,14 +49,44 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target effector
+# Object build statements for SHARED_LIBRARY target filterapplier
 
-build CMakeFiles/effector.dir/src/main/cpp/effector.cpp.o: CXX_COMPILER__effector ../../../../src/main/cpp/effector.cpp
-  DEFINES = -Deffector_EXPORTS
-  DEP_FILE = CMakeFiles/effector.dir/src/main/cpp/effector.cpp.o.d
+build CMakeFiles/filterapplier.dir/src/main/cpp/FilterApplier.cpp.o: CXX_COMPILER__filterapplier ../../../../src/main/cpp/FilterApplier.cpp
+  DEFINES = -Dfilterapplier_EXPORTS
+  DEP_FILE = CMakeFiles/filterapplier.dir/src/main/cpp/FilterApplier.cpp.o.d
   FLAGS = -isystem /home/delhivery/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC
   INCLUDES = -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include
-  IN_ABS = /home/delhivery/Documents/PROJECTS/lib-filter/app/src/main/cpp/effector.cpp
+  IN_ABS = /home/delhivery/Documents/PROJECTS/lib-filter/app/src/main/cpp/FilterApplier.cpp
+  OBJECT_DIR = CMakeFiles/filterapplier.dir
+  OBJECT_FILE_DIR = CMakeFiles/filterapplier.dir/src/main/cpp
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target filterapplier
+
+
+#############################################
+# Link the shared library ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so
+
+build ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so: CXX_SHARED_LIBRARY_LINKER__filterapplier CMakeFiles/filterapplier.dir/src/main/cpp/FilterApplier.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -isystem /home/delhivery/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -O0 -fno-limit-debug-info
+  LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -nostdlib++ --sysroot /home/delhivery/Android/Sdk/ndk-bundle/platforms/android-21/arch-arm64 -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -L/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a -Wl,--no-undefined -Wl,-z,noexecstack -Qunused-arguments -Wl,-z,relro -Wl,-z,now
+  LINK_LIBRARIES = -latomic -lm "/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_static.a" "/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++abi.a"
+  OBJECT_DIR = CMakeFiles/filterapplier.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libfilterapplier.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so
+  TARGET_PDB = filterapplier.so.dbg
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target effector
+
+build CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o: CXX_COMPILER__effector ../../../../src/main/cpp/Effector.cpp
+  DEFINES = -Deffector_EXPORTS
+  DEP_FILE = CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o.d
+  FLAGS = -isystem /home/delhivery/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC
+  INCLUDES = -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include
+  IN_ABS = /home/delhivery/Documents/PROJECTS/lib-filter/app/src/main/cpp/Effector.cpp
   OBJECT_DIR = CMakeFiles/effector.dir
   OBJECT_FILE_DIR = CMakeFiles/effector.dir/src/main/cpp
 
@@ -67,10 +97,10 @@ build CMakeFiles/effector.dir/src/main/cpp/effector.cpp.o: CXX_COMPILER__effecto
 #############################################
 # Link the shared library ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so
 
-build ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so: CXX_SHARED_LIBRARY_LINKER__effector CMakeFiles/effector.dir/src/main/cpp/effector.cpp.o | /home/delhivery/Android/Sdk/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/liblog.so
+build ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so: CXX_SHARED_LIBRARY_LINKER__effector CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o
   LANGUAGE_COMPILE_FLAGS = -isystem /home/delhivery/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -nostdlib++ --sysroot /home/delhivery/Android/Sdk/ndk-bundle/platforms/android-21/arch-arm64 -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -L/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a -Wl,--no-undefined -Wl,-z,noexecstack -Qunused-arguments -Wl,-z,relro -Wl,-z,now
-  LINK_LIBRARIES = -ljnigraphics -landroid /home/delhivery/Android/Sdk/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/liblog.so -latomic -lm "/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_static.a" "/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++abi.a"
+  LINK_LIBRARIES = -latomic -lm "/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_static.a" "/home/delhivery/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++abi.a"
   OBJECT_DIR = CMakeFiles/effector.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -82,7 +112,9 @@ build ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so: 
 # Target aliases.
 
 build effector: phony ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so
+build filterapplier: phony ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so
 build libeffector.so: phony ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so
+build libfilterapplier.so: phony ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so
 # =============================================================================
 # Folder targets.
 
@@ -94,7 +126,7 @@ build libeffector.so: phony ../../../../build/intermediates/cmake/debug/obj/arm6
 #############################################
 # The main all target.
 
-build all: phony ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so
+build all: phony ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so ../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so
 
 #############################################
 # Make the all target the default.

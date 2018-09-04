@@ -1,10 +1,13 @@
 package com.mkrworld.libfilter.jnicaller;
 
-public class Effector {
+public class FilterApplier {
 
     static {
-        System.loadLibrary("effector");
+        System.loadLibrary("filterapplier");
     }
+
+    public static final int COLOR_EFFECT = 0;
+    public static final int COLOR_CONVENTIONAL = 1;
 
     /**
      * Method to apply Color Effect
