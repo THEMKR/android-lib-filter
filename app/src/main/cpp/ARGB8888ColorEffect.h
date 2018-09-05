@@ -97,7 +97,7 @@ private:
     * @param value
     * @return
     */
-    int getColorValue(float value) {
+    int8_t getColorValue(float value) {
         if (value > 255.0) {
             return 255;
         } else if (value < 0.0) {
