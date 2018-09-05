@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(p0: View?) {
                 val srcImage = getSrcImage() ?: return
                 imageView1.setImageBitmap(srcImage)
-                imageView2.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_GRAY_SCALE).setSrcImage(srcImage).build().createFilteredBitmap())
-                imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_GREEN).setSrcImage(srcImage).build().createFilteredBitmap())
-                imageView4.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_INVERT).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView2.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_SEPIA).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_YELLOW).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView4.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_CYAN).setSrcImage(srcImage).build().createFilteredBitmap())
             }
         })
     }

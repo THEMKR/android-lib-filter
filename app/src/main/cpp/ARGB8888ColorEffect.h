@@ -10,12 +10,12 @@
 /**
  * Config for ARGB_8888 Pixel Structure
  */
-//typedef struct {
-//    uint8_t alpha;
-//    uint8_t red;
-//    uint8_t green;
-//    uint8_t blue;
-//} ARGB;
+typedef struct {
+    uint8_t blue;
+    uint8_t green;
+    uint8_t red;
+    uint8_t alpha;
+} ARGB;
 
 class ARGB8888ColorEffect : public ColorEffect {
 
@@ -47,8 +47,44 @@ public:
      */
     jintArray applyEffect() {
         init();
+        ARGB* argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
+        ARGB* argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
+
         for (int i = 0; i < srcImagePixelCount; ++i) {
-            pointerDestImagePixel[i] = setColorEffect(pointerSrcImagePixel[i], effectMatrixCount, pointerEffectMatrixItem, pointerMultiplier);
+            ARGB srcARGB = argbSrc[i];
+            ARGB destARGB = argbDest[i];
+            destARGB.alpha = srcARGB.alpha;
+            destARGB.red = srcARGB.red;
+            destARGB.green = srcARGB.green;
+            destARGB.blue = srcARGB.blue;
+
+            for (jint matrixIndex = 0; matrixIndex < effectMatrixCount; ++matrixIndex) {
+                int offSet = matrixIndex * 20;
+                float multiplier = pointerMultiplier[matrixIndex];
+
+                int8_t R = getColorValue(
+                        (((pointerEffectMatrixItem[offSet + 0] * destARGB.red) +
+                          (pointerEffectMatrixItem[offSet + 1] * destARGB.green) +
+                          (pointerEffectMatrixItem[offSet + 2] * destARGB.blue)) * multiplier) +
+                        pointerEffectMatrixItem[offSet + 4]);
+
+                int8_t G = getColorValue(
+                        (((pointerEffectMatrixItem[offSet + 5] * destARGB.red) +
+                          (pointerEffectMatrixItem[offSet + 6] * destARGB.green) +
+                          (pointerEffectMatrixItem[offSet + 7] * destARGB.blue)) * multiplier) +
+                        pointerEffectMatrixItem[offSet + 9]);
+
+                int8_t B = getColorValue(
+                        (((pointerEffectMatrixItem[offSet + 10] * destARGB.red) +
+                          (pointerEffectMatrixItem[offSet + 11] * destARGB.green) +
+                          (pointerEffectMatrixItem[offSet + 12] * destARGB.blue)) * multiplier) +
+                        pointerEffectMatrixItem[offSet + 14]);
+
+                destARGB.red = R;//getColorValue(R);
+                destARGB.green = G;//getColorValue(G);
+                destARGB.blue = B;//getColorValue(B);
+            }
+            argbDest[i]=destARGB;
         }
         finish();
         return destImageIntArray;
@@ -61,68 +97,13 @@ private:
     * @param value
     * @return
     */
-    int getJavaColorValue(float value) {
+    int getColorValue(float value) {
         if (value > 255.0) {
             return 255;
         } else if (value < 0.0) {
             return 0;
         }
         return (int) value;
-    }
-
-    /**
-     * Method to get the color value in 0-255 range
-    */
-    jint getJavaColor(jfloat alpha, jfloat red, jfloat green, jfloat blue) {
-        jint a = (getJavaColorValue(alpha) << 24);
-        jint r = (getJavaColorValue(red) << 16);
-        jint g = (getJavaColorValue(green) << 8);
-        jint b = getJavaColorValue(blue);
-        return a | r | g | b;
-    }
-
-    /**
-    * Function to apply Color Effect on a Pixel
-    * @param pixel
-    * @param pointerMatrixItem
-    * @param offSet 1st Index, and count 20 element as this effect element
-    * @return New Effected Color
-    */
-    jint setColorEffect(jint pixel,
-                        jint colorMatrixCount,
-                        jfloat *pointerMatrixItem,
-                        jfloat *pointerMultiplier) {
-        jfloat a = (pixel & 0xFF000000) >> 24;
-        jfloat R = (pixel & 0x00FF0000) >> 16;
-        jfloat G = (pixel & 0x0000FF00) >> 8;
-        jfloat B = (pixel & 0x000000FF);
-
-        for (jint matrixIndex = 0; matrixIndex < colorMatrixCount; ++matrixIndex) {
-            int offSet = matrixIndex * 20;
-            jfloat multiplier = pointerMultiplier[matrixIndex];
-
-            jfloat tempR = getJavaColorValue(
-                    (((pointerMatrixItem[offSet + 0] * R) +
-                      (pointerMatrixItem[offSet + 1] * G) +
-                      (pointerMatrixItem[offSet + 2] * B)) * multiplier) +
-                    pointerMatrixItem[offSet + 4]);
-
-            jfloat tempG = getJavaColorValue(
-                    (((pointerMatrixItem[offSet + 5] * R) +
-                      (pointerMatrixItem[offSet + 6] * G) +
-                      (pointerMatrixItem[offSet + 7] * B)) * multiplier) +
-                    pointerMatrixItem[offSet + 9]);
-
-            jfloat tempB = getJavaColorValue(
-                    (((pointerMatrixItem[offSet + 10] * R) +
-                      (pointerMatrixItem[offSet + 11] * G) +
-                      (pointerMatrixItem[offSet + 12] * B)) * multiplier) +
-                    pointerMatrixItem[offSet + 14]);
-            R = tempR;
-            G = tempG;
-            B = tempB;
-        }
-        return getJavaColor(a, R, G, B);
     }
 };
 
