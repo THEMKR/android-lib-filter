@@ -6,12 +6,6 @@
     "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
   ],
   "libraries": {
-    "filterapplier-Debug-arm64-v8a": {
-      "artifactName": "filterapplier",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target filterapplier",
-      "abi": "arm64-v8a",
-      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/debug/obj/arm64-v8a/libfilterapplier.so"
-    },
     "effector-Debug-arm64-v8a": {
       "artifactName": "effector",
       "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target effector",

@@ -1,18 +1,19 @@
 #include <jni.h>
 #include <stdint.h>
+#include "ARGB8888ColorEffect.h"
 
 /**
  * Method to get the color value in 0-255 range
  * @param value
  * @return
  */
-jint getJavaColorValue(jfloat value) {
+int getJavaColorValue(jfloat value) {
     if (value > 255.0) {
         return 255;
     } else if (value < 0.0) {
         return 0;
     }
-    return (jint) value;
+    return (int) value;
 }
 
 /**
@@ -197,31 +198,17 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setColorEffect(JNIEnv *jEnv, jcla
 extern "C"
 JNIEXPORT jintArray JNICALL
 Java_com_mkrworld_libfilter_jnicaller_Effector_setMultiColorEffect(JNIEnv *jEnv, jclass type,
-                                                                   jintArray imagePixelArray,
+                                                                   jintArray srcImageIntArray,
                                                                    jint imageWidth,
-                                                                   jfloatArray colorEffectMultiplierArray,
-                                                                   jfloatArray colorEffectMatrixItemArray) {
+                                                                   jfloatArray srcMultiplierArray,
+                                                                   jfloatArray effectMatrixArray) {
 
-    jint imagePixelCount = jEnv->GetArrayLength(imagePixelArray);
-    jint colorMatrixCount = jEnv->GetArrayLength(colorEffectMultiplierArray);
-    jintArray effectedPixelArray = jEnv->NewIntArray(imagePixelCount);
-
-    jfloat *pointerMultiplier = jEnv->GetFloatArrayElements(colorEffectMultiplierArray, 0);
-    jfloat *pointerMatrixItem = jEnv->GetFloatArrayElements(colorEffectMatrixItemArray, 0);
-    jint *pointerPixel = jEnv->GetIntArrayElements(imagePixelArray, NULL);
-    jint *effectedPointerPixel = jEnv->GetIntArrayElements(effectedPixelArray, NULL);
-
-    for (jint index = 0; index < imagePixelCount; ++index) {
-        effectedPointerPixel[index] = setColorEffect(pointerPixel[index], pointerMatrixItem,
-                                                     colorMatrixCount,
-                                                     pointerMultiplier);
-    }
-
-    jEnv->ReleaseFloatArrayElements(colorEffectMultiplierArray, pointerMultiplier, 0);
-    jEnv->ReleaseFloatArrayElements(colorEffectMatrixItemArray, pointerMatrixItem, 0);
-    jEnv->ReleaseIntArrayElements(imagePixelArray, pointerPixel, NULL);
-    jEnv->ReleaseIntArrayElements(effectedPixelArray, effectedPointerPixel, NULL);
-    return effectedPixelArray;
+    ARGB8888ColorEffect argb8888ColorEffect = ARGB8888ColorEffect(jEnv,
+                                                                  srcImageIntArray,
+                                                                  imageWidth,
+                                                                  srcMultiplierArray,
+                                                                  effectMatrixArray);
+    return argb8888ColorEffect.applyEffect();
 }
 
 extern "C"

@@ -6,12 +6,6 @@
     "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target clean"
   ],
   "libraries": {
-    "filterapplier-Release-x86_64": {
-      "artifactName": "filterapplier",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target filterapplier",
-      "abi": "x86_64",
-      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/release/obj/x86_64/libfilterapplier.so"
-    },
     "effector-Release-x86_64": {
       "artifactName": "effector",
       "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target effector",

@@ -11,12 +11,6 @@
       "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target effector",
       "abi": "arm64-v8a",
       "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so"
-    },
-    "filterapplier-Release-arm64-v8a": {
-      "artifactName": "filterapplier",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target filterapplier",
-      "abi": "arm64-v8a",
-      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/release/obj/arm64-v8a/libfilterapplier.so"
     }
   }
 }
