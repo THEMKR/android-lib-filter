@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
                 val srcImage = getSrcImage() ?: return
                 imageView1.setImageBitmap(srcImage)
                 imageView2.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_SEPIA).setSrcImage(srcImage).build().createFilteredBitmap())
-                imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_YELLOW).setSrcImage(srcImage).build().createFilteredBitmap())
-                imageView4.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_CYAN).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.CONVENTIONAL_SKETCH).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView4.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_GRAY_SCALE).setSrcImage(srcImage).build().createFilteredBitmap())
             }
         })
     }

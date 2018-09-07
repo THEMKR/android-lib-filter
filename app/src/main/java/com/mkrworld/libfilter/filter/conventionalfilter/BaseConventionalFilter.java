@@ -82,7 +82,7 @@ public abstract class BaseConventionalFilter extends BaseFilter {
                     FilterMatrix conventionalFilterMatrix = filterSeparator.getConventionalFilterMatrix();
                     pixelArray = Effector.setConventionalMultiColorEffect(pixelArray, getImageWidth(), conventionalFilterMatrix.getMultiplier(), conventionalFilterMatrix.getMatrix(), multiplier, matrixArray);
                 } else {
-                    pixelArray = Effector.setMultiColorEffect(pixelArray, getImageWidth(), multiplier,
+                    pixelArray = Effector.setColorEffect(pixelArray, getImageWidth(), multiplier,
                             matrixArray);
                 }
             }

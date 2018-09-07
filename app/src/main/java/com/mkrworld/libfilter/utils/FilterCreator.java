@@ -15,6 +15,7 @@ import com.mkrworld.libfilter.filter.colorfilter.ColorVoilet;
 import com.mkrworld.libfilter.filter.colorfilter.ColorYellow;
 import com.mkrworld.libfilter.filter.conventionalfilter.ConventionalSketch;
 import com.mkrworld.libfilter.enums.Filter;
+import com.mkrworld.libfilter.filter.conventionalfilter.ConventionalSolid;
 
 /**
  * Class To Create the Filter Generator
@@ -114,6 +115,7 @@ class FilterCreator {
             case CONVENTIONAL_SKETCH:
                 return new ConventionalSketch(mSrcImagePixelsArray, mImageWidth);
             case CONVENTIONAL_SOLID:
+                return new ConventionalSolid(mSrcImagePixelsArray, mImageWidth);
             case NON:
             default:
                 return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {

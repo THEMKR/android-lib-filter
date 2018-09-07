@@ -7,16 +7,6 @@
 
 #include "ColorEffect.h"
 
-/**
- * Config for ARGB_8888 Pixel Structure
- */
-typedef struct {
-    uint8_t blue;
-    uint8_t green;
-    uint8_t red;
-    uint8_t alpha;
-} ARGB;
-
 class ARGB8888ColorEffect : public ColorEffect {
 
 public:
@@ -47,44 +37,46 @@ public:
      */
     jintArray applyEffect() {
         init();
-        ARGB* argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
-        ARGB* argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
+        ARGB *argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
+        ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
 
         for (int i = 0; i < srcImagePixelCount; ++i) {
             ARGB srcARGB = argbSrc[i];
             ARGB destARGB = argbDest[i];
             destARGB.alpha = srcARGB.alpha;
-            destARGB.red = srcARGB.red;
-            destARGB.green = srcARGB.green;
-            destARGB.blue = srcARGB.blue;
+
+            float R = srcARGB.red;
+            float G = srcARGB.green;
+            float B = srcARGB.blue;
 
             for (jint matrixIndex = 0; matrixIndex < effectMatrixCount; ++matrixIndex) {
                 int offSet = matrixIndex * 20;
                 float multiplier = pointerMultiplier[matrixIndex];
 
-                int8_t R = getColorValue(
-                        (((pointerEffectMatrixItem[offSet + 0] * destARGB.red) +
-                          (pointerEffectMatrixItem[offSet + 1] * destARGB.green) +
-                          (pointerEffectMatrixItem[offSet + 2] * destARGB.blue)) * multiplier) +
-                        pointerEffectMatrixItem[offSet + 4]);
+                float tR = (((pointerEffectMatrixItem[offSet + 0] * R) +
+                             (pointerEffectMatrixItem[offSet + 1] * G) +
+                             (pointerEffectMatrixItem[offSet + 2] * B)) * multiplier) +
+                        pointerEffectMatrixItem[offSet + 4];
 
-                int8_t G = getColorValue(
-                        (((pointerEffectMatrixItem[offSet + 5] * destARGB.red) +
-                          (pointerEffectMatrixItem[offSet + 6] * destARGB.green) +
-                          (pointerEffectMatrixItem[offSet + 7] * destARGB.blue)) * multiplier) +
-                        pointerEffectMatrixItem[offSet + 9]);
+                float tG = (((pointerEffectMatrixItem[offSet + 5] * R) +
+                             (pointerEffectMatrixItem[offSet + 6] * G) +
+                             (pointerEffectMatrixItem[offSet + 7] * B)) * multiplier) +
+                        pointerEffectMatrixItem[offSet + 9];
 
-                int8_t B = getColorValue(
-                        (((pointerEffectMatrixItem[offSet + 10] * destARGB.red) +
-                          (pointerEffectMatrixItem[offSet + 11] * destARGB.green) +
-                          (pointerEffectMatrixItem[offSet + 12] * destARGB.blue)) * multiplier) +
-                        pointerEffectMatrixItem[offSet + 14]);
+                float tB = (((pointerEffectMatrixItem[offSet + 10] * R) +
+                             (pointerEffectMatrixItem[offSet + 11] * G) +
+                             (pointerEffectMatrixItem[offSet + 12] * B)) * multiplier) +
+                        pointerEffectMatrixItem[offSet + 14];
 
-                destARGB.red = R;//getColorValue(R);
-                destARGB.green = G;//getColorValue(G);
-                destARGB.blue = B;//getColorValue(B);
+                R = tR;
+                G = tG;
+                B = tB;
             }
-            argbDest[i]=destARGB;
+
+            destARGB.red = getColorValue(R);
+            destARGB.green = getColorValue(G);
+            destARGB.blue = getColorValue(B);
+            argbDest[i] = destARGB;
         }
         finish();
         return destImageIntArray;
@@ -99,11 +91,11 @@ private:
     */
     int8_t getColorValue(float value) {
         if (value > 255.0) {
-            return 255;
+            return (int8_t) 255;
         } else if (value < 0.0) {
             return 0;
         }
-        return (int) value;
+        return (int8_t) value;
     }
 };
 

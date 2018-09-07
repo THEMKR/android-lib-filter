@@ -7,16 +7,6 @@ public class Effector {
     }
 
     /**
-     * Method to apply Color Effect
-     *
-     * @param pixelArray
-     * @param multiplier
-     * @param effectMatrix
-     * @return
-     */
-    public static native int[] setColorEffect(int[] pixelArray, float multiplier, float[] effectMatrix);
-
-    /**
      * Method to apply Conventional Effect
      *
      * @param pixelArray
@@ -36,7 +26,7 @@ public class Effector {
      * @param colorEffectMatrixItemArray
      * @return
      */
-    public static native int[] setMultiColorEffect(int[] pixelArray, int width, float[] colorEffectMultiplierArray, float[] colorEffectMatrixItemArray);
+    public static native int[] setColorEffect(int[] pixelArray, int width, float[] colorEffectMultiplierArray, float[] colorEffectMatrixItemArray);
 
     /**
      * Method to apply Conventional Effect with further Multiple Color Effect.<br>

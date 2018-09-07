@@ -1,13 +1,11 @@
 package com.mkrworld.libfilter.filter.colorfilter;
 
-import android.media.effect.Effect;
 import android.util.Log;
 
 import com.mkrworld.libfilter.dto.FilterMatrix;
 import com.mkrworld.libfilter.filter.BaseFilter;
 import com.mkrworld.libfilter.enums.FilterCategory;
 import com.mkrworld.libfilter.jnicaller.Effector;
-import com.mkrworld.libfilter.jnicaller.FilterApplier;
 
 import java.util.ArrayList;
 
@@ -52,7 +50,7 @@ public abstract class BaseColorFilter extends BaseFilter {
         for (int index = 0; index < multiplierFloatArray.size(); index++) {
             multiplier[index] = multiplierFloatArray.get(index);
         }
-        pixelArray = Effector.setMultiColorEffect(pixelArray, getImageWidth(), multiplier, matrixArray);
+        pixelArray = Effector.setColorEffect(pixelArray, getImageWidth(), multiplier, matrixArray);
         Log.e("MKR", "TIME TAKEN : BaseColorFilter(" + this + "):      " + (System.currentTimeMillis() - l));
         return pixelArray;
     }
