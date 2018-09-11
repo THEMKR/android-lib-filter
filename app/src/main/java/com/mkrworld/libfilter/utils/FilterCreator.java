@@ -16,6 +16,8 @@ import com.mkrworld.libfilter.filter.colorfilter.ColorYellow;
 import com.mkrworld.libfilter.filter.conventionalfilter.ConventionalSketch;
 import com.mkrworld.libfilter.enums.Filter;
 import com.mkrworld.libfilter.filter.conventionalfilter.ConventionalSolid;
+import com.mkrworld.libfilter.filter.overlayfilter.MultiplierEffect;
+import com.mkrworld.libfilter.filter.overlayfilter.OverlayEffect;
 
 /**
  * Class To Create the Filter Generator
@@ -62,7 +64,7 @@ class FilterCreator {
         }
 
         // VALIDATE SECONDARY RES BASED ON EFFECT
-        switch (Utils.getFilterCategory(mFilter)) {
+        switch (mFilter.getFilterCategory()) {
             case COLOR:
                 break;
             case CONVENTIONAL:
@@ -87,6 +89,30 @@ class FilterCreator {
      * @param filter Filter to be set by user
      */
     private BaseFilter getBaseFilter(Filter filter) {
+        switch (filter.getFilterCategory()) {
+            case COLOR:
+                return getColorFilter(filter);
+            case CONVENTIONAL:
+                return getConventionalFilter(filter);
+            case OVERLAY:
+                return getOverlayFilter(filter);
+            case NON:
+            default:
+                return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
+                    @Override
+                    public int[] applyFilter() throws Exception {
+                        return mSrcImagePixelsArray;
+                    }
+                };
+        }
+    }
+
+    /**
+     * Method to get the Color-Filter-Generator-Object correspond to the filter set by user
+     *
+     * @param filter Filter to be set by user
+     */
+    private BaseFilter getColorFilter(Filter filter) {
         switch (filter) {
             case COLOR_RED:
                 return new ColorRed(mSrcImagePixelsArray, mImageWidth);
@@ -112,10 +138,51 @@ class FilterCreator {
                 return new ColorVoilet(mSrcImagePixelsArray, mImageWidth);
             case COLOR_YELLOW:
                 return new ColorYellow(mSrcImagePixelsArray, mImageWidth);
+            case NON:
+            default:
+                return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
+                    @Override
+                    public int[] applyFilter() throws Exception {
+                        return mSrcImagePixelsArray;
+                    }
+                };
+        }
+    }
+
+    /**
+     * Method to get the Conventional-Filter-Generator-Object correspond to the filter set by user
+     *
+     * @param filter Filter to be set by user
+     */
+    private BaseFilter getConventionalFilter(Filter filter) {
+        switch (filter) {
             case CONVENTIONAL_SKETCH:
                 return new ConventionalSketch(mSrcImagePixelsArray, mImageWidth);
             case CONVENTIONAL_SOLID:
                 return new ConventionalSolid(mSrcImagePixelsArray, mImageWidth);
+            case NON:
+            default:
+                return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
+                    @Override
+                    public int[] applyFilter() throws Exception {
+                        return mSrcImagePixelsArray;
+                    }
+                };
+        }
+    }
+
+
+    /**
+     * Method to get the Overlay-Filter-Generator-Object correspond to the filter set by user
+     *
+     * @param filter Filter to be set by user
+     */
+    private BaseFilter getOverlayFilter(Filter filter) {
+        switch (filter) {
+            case OVERLAY:
+                return new OverlayEffect(mSrcImagePixelsArray, mImageWidth, mOverlayImagePixelsArray, mMultiplier);
+            case OVERLAY_MULTIPLY:
+                return new MultiplierEffect(mSrcImagePixelsArray, mImageWidth, mOverlayImagePixelsArray, mMultiplier);
             case NON:
             default:
                 return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {

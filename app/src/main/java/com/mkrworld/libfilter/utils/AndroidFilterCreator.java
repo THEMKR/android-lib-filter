@@ -47,7 +47,7 @@ public class AndroidFilterCreator {
             throw new Exception("Plz set a valid Src-Image");
         }
         // VALIDATE SECONDARY RES BASED ON FILTER
-        switch (Utils.getFilterCategory(mFilter)) {
+        switch (mFilter.getFilterCategory()) {
             case OVERLAY:
                 // SET OVERLAY BITMAP
                 if (mOverlayImage == null || mOverlayImage.isRecycled()) {

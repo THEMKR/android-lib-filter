@@ -41,4 +41,26 @@ public class Effector {
      * @return
      */
     public static native int[] setConventionalMultiColorEffect(int[] pixelArray, int width, float conventionalMultiplier, float[] conventionalEffectMatrixElementArray, float[] colorEffectMultiplierArray, float[] colorEffectMatrixItemArray);
+
+    /**
+     * Method to apply Overlay Effect
+     *
+     * @param pixelArray
+     * @param width
+     * @param overlayPixelArray
+     * @param multiplier
+     * @return
+     */
+    public static native int[] setOverlayEffect(int[] pixelArray, int width, int[] overlayPixelArray, float multiplier);
+
+    /**
+     * Method to apply Multiply Effect
+     *
+     * @param pixelArray
+     * @param width
+     * @param overlayPixelArray
+     * @param multiplier
+     * @return
+     */
+    public static native int[] setMultiplyEffect(int[] pixelArray, int width, int[] overlayPixelArray, float multiplier);
 }
