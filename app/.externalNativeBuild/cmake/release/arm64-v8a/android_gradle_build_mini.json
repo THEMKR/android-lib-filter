@@ -1,16 +1,16 @@
 {
   "buildFiles": [
-    "/home/delhivery/Documents/PROJECTS/lib-filter/app/CMakeLists.txt"
+    "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target clean"
+    "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target clean"
   ],
   "libraries": {
     "effector-Release-arm64-v8a": {
       "artifactName": "effector",
-      "buildCommand": "/home/delhivery/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/delhivery/Documents/PROJECTS/lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target effector",
+      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target effector",
       "abi": "arm64-v8a",
-      "output": "/home/delhivery/Documents/PROJECTS/lib-filter/app/build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so"
+      "output": "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so"
     }
   }
 }
