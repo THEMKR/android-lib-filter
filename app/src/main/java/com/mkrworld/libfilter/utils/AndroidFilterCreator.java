@@ -5,8 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
-import com.mkrworld.libfilter.enums.Filter;
-
 /**
  * Class to Build Filter
  */

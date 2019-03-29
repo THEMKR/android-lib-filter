@@ -4,9 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
-import com.mkrworld.libfilter.enums.Filter
 import com.mkrworld.libfilter.utils.AndroidFilterCreator
 import kotlinx.android.synthetic.main.activity_main.*
 

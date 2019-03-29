@@ -2,11 +2,11 @@
 {
 	"buildFiles" : 
 	[
-		"/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/CMakeLists.txt"
+		"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
 	],
 	"cleanCommands" : 
 	[
-		"/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
+		"/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
 	],
 	"cppFileExtensions" : [ "cpp" ],
 	"libraries" : 
@@ -15,18 +15,18 @@
 		{
 			"abi" : "arm64-v8a",
 			"artifactName" : "effector",
-			"buildCommand" : "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target effector",
+			"buildCommand" : "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a --target effector",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
 					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Deffector_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
-					"workingDirectory" : "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+					"src" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
+					"workingDirectory" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/arm64-v8a"
 				}
 			],
-			"output" : "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so",
+			"output" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so",
 			"toolchain" : "1599694811968845668"
 		}
 	},

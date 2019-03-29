@@ -1,3 +1,3 @@
-/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86/CMakeFiles/edit_cache.dir
-/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86/CMakeFiles/rebuild_cache.dir
-/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86/CMakeFiles/effector.dir
+/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86/CMakeFiles/edit_cache.dir
+/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86/CMakeFiles/rebuild_cache.dir
+/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86/CMakeFiles/effector.dir

@@ -1,5 +1,8 @@
 package com.mkrworld.libfilter.jnicaller;
 
+/**
+ * @author THEMKR
+ */
 public class Effector {
 
     static {

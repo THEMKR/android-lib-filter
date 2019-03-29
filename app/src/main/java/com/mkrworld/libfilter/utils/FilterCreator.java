@@ -1,30 +1,14 @@
 package com.mkrworld.libfilter.utils;
 
 import com.mkrworld.libfilter.filter.BaseFilter;
-import com.mkrworld.libfilter.filter.colorfilter.ColorBlue;
-import com.mkrworld.libfilter.filter.colorfilter.ColorContrasBlue;
-import com.mkrworld.libfilter.filter.colorfilter.ColorCyan;
-import com.mkrworld.libfilter.filter.colorfilter.ColorGrayScale;
-import com.mkrworld.libfilter.filter.colorfilter.ColorGreen;
-import com.mkrworld.libfilter.filter.colorfilter.ColorInvert;
-import com.mkrworld.libfilter.filter.colorfilter.ColorMagenta;
-import com.mkrworld.libfilter.filter.colorfilter.ColorPink;
-import com.mkrworld.libfilter.filter.colorfilter.ColorRed;
-import com.mkrworld.libfilter.filter.colorfilter.ColorSepia;
-import com.mkrworld.libfilter.filter.colorfilter.ColorVoilet;
-import com.mkrworld.libfilter.filter.colorfilter.ColorYellow;
-import com.mkrworld.libfilter.filter.conventionalfilter.ConventionalSketch;
-import com.mkrworld.libfilter.enums.Filter;
-import com.mkrworld.libfilter.filter.conventionalfilter.ConventionalSolid;
-import com.mkrworld.libfilter.filter.overlayfilter.MultiplierEffect;
-import com.mkrworld.libfilter.filter.overlayfilter.OverlayEffect;
+import com.mkrworld.libfilter.filter.MultiplierEffect;
+import com.mkrworld.libfilter.filter.OverlayEffect;
 
 /**
  * Class To Create the Filter Generator
  */
 class FilterCreator {
 
-    private Filter mFilter = null;
     private int mImageWidth = 0;
     private float mOffSet = 0F;
     private float mMultiplier = 1F;
@@ -74,7 +58,6 @@ class FilterCreator {
                     throw new Exception("Plz set a valid Overlay-Image-Pixel-Array");
                 }
                 break;
-            case NON:
             default:
                 break;
         }
@@ -96,7 +79,6 @@ class FilterCreator {
                 return getConventionalFilter(filter);
             case OVERLAY:
                 return getOverlayFilter(filter);
-            case NON:
             default:
                 return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
                     @Override
@@ -138,7 +120,6 @@ class FilterCreator {
                 return new ColorVoilet(mSrcImagePixelsArray, mImageWidth);
             case COLOR_YELLOW:
                 return new ColorYellow(mSrcImagePixelsArray, mImageWidth);
-            case NON:
             default:
                 return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
                     @Override
@@ -160,7 +141,6 @@ class FilterCreator {
                 return new ConventionalSketch(mSrcImagePixelsArray, mImageWidth);
             case CONVENTIONAL_SOLID:
                 return new ConventionalSolid(mSrcImagePixelsArray, mImageWidth);
-            case NON:
             default:
                 return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
                     @Override
@@ -183,7 +163,6 @@ class FilterCreator {
                 return new OverlayEffect(mSrcImagePixelsArray, mImageWidth, mOverlayImagePixelsArray, mMultiplier);
             case OVERLAY_MULTIPLY:
                 return new MultiplierEffect(mSrcImagePixelsArray, mImageWidth, mOverlayImagePixelsArray, mMultiplier);
-            case NON:
             default:
                 return new BaseFilter(mSrcImagePixelsArray, mImageWidth) {
                     @Override

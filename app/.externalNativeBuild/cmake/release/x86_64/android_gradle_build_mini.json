@@ -1,16 +1,16 @@
 {
   "buildFiles": [
-    "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/CMakeLists.txt"
+    "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target clean"
+    "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target clean"
   ],
   "libraries": {
     "effector-Release-x86_64": {
       "artifactName": "effector",
-      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target effector",
+      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86_64 --target effector",
       "abi": "x86_64",
-      "output": "/home/administrator/Documents/ANDROID/WORKSPACE_MKR_LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/x86_64/libeffector.so"
+      "output": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/x86_64/libeffector.so"
     }
   }
 }
