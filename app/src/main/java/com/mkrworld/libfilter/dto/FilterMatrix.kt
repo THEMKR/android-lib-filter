@@ -92,7 +92,7 @@ class FilterMatrix {
             }
         }
         when (filterCategory) {
-            FilterCategory.COLOR -> return floatArrayOf(matrix[0], matrix[1], matrix[2], 0f, offSet.r, matrix[3], matrix[4], matrix[5], 0f, offSet.b, matrix[6], matrix[7], matrix[8], 0f, offSet.g, 0f, 0f, 0f, 1f, 0f)
+            FilterCategory.COLOR -> return floatArrayOf(matrix[0], matrix[1], matrix[2], 0f, offSet.r, matrix[3], matrix[4], matrix[5], 0f, offSet.g, matrix[6], matrix[7], matrix[8], 0f, offSet.b, 0f, 0f, 0f, 1f, 0f)
             FilterCategory.CONVENTIONAL -> return floatArrayOf(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4], matrix[5], matrix[6], matrix[7], matrix[8])
             else -> return floatArrayOf(0f)
         }

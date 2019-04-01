@@ -5,7 +5,8 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.mkrworld.libfilter.utils.AndroidFilterCreator
+import com.mkrworld.libfilter.enums.ColorFilter
+import com.mkrworld.libfilter.enums.FilterCategory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +19,10 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(p0: View?) {
                 val srcImage = getSrcImage() ?: return
                 imageView1.setImageBitmap(srcImage)
-                imageView2.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_SEPIA).setSrcImage(srcImage).build().createFilteredBitmap())
-                imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.CONVENTIONAL_SKETCH).setSrcImage(srcImage).build().createFilteredBitmap())
-                imageView4.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.COLOR_GRAY_SCALE).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView2.setImageBitmap(FilterCreator.Builder(FilterCategory.COLOR).setSrcBitmap(srcImage).setFilterMatrixArrayList(ColorFilter.YELLOW.filterMatrixArrayList).build()?.applyEffect())
+                imageView3.setImageBitmap(FilterCreator.Builder(FilterCategory.COLOR).setSrcBitmap(srcImage).setFilterMatrixArrayList(ColorFilter.SEPIA.filterMatrixArrayList).build()?.applyEffect())
+                //imageView3.setImageBitmap(AndroidFilterCreator.Builder().setFilter(Filter.CONVENTIONAL_SKETCH).setSrcImage(srcImage).build().createFilteredBitmap())
+                imageView4.setImageBitmap(FilterCreator.Builder(FilterCategory.COLOR).setSrcBitmap(srcImage).setFilterMatrixArrayList(ColorFilter.GRAY_SCALE.filterMatrixArrayList).build()?.applyEffect())
             }
         })
     }
