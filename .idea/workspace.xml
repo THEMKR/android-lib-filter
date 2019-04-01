@@ -12,46 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1c3e2f6-8d67-4b34-9032-861470a55aae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888MergingEffect.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/jnicaller/MergerEffect.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/android_gradle_build_effector_arm64-v8a.stdout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/android_gradle_build_effector_arm64-v8a.stdout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/android_gradle_build_effector_x86.stdout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/android_gradle_build_effector_x86.stdout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/android_gradle_build_effector_x86_64.stdout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/android_gradle_build_effector_x86_64.stdout.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888ColorEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888ColorEffect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888ConventionalColorEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888ConventionalColorEffect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888ConventionalEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888ConventionalEffect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888MultiplyEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888MultiplyEffect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888OverlayEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/ARGB8888OverlayEffect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/Effector.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/Effector.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/OverlayEffect.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/OverlayEffect.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCreator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCreator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/FilterCategory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/FilterCategory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/jnicaller/Effector.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/jnicaller/Effector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,6 +86,7 @@
     <session id="101334869">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.opened" value="2" />
@@ -126,7 +99,7 @@
           <entry key="h" value="43" />
           <entry key="java" value="67" />
           <entry key="jpg" value="2" />
-          <entry key="kt" value="102" />
+          <entry key="kt" value="103" />
           <entry key="properties" value="1" />
           <entry key="xml" value="3" />
         </counts>
@@ -136,7 +109,7 @@
           <entry key="Groovy" value="2" />
           <entry key="Image" value="2" />
           <entry key="JAVA" value="67" />
-          <entry key="Kotlin" value="102" />
+          <entry key="Kotlin" value="103" />
           <entry key="ObjectiveC" value="50" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="3" />
@@ -148,7 +121,7 @@
           <entry key="gradle" value="3" />
           <entry key="h" value="348" />
           <entry key="java" value="133" />
-          <entry key="kt" value="3428" />
+          <entry key="kt" value="3555" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
@@ -156,7 +129,7 @@
         <counts>
           <entry key="Groovy" value="3" />
           <entry key="JAVA" value="133" />
-          <entry key="Kotlin" value="3428" />
+          <entry key="Kotlin" value="3555" />
           <entry key="ObjectiveC" value="364" />
           <entry key="XML" value="6" />
         </counts>
@@ -180,11 +153,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
-                <element signature="e#32#363#0" expanded="true" />
+                <element signature="e#32#315#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -2736,7 +2718,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/conventionalfilter/ConventionalSketch.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/conventionalfilter/ConventionalSolid.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/dto/FilterSeparator.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/OverlayEffect.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/utils/FilterCreator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterLib.kt" />
@@ -2762,6 +2743,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCreator.kt" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/Effector.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/ARGB8888MergingEffect.h" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" />
       </list>
     </option>
@@ -2845,7 +2827,26 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android-lib-filter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android-lib-filter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libfilter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android-lib-filter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android-lib-filter" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libfilter" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -3080,9 +3081,9 @@
       <window_info anchor="bottom" id="Android Profiler" order="0" weight="0.32843137" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5003984" side_tool="true" weight="0.51086956" />
       <window_info anchor="bottom" id="Logcat" order="2" sideWeight="0.4996016" weight="0.33229813" />
-      <window_info anchor="bottom" id="Build" order="3" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Build" order="3" weight="0.0" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32763976" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.24378882" />
+      <window_info anchor="bottom" id="Terminal" order="5" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32763976" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.35248446" />
@@ -3266,13 +3267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorFilter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -3449,12 +3443,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
-            <element signature="e#32#363#0" expanded="true" />
+            <element signature="e#32#315#0" expanded="true" />
           </folding>
         </state>
       </provider>
