@@ -1,0 +1,5 @@
+# ninja log v5
+1	536	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	f14749ad66b61ed5
+536	550	0	../../../../build/intermediates/cmake/release/obj/x86_64/libeffector.so	cc161e1aeee3f4b5
+0	240	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	f14749ad66b61ed5
+241	252	0	../../../../build/intermediates/cmake/release/obj/x86_64/libeffector.so	cc161e1aeee3f4b5
