@@ -1,4 +1,4 @@
-package com.mkrworld.libfilter.filter
+package com.mkrworld.libfilter
 
 import com.mkrworld.libfilter.dto.FilterMatrix
 import java.util.*
@@ -6,11 +6,11 @@ import java.util.*
 /**
  * @author THEMKR
  */
-abstract class BaseFilter {
+internal abstract class BaseFilter {
 
-    val pixelArray: IntArray
-    val imageWidth: Int
-    val filterMatrixArrayList: ArrayList<FilterMatrix>
+    protected val pixelArray: IntArray
+    protected val imageWidth: Int
+    protected val filterMatrixArrayList: ArrayList<FilterMatrix>
 
     /**
      * Constructor

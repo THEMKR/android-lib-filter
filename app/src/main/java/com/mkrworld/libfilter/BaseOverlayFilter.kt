@@ -1,20 +1,20 @@
-package com.mkrworld.libfilter.filter
+package com.mkrworld.libfilter
 
 /**
  * @author THEMKR
  */
-abstract class BaseOverlayFilter : BaseFilter {
+internal abstract class BaseOverlayFilter : BaseFilter {
 
     /**
      * Method to get the Overlay Image Pixel Array
      * @return
      */
-    val overlayPixelArray: IntArray
+    protected val overlayPixelArray: IntArray
     /**
      * Method to get the Multiplier
      * @return
      */
-    val multiplier: Float
+    protected val multiplier: Float
 
     /**
      * Constructor

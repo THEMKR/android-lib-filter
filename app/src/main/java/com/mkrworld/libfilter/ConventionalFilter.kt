@@ -1,4 +1,4 @@
-package com.mkrworld.libfilter.filter
+package com.mkrworld.libfilter
 
 import android.util.Log
 import com.mkrworld.libfilter.dto.FilterMatrix
@@ -10,7 +10,7 @@ import java.util.*
 /**
  * @author THEMKR
  */
-class ConventionalFilter : BaseFilter {
+internal class ConventionalFilter : BaseFilter {
 
     /**
      * Constructor

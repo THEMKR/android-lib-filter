@@ -84,7 +84,7 @@ class FilterMatrix {
      */
     private fun getMatrix(filterCategory: FilterCategory, offSet: Offset, matrix: FloatArray): FloatArray {
         var matrix = matrix
-        if (matrix.size == 0) {
+        if (matrix.isEmpty()) {
             when (filterCategory) {
                 FilterCategory.COLOR -> matrix = floatArrayOf(1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 1f)
                 FilterCategory.CONVENTIONAL -> matrix = floatArrayOf(0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 10f)

@@ -1,11 +1,11 @@
-package com.mkrworld.libfilter.filter
+package com.mkrworld.libfilter
 
 import com.mkrworld.libfilter.jnicaller.Effector
 
 /**
  * @author THEMKR
  */
-class OverlayEffect : BaseOverlayFilter {
+internal class OverlayEffect : BaseOverlayFilter {
 
     /**
      * Constructor
