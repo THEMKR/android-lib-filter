@@ -38,15 +38,17 @@ public:
     jintArray applyEffect() {
         init();
         ARGB *argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
+        ARGB *argbOverlay = reinterpret_cast<ARGB *>(pointerOverlayImagePixel);
         ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
 
         for (int i = 0; i < srcImagePixelCount; ++i) {
             ARGB srcARGB = argbSrc[i];
+            ARGB overlayARGB = argbOverlay[i];
             ARGB destARGB = argbDest[i];
-            destARGB.alpha = getMultiplyColor(srcARGB.alpha, destARGB.alpha);
-            destARGB.red = getMultiplyColor(srcARGB.red, destARGB.red);
-            destARGB.green = getMultiplyColor(srcARGB.green, destARGB.green);
-            destARGB.blue = getMultiplyColor(srcARGB.blue, destARGB.blue);
+            destARGB.alpha = getMultiplyColor(srcARGB.alpha, overlayARGB.alpha);
+            destARGB.red = getMultiplyColor(srcARGB.red, overlayARGB.red);
+            destARGB.green = getMultiplyColor(srcARGB.green, overlayARGB.green);
+            destARGB.blue = getMultiplyColor(srcARGB.blue, overlayARGB.blue);
             argbDest[i] = destARGB;
         }
         finish();
@@ -61,14 +63,14 @@ private:
      * @param overlayColor
      * @return
      */
-    int8_t getMultiplyColor(int8_t srcColor, int8_t overlayColor) {
-        return getColorValue(255 * getFloat1(srcColor) * getFloat1(overlayColor) * multiplier);
+    uint8_t getMultiplyColor(uint8_t srcColor, uint8_t overlayColor) {
+        return getColorValue(255.0 * getFloat1(srcColor) * getFloat1(overlayColor) * multiplier);
     }
 
     /**
     * Method to get the color value in 0-1 range
     */
-    float getFloat1(int8_t value) {
+    float getFloat1(uint8_t value) {
         return (float) value / 255.0;
     }
 
@@ -78,13 +80,13 @@ private:
     * @param value
     * @return
     */
-    int8_t getColorValue(float value) {
+    uint8_t getColorValue(float value) {
         if (value > 255.0) {
-            return (int8_t) 255;
+            return (uint8_t) 255;
         } else if (value < 0.0) {
             return 0;
         }
-        return (int8_t) value;
+        return (uint8_t) value;
     }
 };
 

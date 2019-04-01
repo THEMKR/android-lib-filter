@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import com.mkrworld.libfilter.dto.FilterMatrix
 import com.mkrworld.libfilter.enums.FilterCategory
+import com.mkrworld.libfilter.jnicaller.MergerEffect
 
 /**
  * Class for LIB Entry point
@@ -110,6 +111,9 @@ class FilterCreator {
             FilterCategory.MULTIPLY -> {
                 filterImageIntArray = MultiplierEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
             }
+            FilterCategory.MERGE -> {
+                filterImageIntArray = MergerEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+            }
         }
         return convertPixelArrayIntoBitmap(filterImageIntArray!!, imageWidth, imageHeight)
     }
@@ -123,7 +127,7 @@ class FilterCreator {
         private var overlayBitmap: Bitmap? = null
         private var filterMatrixArrayList: ArrayList<FilterMatrix>? = null
         private var multiplier: Float = 1.0F
-        private var offSet: Float = 1.0F
+        private var offSet: Float = 0.0F
 
         /**
          * Constructor
@@ -144,10 +148,10 @@ class FilterCreator {
 
         /**
          * Method to set the olayver bitmap
-         * @param destBitmap
+         * @param overlayBitmap
          */
-        fun setOverlayBitmap(destBitmap: Bitmap): Builder {
-            this.overlayBitmap = destBitmap
+        fun setOverlayBitmap(overlayBitmap: Bitmap): Builder {
+            this.overlayBitmap = overlayBitmap
             return this
         }
 
@@ -162,10 +166,17 @@ class FilterCreator {
 
         /**
          * Method to set the Multiplier
-         * @param multiplier
+         * @param multiplier In case on [FilterCategory.MERGE]  value should between 0-1
          */
         fun setMultiplier(multiplier: Float): Builder {
             this.multiplier = multiplier
+            if (filterCategory == FilterCategory.MERGE) {
+                if (this.multiplier > 1) {
+                    this.multiplier = 1F
+                } else if (this.multiplier < 0) {
+                    this.multiplier = 0F
+                }
+            }
             return this
         }
 
@@ -199,7 +210,7 @@ class FilterCreator {
                     }
                 }
                 FilterCategory.OVERLAY, FilterCategory.MULTIPLY -> {
-                    if (!isBitmapValid(srcBitmap, "SOURCE-BITMAP") || !isBitmapValid(overlayBitmap, "OVERLAY-BITMAP")) {
+                    if (!isBitmapValid(overlayBitmap, "OVERLAY-BITMAP")) {
                         return null
                     }
                 }

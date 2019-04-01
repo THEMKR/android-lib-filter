@@ -4,6 +4,7 @@
 #include "ARGB8888ConventionalColorEffect.h"
 #include "ARGB8888OverlayEffect.h"
 #include "ARGB8888MultiplyEffect.h"
+#include "ARGB8888MergingEffect.h"
 
 extern "C"
 JNIEXPORT jintArray JNICALL
@@ -89,5 +90,22 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setMultiplyEffect(JNIEnv *jEnv,
                                                          imageWidth,
                                                          overlayPixelArray,
                                                          multiplier);
+    return effect.applyEffect();
+};
+
+extern "C"
+JNIEXPORT jintArray JNICALL
+Java_com_mkrworld_libfilter_jnicaller_Effector_setMergingEffect(JNIEnv *jEnv,
+                                                                 jclass type,
+                                                                 jintArray imagePixelArray,
+                                                                 jint imageWidth,
+                                                                 jintArray overlayPixelArray,
+                                                                 jfloat multiplier) {
+
+    ARGB8888MergingEffect effect = ARGB8888MergingEffect(jEnv,
+                                                           imagePixelArray,
+                                                           imageWidth,
+                                                           overlayPixelArray,
+                                                           multiplier);
     return effect.applyEffect();
 };

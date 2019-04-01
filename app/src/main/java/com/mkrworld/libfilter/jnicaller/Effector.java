@@ -66,4 +66,15 @@ public class Effector {
      * @return
      */
     public static native int[] setMultiplyEffect(int[] pixelArray, int width, int[] overlayPixelArray, float multiplier);
+
+    /**
+     * Method to apply Multiply Effect
+     *
+     * @param pixelArray
+     * @param width
+     * @param overlayPixelArray
+     * @param overlayImageOpacity between 0-1
+     * @return
+     */
+    public static native int[] setMergingEffect(int[] pixelArray, int width, int[] overlayPixelArray, float overlayImageOpacity);
 }

@@ -9,9 +9,7 @@ class OverlayEffect : public BaseEffect {
 
 protected:
     jintArray overlayImageIntArray;
-    jintArray destImageIntArray;
     jint *pointerOverlayImagePixel;
-    jint *pointerDestImagePixel;
     jfloat multiplier;
 
     /**
@@ -22,7 +20,7 @@ protected:
     * @param overlayImageIntArray
     */
     OverlayEffect(JNIEnv *jEnv, jintArray srcImageIntArray, jint imageWidth, jintArray overlayImageIntArray, jfloat multiplier) : BaseEffect(jEnv, srcImageIntArray, imageWidth) {
-        this->overlayImageIntArray = srcImageIntArray;
+        this->overlayImageIntArray = overlayImageIntArray;
         this->multiplier=multiplier;
     }
 
@@ -31,9 +29,7 @@ protected:
     */
     void init() {
         BaseEffect::init();
-        destImageIntArray = jEnv->NewIntArray(srcImagePixelCount);
         pointerOverlayImagePixel = jEnv->GetIntArrayElements(overlayImageIntArray, NULL);
-        pointerDestImagePixel = jEnv->GetIntArrayElements(destImageIntArray, NULL);
     }
 
     /**
@@ -42,7 +38,6 @@ protected:
     void finish() {
         BaseEffect::finish();
         jEnv->ReleaseIntArrayElements(overlayImageIntArray, pointerOverlayImagePixel, 0);
-        jEnv->ReleaseIntArrayElements(destImageIntArray, pointerDestImagePixel, 0);
     }
 };
 

@@ -1,7 +1,2 @@
 [1/2] Building CXX object CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o
-In file included from /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp:5:
-/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/ARGB8888OverlayEffect.h:66:22: warning: result of comparison of constant 128 with expression of type 'int8_t' (aka 'signed char') is always true [-Wtautological-constant-out-of-range-compare]
-        if (srcColor < 128) {
-            ~~~~~~~~ ^ ~~~
-1 warning generated.
 [2/2] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so
