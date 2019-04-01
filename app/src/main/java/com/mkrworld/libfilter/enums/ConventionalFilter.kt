@@ -22,10 +22,6 @@ enum class ConventionalFilter {
             FilterMatrix(FilterCategory.CONVENTIONAL, floatArrayOf(0f, -3f, 0f, -3f, 15f, -3f, 0f, -3f, 0f))
     )),
 
-    EDGE_ENHANCE(arrayListOf(
-            FilterMatrix(FilterCategory.CONVENTIONAL, floatArrayOf(0f, 0f, 0f, -1f, -1f, 0f, 0f, 0f, 0f))
-    )),
-
     EMBOSS(arrayListOf(
             FilterMatrix(FilterCategory.CONVENTIONAL, floatArrayOf(-2f, -1f, 0f, -1f, 1f, 1f, 0f, 1f, 2f))
     )),
