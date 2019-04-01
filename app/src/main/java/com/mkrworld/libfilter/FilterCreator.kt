@@ -102,13 +102,13 @@ class FilterCreator {
                 filterImageIntArray = ColorFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
             }
             FilterCategory.CONVENTIONAL -> {
-                filterImageIntArray = ColorFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
+                filterImageIntArray = ConventionalFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
             }
             FilterCategory.OVERLAY -> {
-                filterImageIntArray = ColorFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
+                filterImageIntArray = OverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
             }
             FilterCategory.MULTIPLY -> {
-                filterImageIntArray = ColorFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
+                filterImageIntArray = MultiplierEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
             }
         }
         return convertPixelArrayIntoBitmap(filterImageIntArray!!, imageWidth, imageHeight)
