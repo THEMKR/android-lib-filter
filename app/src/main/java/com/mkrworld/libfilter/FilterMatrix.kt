@@ -94,7 +94,7 @@ class FilterMatrix {
          *
          * @return
          */
-        private var filterCategory: FilterCategory = FilterCategory.COLOR
+        private val filterCategory: FilterCategory
 
         /**
          * Method to get the OffSet
@@ -102,6 +102,10 @@ class FilterMatrix {
          * @return
          */
         private var offSet: Offset = Offset(0F)
+
+        constructor(filterCategory: FilterCategory) {
+            this.filterCategory = filterCategory
+        }
 
         /**
          * Method to set the effect matrix
@@ -116,14 +120,6 @@ class FilterMatrix {
          */
         fun setMultiplier(multiplier: Float): Builder {
             this.multiplier = multiplier
-            return this
-        }
-
-        /**
-         * Method to set the filter category
-         */
-        fun setFilterCategory(filterCategory: FilterCategory): Builder {
-            this.filterCategory = filterCategory
             return this
         }
 

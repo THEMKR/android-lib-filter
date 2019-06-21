@@ -168,5 +168,4 @@ internal enum class MATRIX {
         this.offset = offset
         this.matrix = matrix
     }
-
 }
