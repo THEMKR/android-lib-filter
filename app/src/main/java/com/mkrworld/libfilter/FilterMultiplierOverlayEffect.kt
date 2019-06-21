@@ -5,7 +5,7 @@ import com.mkrworld.libfilter.jnicaller.Effector
 /**
  * @author THEMKR
  */
-internal class MultiplierEffect : BaseOverlayFilter {
+internal class FilterMultiplierOverlayEffect : FilterBaseOverlayEffect {
 
     /**
      * Constructor

@@ -1,4 +1,4 @@
-package com.mkrworld.libfilter.dto
+package com.mkrworld.libfilter
 
 /**
  * @author THEMKR

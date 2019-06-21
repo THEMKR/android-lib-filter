@@ -1,16 +1,13 @@
 package com.mkrworld.libfilter
 
 import android.util.Log
-import com.mkrworld.libfilter.dto.FilterMatrix
-import com.mkrworld.libfilter.dto.FilterSeparator
-import com.mkrworld.libfilter.enums.FilterCategory
 import com.mkrworld.libfilter.jnicaller.Effector
 import java.util.*
 
 /**
  * @author THEMKR
  */
-internal class ConventionalFilter : BaseFilter {
+internal class FilterConventionalEffect : FilterBaseEffect {
 
     /**
      * Constructor
@@ -60,8 +57,8 @@ internal class ConventionalFilter : BaseFilter {
                 for (filterMatrix in colorFilterMatrixArray) {
                     if (filterMatrix.filterCategory === FilterCategory.COLOR) {
                         val matrix = filterMatrix.matrix
-                        for (`val` in matrix) {
-                            filterMatrixFloatArray.add(`val`)
+                        for (matrixElement in matrix) {
+                            filterMatrixFloatArray.add(matrixElement)
                         }
                         multiplierFloatArray.add(filterMatrix.multiplier)
                     }
@@ -83,7 +80,7 @@ internal class ConventionalFilter : BaseFilter {
                 }
             }
         }
-        Log.e("MKR", "TIME TAKEN : ConventionalFilter(" + this + "):      " + (System.currentTimeMillis() - l))
+        Log.e("MKR", "TIME TAKEN : FilterConventionalEffect(" + this + "):      " + (System.currentTimeMillis() - l))
         return pixelArray
     }
 }

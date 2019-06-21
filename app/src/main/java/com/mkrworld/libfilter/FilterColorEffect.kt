@@ -1,15 +1,13 @@
 package com.mkrworld.libfilter
 
 import android.util.Log
-import com.mkrworld.libfilter.dto.FilterMatrix
-import com.mkrworld.libfilter.enums.FilterCategory
 import com.mkrworld.libfilter.jnicaller.Effector
 import java.util.*
 
 /**
  * @author THEMKR
  */
-internal class ColorFilter : BaseFilter {
+internal class FilterColorEffect : FilterBaseEffect {
 
     /**
      * Constructor
@@ -44,7 +42,7 @@ internal class ColorFilter : BaseFilter {
             multiplier[index] = multiplierFloatArray[index]
         }
         pixelArray = Effector.setColorEffect(pixelArray, imageWidth, multiplier, matrixArray)
-        Log.e("MKR", "TIME TAKEN : ColorFilter(" + this + "):      " + (System.currentTimeMillis() - l))
+        Log.e("MKR", "TIME TAKEN : FilterColorEffect(" + this + "):      " + (System.currentTimeMillis() - l))
         return pixelArray
     }
 }

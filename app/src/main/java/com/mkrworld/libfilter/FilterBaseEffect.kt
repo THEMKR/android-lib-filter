@@ -1,12 +1,11 @@
 package com.mkrworld.libfilter
 
-import com.mkrworld.libfilter.dto.FilterMatrix
 import java.util.*
 
 /**
  * @author THEMKR
  */
-internal abstract class BaseFilter {
+internal abstract class FilterBaseEffect {
 
     protected val pixelArray: IntArray
     protected val imageWidth: Int

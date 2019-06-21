@@ -1,13 +1,12 @@
-package com.mkrworld.libfilter.dto
+package com.mkrworld.libfilter
 
-import com.mkrworld.libfilter.enums.FilterCategory
 import java.util.*
 
 /**
  * @author THEMKR
  * Class to hold the Conventional-Filter along with the List of Color-Filter to apply on image in Single Run
  */
-class FilterSeparator {
+internal class FilterSeparator {
 
     /**
      * List of Color-Filter-Matrix

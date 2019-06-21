@@ -4,15 +4,12 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
-import com.mkrworld.libfilter.dto.FilterMatrix
-import com.mkrworld.libfilter.enums.FilterCategory
-import com.mkrworld.libfilter.jnicaller.MergerEffect
 
 /**
  * Class for LIB Entry point
  * @author THEMKR
  */
-class FilterCreator {
+class Filter {
     companion object {
 
         /**
@@ -22,7 +19,7 @@ class FilterCreator {
          * @param destWidth   New dest width of the Bitmap
          * @param destHeighgt New dest height of the Bitmap
          */
-        private fun getARGB888Image(bitmap: Bitmap, destWidth: Int, destHeighgt: Int): Bitmap {
+        fun getARGB888Image(bitmap: Bitmap, destWidth: Int, destHeighgt: Int): Bitmap {
             if (bitmap.config == Bitmap.Config.ARGB_8888 && bitmap.width == destWidth && bitmap.height == destHeighgt) {
                 return bitmap
             }
@@ -41,7 +38,7 @@ class FilterCreator {
          * @param bitmap
          * @return
          */
-        private fun convertBitmapIntoPixelArray(bitmap: Bitmap): IntArray {
+        fun convertBitmapIntoPixelArray(bitmap: Bitmap): IntArray {
             val bitmapPixelArray = IntArray(bitmap.width * bitmap.height)
             bitmap.getPixels(bitmapPixelArray, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
             return bitmapPixelArray
@@ -55,7 +52,7 @@ class FilterCreator {
          * @param height           Height of the Bitmap
          * @return
          */
-        private fun convertPixelArrayIntoBitmap(bitmapPixelArray: IntArray, width: Int, height: Int): Bitmap {
+        fun convertPixelArrayIntoBitmap(bitmapPixelArray: IntArray, width: Int, height: Int): Bitmap {
             val filteredBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
             filteredBitmap.setPixels(bitmapPixelArray, 0, width, 0, 0, width, height)
             return filteredBitmap
@@ -100,19 +97,19 @@ class FilterCreator {
         var filterImageIntArray: IntArray?
         when (filterCategory) {
             FilterCategory.COLOR -> {
-                filterImageIntArray = ColorFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
+                filterImageIntArray = FilterColorEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
             }
             FilterCategory.CONVENTIONAL -> {
-                filterImageIntArray = ConventionalFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
+                filterImageIntArray = FilterConventionalEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
             }
             FilterCategory.OVERLAY -> {
-                filterImageIntArray = OverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+                filterImageIntArray = FilterOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
             }
             FilterCategory.MULTIPLY -> {
-                filterImageIntArray = MultiplierEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+                filterImageIntArray = FilterMultiplierOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
             }
             FilterCategory.MERGE -> {
-                filterImageIntArray = MergerEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+                filterImageIntArray = FilterMergerOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
             }
         }
         return convertPixelArrayIntoBitmap(filterImageIntArray!!, imageWidth, imageHeight)
@@ -190,12 +187,11 @@ class FilterCreator {
         }
 
         /**
-         * Method to create the instance to FilterCreator
+         * Method to create the instance to Filter
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
-        fun build(): FilterCreator? {
-
+        fun build(): Filter? {
             // VALIDATE SRC BITMAP
             if (!isBitmapValid(srcBitmap, "SOURCE-BITMAP")) {
                 return null
@@ -224,7 +220,7 @@ class FilterCreator {
             } else {
                 null
             }
-            return FilterCreator(filterCategory, srcBitmapIntArray, imageWidth, imageHeight, overlayBitmapIntArray, filterMatrixArrayList, multiplier, offSet)
+            return Filter(filterCategory, srcBitmapIntArray, imageWidth, imageHeight, overlayBitmapIntArray, filterMatrixArrayList, multiplier, offSet)
         }
 
         /**
@@ -238,7 +234,7 @@ class FilterCreator {
                 throw Exception("Plz set a $bitmap")
                 return false
             }
-            if (bitmap?.isRecycled == true) {
+            if (bitmap?.isRecycled) {
                 throw Exception("Don not put a recycled $bitmap")
                 return false
             }

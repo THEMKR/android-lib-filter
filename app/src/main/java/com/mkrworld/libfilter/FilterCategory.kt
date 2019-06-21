@@ -1,4 +1,4 @@
-package com.mkrworld.libfilter.enums
+package com.mkrworld.libfilter
 
 /**
  * @author THEMKR

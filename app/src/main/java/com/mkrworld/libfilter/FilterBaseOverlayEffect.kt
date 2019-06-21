@@ -3,7 +3,7 @@ package com.mkrworld.libfilter
 /**
  * @author THEMKR
  */
-internal abstract class BaseOverlayFilter : BaseFilter {
+internal abstract class FilterBaseOverlayEffect : FilterBaseEffect {
 
     /**
      * Method to get the Overlay Image Pixel Array
