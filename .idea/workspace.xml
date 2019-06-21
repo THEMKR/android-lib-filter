@@ -12,14 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1c3e2f6-8d67-4b34-9032-861470a55aae" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/LibFilter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Filter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Filter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMatrix.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMatrix.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Filter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBuilder.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,40 +38,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterConventionalEffect.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Filter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="477" column="1" lean-forward="true" selection-start-line="477" selection-start-column="1" selection-end-line="477" selection-end-column="1" />
-              <folding>
-                <element signature="e#2353#4853#0" />
-                <element signature="e#4966#7487#0" />
-                <element signature="e#7585#10710#0" />
-                <element signature="e#10811#13949#0" />
-                <element signature="e#14041#17338#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCategory.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBaseEffect.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="470">
@@ -86,37 +47,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterColorEffect.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterSeparator.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+            <state relative-caret-position="265">
+              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMatrix.kt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/LibFilter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBaseOverlayEffect.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMergerOverlayEffect.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state relative-caret-position="225">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -179,8 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorInvert.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorBlue.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorContrasBlue.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorGreen.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorCyan.kt" />
@@ -224,12 +165,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBaseOverlayEffect.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MergerOverlayEffect.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMergerOverlayEffect.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterSeparator.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MATRIX.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMatrix.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Filter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCategory.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterSeparator.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBuilder.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/LibFilter.kt" />
       </list>
     </option>
   </component>
@@ -562,7 +505,7 @@
       <window_info anchor="bottom" id="Logcat" order="2" sideWeight="0.4996016" weight="0.33229813" />
       <window_info anchor="bottom" id="Build" order="3" weight="0.048387095" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32763976" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.30806452" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.048387095" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32419354" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.35248446" />
@@ -648,7 +591,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorRed.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorInvert.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorBlue.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/filter/colorfilter/ColorContrasBlue.kt" />
@@ -762,49 +704,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ColorFilter.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Offset.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterOverlayEffect.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="72" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/enums/ConventionalFilter.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MATRIX.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2190">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterSeparator.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMultiplierOverlayEffect.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/cpp/OverlayEffect.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -836,27 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Filter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="477" column="1" lean-forward="true" selection-start-line="477" selection-start-column="1" selection-end-line="477" selection-end-column="1" />
-          <folding>
-            <element signature="e#2353#4853#0" />
-            <element signature="e#4966#7487#0" />
-            <element signature="e#7585#10710#0" />
-            <element signature="e#10811#13949#0" />
-            <element signature="e#14041#17338#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBaseEffect.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBaseOverlayEffect.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -868,6 +747,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MATRIX.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCategory.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMultiplierOverlayEffect.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -885,17 +799,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterMatrix.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterOverlayEffect.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="255">
+          <caret line="17" column="72" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterCategory.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/Offset.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="425">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBaseEffect.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterBuilder.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2029">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#32#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/FilterSeparator.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mkrworld/libfilter/LibFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>

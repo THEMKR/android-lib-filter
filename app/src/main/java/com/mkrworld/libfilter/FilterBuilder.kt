@@ -6,10 +6,10 @@ import android.graphics.Paint
 import android.graphics.RectF
 
 /**
- * Class for LIB Entry point
+ * Class used to build the FilteredImage. User can pass its custom image for that
  * @author THEMKR
  */
-class Filter {
+class FilterBuilder {
     companion object {
 
         /**
@@ -245,7 +245,7 @@ class Filter {
         }
 
         /**
-         * Method to create the instance to Filter
+         * Method to create the instance to FilterBuilder
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
@@ -334,7 +334,7 @@ class Filter {
         }
 
         /**
-         * Method to create the instance to Filter
+         * Method to create the instance to FilterBuilder
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
@@ -426,7 +426,7 @@ class Filter {
         }
 
         /**
-         * Method to create the instance to Filter
+         * Method to create the instance to FilterBuilder
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
