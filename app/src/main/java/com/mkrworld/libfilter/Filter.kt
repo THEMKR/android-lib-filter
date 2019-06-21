@@ -59,86 +59,166 @@ class Filter {
         }
     }
 
-    private val filterCategory: FilterCategory
-    private val srcBitmapIntArray: IntArray
-    private val imageWidth: Int
-    private val imageHeight: Int
-    private val overlayBitmapIntArray: IntArray?
-    private val filterMatrixArrayList: ArrayList<FilterMatrix>?
-    private val multiplier: Float
-    private val offSet: Float
-
     /**
-     * CONSTRUCTOR
-     * @param filterCategory
-     * @param srcBitmapIntArray
-     * @param imageWidth
-     * @param imageHeight
-     * @param overlayBitmapIntArray
-     * @param filterMatrixArrayList
-     * @param multiplier
-     * @param offSet
+     * Make constructor private
      */
-    constructor(filterCategory: FilterCategory, srcBitmapIntArray: IntArray, imageWidth: Int, imageHeight: Int, overlayBitmapIntArray: IntArray?, filterMatrixArrayList: ArrayList<FilterMatrix>?, multiplier: Float, offSet: Float) {
-        this.filterCategory = filterCategory
-        this.srcBitmapIntArray = srcBitmapIntArray
-        this.imageWidth = imageWidth
-        this.imageHeight = imageHeight
-        this.overlayBitmapIntArray = overlayBitmapIntArray
-        this.filterMatrixArrayList = filterMatrixArrayList
-        this.multiplier = multiplier
-        this.offSet = offSet
+    private constructor() {
+
     }
 
     /**
-     * Method to apply effect
+     * BuilderColor used to build the Color effect
      */
-    fun applyEffect(): Bitmap? {
-        var filterImageIntArray: IntArray?
-        when (filterCategory) {
-            FilterCategory.COLOR -> {
-                filterImageIntArray = FilterColorEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
-            }
-            FilterCategory.CONVENTIONAL -> {
-                filterImageIntArray = FilterConventionalEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList ?: ArrayList()).applyFilter()
-            }
-            FilterCategory.OVERLAY -> {
-                filterImageIntArray = FilterOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
-            }
-            FilterCategory.MULTIPLY -> {
-                filterImageIntArray = FilterMultiplierOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
-            }
-            FilterCategory.MERGE -> {
-                filterImageIntArray = FilterMergerOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
-            }
-        }
-        return convertPixelArrayIntoBitmap(filterImageIntArray!!, imageWidth, imageHeight)
-    }
-
-    /**
-     * Builder used to build the effect
-     */
-    class Builder {
-        private val filterCategory: FilterCategory
+    class BuilderColor {
         private var srcBitmap: Bitmap? = null
-        private var overlayBitmap: Bitmap? = null
         private var filterMatrixArrayList: ArrayList<FilterMatrix>? = null
-        private var multiplier: Float = 1.0F
-        private var offSet: Float = 0.0F
-
-        /**
-         * Constructor
-         * @param filterCategory
-         */
-        constructor(filterCategory: FilterCategory) {
-            this.filterCategory = filterCategory
-        }
 
         /**
          * Method to set the source bitmap
          * @param srcBitmap
          */
-        fun setSrcBitmap(srcBitmap: Bitmap): Builder {
+        fun setSrcBitmap(srcBitmap: Bitmap): BuilderColor {
+            this.srcBitmap = srcBitmap
+            return this
+        }
+
+        /**
+         * Method to set the arrayList of the filter matrix
+         * @param filterMatrixArrayList
+         */
+        fun setFilterMatrixArrayList(filterMatrixArrayList: ArrayList<FilterMatrix>): BuilderColor {
+            this.filterMatrixArrayList = filterMatrixArrayList
+            return this
+        }
+
+        /**
+         * Method to build the effect and return the new filtered bitmap
+         * @return New Filtered Bitmap
+         * @exception EXCEPTION if something wrong happen
+         */
+        fun buildEffect(): Bitmap? {
+            if (!isValid()) {
+                return null
+            }
+            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val imageWidth: Int = srcBitmap!!.width
+            val imageHeight: Int = srcBitmap!!.height
+            val destBitmapIntArray = FilterColorEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
+            return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+        }
+
+        /**
+         * Method to check weather the Effect data is valid or not
+         * @return TRUE if data is valid else through Exception
+         */
+        private fun isValid(): Boolean {
+            if (srcBitmap == null) {
+                throw Exception("SOURCE BITMAP NOT FOUND")
+                return false
+            }
+            if (srcBitmap?.isRecycled ?: true) {
+                throw Exception("SOURCE BITMAP IS RECYCLED")
+                return false
+            }
+            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+            if (filterMatrixArrayList == null) {
+                throw Exception("FILTER MATRIX NOT FOUND")
+                return false
+            }
+            if ((filterMatrixArrayList?.size ?: 0) == 0) {
+                throw Exception("FILTER MATRIX SHOULD NOT BE EMPTY")
+                return false
+            }
+            return true
+        }
+    }
+
+    /**
+     * BuilderConventional used to build the Conventional effect
+     */
+    class BuilderConventional {
+        private var srcBitmap: Bitmap? = null
+        private var filterMatrixArrayList: ArrayList<FilterMatrix>? = null
+
+        /**
+         * Method to set the source bitmap
+         * @param srcBitmap
+         */
+        fun setSrcBitmap(srcBitmap: Bitmap): BuilderConventional {
+            this.srcBitmap = srcBitmap
+            return this
+        }
+
+        /**
+         * Method to set the arrayList of the filter matrix
+         * @param filterMatrixArrayList
+         */
+        fun setFilterMatrixArrayList(filterMatrixArrayList: ArrayList<FilterMatrix>): BuilderConventional {
+            this.filterMatrixArrayList = filterMatrixArrayList
+            return this
+        }
+
+        /**
+         * Method to build the effect and return the new filtered bitmap
+         * @return New Filtered Bitmap
+         * @exception EXCEPTION if something wrong happen
+         */
+        fun buildEffect(): Bitmap? {
+            if (!isValid()) {
+                return null
+            }
+            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val imageWidth: Int = srcBitmap!!.width
+            val imageHeight: Int = srcBitmap!!.height
+            val destBitmapIntArray = FilterConventionalEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
+            return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+        }
+
+        /**
+         * Method to check weather the Effect data is valid or not
+         * @return TRUE if data is valid else through Exception
+         */
+        private fun isValid(): Boolean {
+            if (srcBitmap == null) {
+                throw Exception("SOURCE BITMAP NOT FOUND")
+                return false
+            }
+            if (srcBitmap?.isRecycled ?: true) {
+                throw Exception("SOURCE BITMAP IS RECYCLED")
+                return false
+            }
+            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+            if (filterMatrixArrayList == null) {
+                throw Exception("FILTER MATRIX NOT FOUND")
+                return false
+            }
+            if ((filterMatrixArrayList?.size ?: 0) == 0) {
+                throw Exception("FILTER MATRIX SHOULD NOT BE EMPTY")
+                return false
+            }
+            return true
+        }
+    }
+
+    /**
+     * BuilderOverlay used to build the Overlay effect
+     */
+    class BuilderOverlay {
+        private var srcBitmap: Bitmap? = null
+        private var overlayBitmap: Bitmap? = null
+        private var multiplier: Float = 1.0F
+
+        /**
+         * Method to set the source bitmap
+         * @param srcBitmap
+         */
+        fun setSrcBitmap(srcBitmap: Bitmap): BuilderOverlay {
             this.srcBitmap = srcBitmap
             return this
         }
@@ -147,42 +227,20 @@ class Filter {
          * Method to set the olayver bitmap
          * @param overlayBitmap
          */
-        fun setOverlayBitmap(overlayBitmap: Bitmap): Builder {
+        fun setOverlayBitmap(overlayBitmap: Bitmap): BuilderOverlay {
             this.overlayBitmap = overlayBitmap
             return this
         }
 
         /**
-         * Method to set the arrayList of the filter matrix
-         * @param filterMatrixArrayList
-         */
-        fun setFilterMatrixArrayList(filterMatrixArrayList: ArrayList<FilterMatrix>): Builder {
-            this.filterMatrixArrayList = filterMatrixArrayList
-            return this
-        }
-
-        /**
          * Method to set the Multiplier
-         * @param multiplier In case on [FilterCategory.MERGE]  value should between 0-1
+         * @param multiplier Multiply the color intensity
          */
-        fun setMultiplier(multiplier: Float): Builder {
+        fun setMultiplier(multiplier: Float): BuilderOverlay {
             this.multiplier = multiplier
-            if (filterCategory == FilterCategory.MERGE) {
-                if (this.multiplier > 1) {
-                    this.multiplier = 1F
-                } else if (this.multiplier < 0) {
-                    this.multiplier = 0F
-                }
+            if (this.multiplier < 0F) {
+                this.multiplier = 0F
             }
-            return this
-        }
-
-        /**
-         * Method to set the OffSet
-         * @param offSet
-         */
-        fun setOffSet(offSet: Float): Builder {
-            this.offSet = offSet
             return this
         }
 
@@ -191,55 +249,227 @@ class Filter {
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
-        fun build(): Filter? {
-            // VALIDATE SRC BITMAP
-            if (!isBitmapValid(srcBitmap, "SOURCE-BITMAP")) {
+        fun build(): Bitmap? {
+            if (isValid()) {
                 return null
             }
-
-            // VALIDATE OVERLAY BITMAP AND EFFECT MATRIX
-            when (filterCategory) {
-                FilterCategory.CONVENTIONAL, FilterCategory.COLOR -> {
-                    if (filterMatrixArrayList == null || (filterMatrixArrayList?.size ?: 0) == 0) {
-                        throw Exception("Plz set a valid array of FilterMatrix")
-                        return null
-                    }
-                }
-                FilterCategory.OVERLAY, FilterCategory.MULTIPLY -> {
-                    if (!isBitmapValid(overlayBitmap, "OVERLAY-BITMAP")) {
-                        return null
-                    }
-                }
-            }
-
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray? = if (overlayBitmap != null) {
-                convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
-            } else {
-                null
-            }
-            return Filter(filterCategory, srcBitmapIntArray, imageWidth, imageHeight, overlayBitmapIntArray, filterMatrixArrayList, multiplier, offSet)
+            var overlayBitmapIntArray: IntArray? = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = FilterOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
         /**
-         * Method to check weather the Bitmap is valid or not
-         * @param bitmap
-         * @param bitmapName
-         * @return TRUE if valid bitmap else through Exception
+         * Method to check weather the Effect data is valid or not
+         * @return TRUE if data is valid else through Exception
          */
-        private fun isBitmapValid(bitmap: Bitmap?, bitmapName: String): Boolean {
-            if (bitmap == null) {
-                throw Exception("Plz set a $bitmap")
+        private fun isValid(): Boolean {
+            if (srcBitmap == null) {
+                throw Exception("SOURCE BITMAP NOT FOUND")
                 return false
             }
-            if (bitmap?.isRecycled) {
-                throw Exception("Don not put a recycled $bitmap")
+            if (srcBitmap?.isRecycled ?: true) {
+                throw Exception("SOURCE BITMAP IS RECYCLED")
                 return false
             }
-            if ((bitmap?.width ?: 0) <= 0 || (bitmap?.height ?: 0) <= 0) {
-                throw Exception("$bitmap atleast have 1px width and height")
+            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+
+            if (overlayBitmap == null) {
+                throw Exception("OVERLAY BITMAP NOT FOUND")
+                return false
+            }
+            if (overlayBitmap?.isRecycled ?: true) {
+                throw Exception("OVERLAY BITMAP IS RECYCLED")
+                return false
+            }
+            if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+            return true
+        }
+    }
+
+    /**
+     * BuilderMultiply used to build the Multiply effect
+     */
+    class BuilderMultiply {
+        private var srcBitmap: Bitmap? = null
+        private var overlayBitmap: Bitmap? = null
+        private var multiplier: Float = 1.0F
+
+        /**
+         * Method to set the source bitmap
+         * @param srcBitmap
+         */
+        fun setSrcBitmap(srcBitmap: Bitmap): BuilderMultiply {
+            this.srcBitmap = srcBitmap
+            return this
+        }
+
+        /**
+         * Method to set the olayver bitmap
+         * @param overlayBitmap
+         */
+        fun setOverlayBitmap(overlayBitmap: Bitmap): BuilderMultiply {
+            this.overlayBitmap = overlayBitmap
+            return this
+        }
+
+        /**
+         * Method to set the Multiplier
+         * @param multiplier Multiply the color intensity
+         */
+        fun setMultiplier(multiplier: Float): BuilderMultiply {
+            this.multiplier = multiplier
+            if (this.multiplier < 0F) {
+                this.multiplier = 0F
+            }
+            return this
+        }
+
+        /**
+         * Method to create the instance to Filter
+         * @return The creator to create the effect
+         * @exception EXCEPTION if something wrong happen
+         */
+        fun build(): Bitmap? {
+            if (isValid()) {
+                return null
+            }
+            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val imageWidth: Int = srcBitmap!!.width
+            val imageHeight: Int = srcBitmap!!.height
+            var overlayBitmapIntArray: IntArray? = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = FilterMultiplierOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+        }
+
+        /**
+         * Method to check weather the Effect data is valid or not
+         * @return TRUE if data is valid else through Exception
+         */
+        private fun isValid(): Boolean {
+            if (srcBitmap == null) {
+                throw Exception("SOURCE BITMAP NOT FOUND")
+                return false
+            }
+            if (srcBitmap?.isRecycled ?: true) {
+                throw Exception("SOURCE BITMAP IS RECYCLED")
+                return false
+            }
+            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+
+            if (overlayBitmap == null) {
+                throw Exception("OVERLAY BITMAP NOT FOUND")
+                return false
+            }
+            if (overlayBitmap?.isRecycled ?: true) {
+                throw Exception("OVERLAY BITMAP IS RECYCLED")
+                return false
+            }
+            if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+            return true
+        }
+    }
+
+    /**
+     * BuilderMerge used to build the Merge effect
+     */
+    class BuilderMerge {
+        private var srcBitmap: Bitmap? = null
+        private var overlayBitmap: Bitmap? = null
+        private var overlayImageOpacity: Float = 1.0F
+
+        /**
+         * Method to set the source bitmap
+         * @param srcBitmap
+         */
+        fun setSrcBitmap(srcBitmap: Bitmap): BuilderMerge {
+            this.srcBitmap = srcBitmap
+            return this
+        }
+
+        /**
+         * Method to set the olayver bitmap
+         * @param overlayBitmap
+         */
+        fun setOverlayBitmap(overlayBitmap: Bitmap): BuilderMerge {
+            this.overlayBitmap = overlayBitmap
+            return this
+        }
+
+        /**
+         * Method to set the OverlayImageOpacity
+         * @param overlayImageOpacity [0-1] only
+         */
+        fun setMultiplier(overlayImageOpacity: Float): BuilderMerge {
+            this.overlayImageOpacity = overlayImageOpacity
+            if (this.overlayImageOpacity < 0F) {
+                this.overlayImageOpacity = 0F
+            }
+            if (this.overlayImageOpacity > 1F) {
+                this.overlayImageOpacity = 1F
+            }
+            return this
+        }
+
+        /**
+         * Method to create the instance to Filter
+         * @return The creator to create the effect
+         * @exception EXCEPTION if something wrong happen
+         */
+        fun build(): Bitmap? {
+            if (isValid()) {
+                return null
+            }
+            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val imageWidth: Int = srcBitmap!!.width
+            val imageHeight: Int = srcBitmap!!.height
+            var overlayBitmapIntArray: IntArray? = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = FilterMergerOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, overlayImageOpacity).applyFilter()
+            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+        }
+
+        /**
+         * Method to check weather the Effect data is valid or not
+         * @return TRUE if data is valid else through Exception
+         */
+        private fun isValid(): Boolean {
+            if (srcBitmap == null) {
+                throw Exception("SOURCE BITMAP NOT FOUND")
+                return false
+            }
+            if (srcBitmap?.isRecycled ?: true) {
+                throw Exception("SOURCE BITMAP IS RECYCLED")
+                return false
+            }
+            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+
+            if (overlayBitmap == null) {
+                throw Exception("OVERLAY BITMAP NOT FOUND")
+                return false
+            }
+            if (overlayBitmap?.isRecycled ?: true) {
+                throw Exception("OVERLAY BITMAP IS RECYCLED")
+                return false
+            }
+            if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
                 return false
             }
             return true

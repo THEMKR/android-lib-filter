@@ -14,18 +14,18 @@ class MainActivity : AppCompatActivity() {
         // Example of a call to a native method
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                val bitmap1 = Filter.Builder(FilterCategory.COLOR).setSrcBitmap(getSrcImage()!!).setFilterMatrixArrayList(FilterColorEffect.GRAY_SCALE.filterMatrixArrayList).build()?.applyEffect()
-                val bitmap2 = Filter.Builder(FilterCategory.CONVENTIONAL).setSrcBitmap(getSrcImage()!!).setFilterMatrixArrayList(ConventionalFilter.INVERT_BLUR.filterMatrixArrayList).build()?.applyEffect()
-                val bitmap3 = Filter.Builder(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).build()?.applyEffect()
+                val bitmap1 = Filter.BuilderColor(FilterCategory.COLOR).setSrcBitmap(getSrcImage()!!).setFilterMatrixArrayList(FilterColorEffect.GRAY_SCALE.filterMatrixArrayList).build()?.applyEffect()
+                val bitmap2 = Filter.BuilderColor(FilterCategory.CONVENTIONAL).setSrcBitmap(getSrcImage()!!).setFilterMatrixArrayList(ConventionalFilter.INVERT_BLUR.filterMatrixArrayList).build()?.applyEffect()
+                val bitmap3 = Filter.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).build()?.applyEffect()
 
                 // MERGE COLOR
-//                val bitmap4 = Filter.Builder(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(0F).build()?.applyEffect()
-//                val bitmap5 = Filter.Builder(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(1F).build()?.applyEffect()
+//                val bitmap4 = Filter.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(0F).build()?.applyEffect()
+//                val bitmap5 = Filter.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(1F).build()?.applyEffect()
 //
 //                // MERGE GRAYSCALE
-//                val bitmap6 = Filter.Builder(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(1F).build()?.applyEffect()
-//                val bitmap7 = Filter.Builder(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0.5F).build()?.applyEffect()
-//                val bitmap8 = Filter.Builder(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0F).build()?.applyEffect()
+//                val bitmap6 = Filter.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(1F).build()?.applyEffect()
+//                val bitmap7 = Filter.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0.5F).build()?.applyEffect()
+//                val bitmap8 = Filter.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0F).build()?.applyEffect()
 
                 imageView1.setImageBitmap(bitmap1)
                 imageView2.setImageBitmap(bitmap2)

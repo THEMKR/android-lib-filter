@@ -3,7 +3,7 @@ package com.mkrworld.libfilter
 /**
  * @author THEMKR
  */
-internal class FilterMatrix {
+class FilterMatrix {
 
     /**
      * Method to get the Filter Matrix.<br></br>[<UL><LI>4X5 for Color</LI><LI>3X3 for Conventional</LI><LI>1X1 for Rest Other</LI></UL>]
