@@ -2,12 +2,12 @@
 // Created by THE-MKR on 3/9/18.
 //
 
-#ifndef LIB_FILTER_OVERLAYEFFECT_H
-#define LIB_FILTER_OVERLAYEFFECT_H
+#ifndef LIB_FILTER_MERGINHEFFECT_H
+#define LIB_FILTER_MERGINHEFFECT_H
 
 #include "BaseEffect.h"
 
-class OverlayEffect : public BaseEffect {
+class MergingEffect : public BaseEffect {
 
 protected:
 
@@ -45,23 +45,6 @@ protected:
         jEnv->ReleaseIntArrayElements(overlayImageIntArray, pointerOverlayImagePixel, 0);
     }
 
-
-private:
-
-    /**
-     * Method to get the Overlay COlor
-     * @param srcColor
-     * @param overlayColor
-     * @return
-     */
-    uint8_t getOverlayColor(uint8_t srcColor, uint8_t overlayColor) {
-        if (srcColor < 128) {
-            return getColorValue(2.0 * 255.0 * toFloatBy225(srcColor) * toFloatBy225(overlayColor) * multiplier);
-        } else {
-            return getColorValue(255.0 * (1.0 - (2.0 * (1.0 - toFloatBy225(srcColor)) * (1.0 - toFloatBy225(overlayColor)))) * multiplier);
-        }
-    }
-
 public:
 
     /**
@@ -72,11 +55,10 @@ public:
      * @param srcMultiplierArray
      * @param effectMatrixArray
      */
-    OverlayEffect(JNIEnv *jEnv,
-                          jintArray srcImageIntArray,
-                          jint imageWidth,
-                          jintArray overlayImageIntArray,
-                          jfloat multiplier) : BaseEffect() {
+    MergingEffect(JNIEnv *jEnv,
+                  jintArray srcImageIntArray,
+                  jint imageWidth,
+                  jintArray overlayImageIntArray, jfloat overlayImageOpacity) : BaseEffect() {
         this->jEnv = jEnv;
         this->srcImageIntArray = srcImageIntArray;
         this->imageWidth = imageWidth;
@@ -95,14 +77,16 @@ public:
         ARGB *argbOverlay = reinterpret_cast<ARGB *>(pointerOverlayImagePixel);
         ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
 
+        jfloat srcMult = 1.0 - multiplier;
+
         for (int i = 0; i < srcImagePixelCount; ++i) {
             ARGB srcARGB = argbSrc[i];
             ARGB overlayARGB = argbOverlay[i];
             ARGB destARGB = argbDest[i];
-            destARGB.alpha = getOverlayColor(srcARGB.alpha, overlayARGB.alpha);
-            destARGB.red = getOverlayColor(srcARGB.red, overlayARGB.red);
-            destARGB.green = getOverlayColor(srcARGB.green, overlayARGB.green);
-            destARGB.blue = getOverlayColor(srcARGB.blue, overlayARGB.blue);
+            destARGB.alpha = getColorValue(srcARGB.alpha + getFloat(overlayARGB.alpha, multiplier));
+            destARGB.red = getColorValue(getFloat(srcARGB.red, srcMult) + getFloat(overlayARGB.red, multiplier));
+            destARGB.green = getColorValue(getFloat(srcARGB.green, srcMult) + getFloat(overlayARGB.green, multiplier));
+            destARGB.blue = getColorValue(getFloat(srcARGB.blue, srcMult) + getFloat(overlayARGB.blue, multiplier));
             argbDest[i] = destARGB;
         }
         finish();
@@ -110,4 +94,4 @@ public:
     }
 };
 
-#endif //LIB_FILTER_ARGB8888OVERLAYEFFECT_H
+#endif //LIB_FILTER_ARGB8888MERGINHEFFECT_H

@@ -17,45 +17,28 @@ typedef struct {
 
 class BaseEffect {
 
-protected:
-    JNIEnv *jEnv;
-    jintArray srcImageIntArray;
-    jintArray destImageIntArray;
-    jint imageWidth;
-    jint srcImagePixelCount;
-    jint *pointerSrcImagePixel;
-    jint *pointerDestImagePixel;
+public:
 
     /**
-    * Constructor
-    * @param jEnv
-    * @param srcImageByteArray
-    * @param imageWidth
+    * Method to get the color value in 0-255 range
+    * @param value
+    * @return
     */
-    BaseEffect(JNIEnv *jEnv,
-               jintArray srcImageIntArray,
-               jint imageWidth) {
-        this->jEnv = jEnv;
-        this->srcImageIntArray = srcImageIntArray;
-        this->imageWidth = imageWidth;
+    uint8_t getColorValue(float value) {
+        if (value > 255.0) {
+            return (uint8_t) 255;
+        } else if (value < 0.0) {
+            return 0;
+        }
+        return (uint8_t) value;
     }
 
-    /**
-    * Method to initialized the Res. (super) should be called if Override
-    */
-    void init() {
-        srcImagePixelCount = jEnv->GetArrayLength(srcImageIntArray);
-        destImageIntArray = jEnv->NewIntArray(srcImagePixelCount);
-        pointerSrcImagePixel = jEnv->GetIntArrayElements(srcImageIntArray, NULL);
-        pointerDestImagePixel = jEnv->GetIntArrayElements(destImageIntArray, NULL);
+    float getFloat(uint8_t value, float mult) {
+        return (float) value * mult;
     }
 
-    /**
-     * Method to  release all the Res that was initialized before
-     */
-    void finish() {
-        jEnv->ReleaseIntArrayElements(srcImageIntArray, pointerSrcImagePixel, 0);
-        jEnv->ReleaseIntArrayElements(destImageIntArray, pointerDestImagePixel, 0);
+    float toFloatBy225(uint8_t value) {
+        return (float) value / 255.0;
     }
 };
 

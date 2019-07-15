@@ -1,10 +1,10 @@
 #include <jni.h>
-#include "ARGB8888ColorEffect.h"
-#include "ARGB8888ConventionalEffect.h"
-#include "ARGB8888ConventionalColorEffect.h"
-#include "ARGB8888OverlayEffect.h"
-#include "ARGB8888MultiplyEffect.h"
-#include "ARGB8888MergingEffect.h"
+#include "ColorEffect.h"
+#include "ConventionalEffect.h"
+#include "ConventionalColorEffect.h"
+#include "OverlayEffect.h"
+#include "MultiplyEffect.h"
+#include "MergingEffect.h"
 
 extern "C"
 JNIEXPORT jintArray JNICALL
@@ -14,11 +14,11 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setColorEffect(JNIEnv *jEnv, jcla
                                                               jfloatArray srcMultiplierArray,
                                                               jfloatArray effectMatrixArray) {
 
-    ARGB8888ColorEffect effect = ARGB8888ColorEffect(jEnv,
-                                                     srcImageIntArray,
-                                                     imageWidth,
-                                                     srcMultiplierArray,
-                                                     effectMatrixArray);
+    ColorEffect effect = ColorEffect(jEnv,
+                                     srcImageIntArray,
+                                     imageWidth,
+                                     srcMultiplierArray,
+                                     effectMatrixArray);
     return effect.applyEffect();
 };
 
@@ -30,11 +30,11 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setConventionalEffect(JNIEnv *jEn
                                                                      jfloat multiplier,
                                                                      jfloatArray effectMatrixArray) {
 
-    ARGB8888ConventionalEffect effect = ARGB8888ConventionalEffect(jEnv,
-                                                                   imagePixelArray,
-                                                                   imageWidth,
-                                                                   multiplier,
-                                                                   effectMatrixArray);
+    ConventionalEffect effect = ConventionalEffect(jEnv,
+                                                   imagePixelArray,
+                                                   imageWidth,
+                                                   multiplier,
+                                                   effectMatrixArray);
     return effect.applyEffect();
 };
 
@@ -49,13 +49,13 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setConventionalMultiColorEffect(J
                                                                                jfloatArray srcColorMultiplierArray,
                                                                                jfloatArray colorEffectMatrixArray) {
 
-    ARGB8888ConventionalColorEffect effect = ARGB8888ConventionalColorEffect(jEnv,
-                                                                             imagePixelArray,
-                                                                             imageWidth,
-                                                                             multiplier,
-                                                                             effectMatrixArray,
-                                                                             srcColorMultiplierArray,
-                                                                             colorEffectMatrixArray);
+    ConventionalColorEffect effect = ConventionalColorEffect(jEnv,
+                                                             imagePixelArray,
+                                                             imageWidth,
+                                                             multiplier,
+                                                             effectMatrixArray,
+                                                             srcColorMultiplierArray,
+                                                             colorEffectMatrixArray);
     return effect.applyEffect();
 };
 
@@ -68,7 +68,7 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setOverlayEffect(JNIEnv *jEnv,
                                                                 jintArray overlayPixelArray,
                                                                 jfloat multiplier) {
 
-    ARGB8888OverlayEffect effect = ARGB8888OverlayEffect(jEnv,
+    OverlayEffect effect = OverlayEffect(jEnv,
                                                          imagePixelArray,
                                                          imageWidth,
                                                          overlayPixelArray,
@@ -79,33 +79,33 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setOverlayEffect(JNIEnv *jEnv,
 extern "C"
 JNIEXPORT jintArray JNICALL
 Java_com_mkrworld_libfilter_jnicaller_Effector_setMultiplyEffect(JNIEnv *jEnv,
-                                                                jclass type,
-                                                                jintArray imagePixelArray,
-                                                                jint imageWidth,
-                                                                jintArray overlayPixelArray,
-                                                                jfloat multiplier) {
-
-    ARGB8888MultiplyEffect effect = ARGB8888MultiplyEffect(jEnv,
-                                                         imagePixelArray,
-                                                         imageWidth,
-                                                         overlayPixelArray,
-                                                         multiplier);
-    return effect.applyEffect();
-};
-
-extern "C"
-JNIEXPORT jintArray JNICALL
-Java_com_mkrworld_libfilter_jnicaller_Effector_setMergingEffect(JNIEnv *jEnv,
                                                                  jclass type,
                                                                  jintArray imagePixelArray,
                                                                  jint imageWidth,
                                                                  jintArray overlayPixelArray,
                                                                  jfloat multiplier) {
 
-    ARGB8888MergingEffect effect = ARGB8888MergingEffect(jEnv,
-                                                           imagePixelArray,
-                                                           imageWidth,
-                                                           overlayPixelArray,
-                                                           multiplier);
+    MultiplyEffect effect = MultiplyEffect(jEnv,
+                                           imagePixelArray,
+                                           imageWidth,
+                                           overlayPixelArray,
+                                           multiplier);
+    return effect.applyEffect();
+};
+
+extern "C"
+JNIEXPORT jintArray JNICALL
+Java_com_mkrworld_libfilter_jnicaller_Effector_setMergingEffect(JNIEnv *jEnv,
+                                                                jclass type,
+                                                                jintArray imagePixelArray,
+                                                                jint imageWidth,
+                                                                jintArray overlayPixelArray,
+                                                                jfloat multiplier) {
+
+    MergingEffect effect = MergingEffect(jEnv,
+                                         imagePixelArray,
+                                         imageWidth,
+                                         overlayPixelArray,
+                                         multiplier);
     return effect.applyEffect();
 };

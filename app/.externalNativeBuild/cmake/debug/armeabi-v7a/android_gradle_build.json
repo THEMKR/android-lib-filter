@@ -21,7 +21,7 @@
 			[
 				
 				{
-					"flags" : "  --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Deffector_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"flags" : "  --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Deffector_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
 					"src" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
 					"workingDirectory" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a"
 				}
