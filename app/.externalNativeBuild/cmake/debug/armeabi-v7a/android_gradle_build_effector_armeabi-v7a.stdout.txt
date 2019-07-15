@@ -1,1 +1,7 @@
-ninja: no work to do.
+[1/2] Building CXX object CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o
+In file included from /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp:7:
+/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/MergingEffect.h:67:26: warning: assigning field to itself [-Wself-assign-field]
+        this->multiplier = multiplier;
+                         ^
+1 warning generated.
+[2/2] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so
