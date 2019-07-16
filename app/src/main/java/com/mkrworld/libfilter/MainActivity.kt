@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         // Example of a call to a native method
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-//                val bitmap1 = FilterBuilder.BuilderColor(FilterCategory.COLOR).setSrcBitmap(getSrcImage()!!).setFilterMatrixArrayList(FilterColorEffect.GRAY_SCALE.filterMatrixArrayList).build()?.applyEffect()
-//                val bitmap2 = FilterBuilder.BuilderColor(FilterCategory.CONVENTIONAL).setSrcBitmap(getSrcImage()!!).setFilterMatrixArrayList(ConventionalFilter.INVERT_BLUR.filterMatrixArrayList).build()?.applyEffect()
-//                val bitmap3 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).build()?.applyEffect()
+                val bitmap1 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.GRAYSCALE)
+                val bitmap2 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.INVERT)
+                val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SEPI)
 
                 // MERGE COLOR
 //                val bitmap4 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(0F).build()?.applyEffect()
@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
 //                val bitmap7 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0.5F).build()?.applyEffect()
 //                val bitmap8 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0F).build()?.applyEffect()
 
-//                imageView1.setImageBitmap(bitmap1)
-//                imageView2.setImageBitmap(bitmap2)
-//                imageView3.setImageBitmap(bitmap3)
+                imageView1.setImageBitmap(bitmap1)
+                imageView2.setImageBitmap(bitmap2)
+                imageView3.setImageBitmap(bitmap3)
 //                imageView4.setImageBitmap(bitmap4)
 //                imageView5.setImageBitmap(bitmap5)
 //                imageView6.setImageBitmap(bitmap6)

@@ -90,13 +90,7 @@ class LibFilter {
          * @param filter
          */
         fun applyFilter(bitmap: Bitmap, filter: FILTER): Bitmap? {
-            return if (filter.filterCategory.equals(FilterCategory.COLOR)) {
-                FilterBuilder.BuilderColor().setSrcBitmap(bitmap).setFilterMatrixArrayList(filter.filterMatrixArrayList).buildEffect()
-            } else if (filter.filterCategory.equals(FilterCategory.CONVENTIONAL)) {
-                FilterBuilder.BuilderConventional().setSrcBitmap(bitmap).setFilterMatrixArrayList(filter.filterMatrixArrayList).buildEffect()
-            } else {
-                FilterBuilder.BuilderColor().setSrcBitmap(bitmap).setFilterMatrixArrayList(filter.filterMatrixArrayList).buildEffect()
-            }
+            return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(filter.filterMatrixArrayList).buildEffect()
         }
 
         /**
@@ -109,6 +103,5 @@ class LibFilter {
                     .setOffset(matrix.offset)
                     .build()
         }
-
     }
 }
