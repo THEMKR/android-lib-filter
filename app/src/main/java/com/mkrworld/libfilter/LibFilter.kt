@@ -20,7 +20,6 @@ class LibFilter {
         SEPI,
         VIOLET,
         YELLOW,
-        EDGE,
         BLUR,
         SKETCH,
         COLOR_SKETCH;
@@ -113,20 +112,8 @@ class LibFilter {
                             getFilterMatrix(MATRIX.COLOR_YELLOW)
                     )).buildEffect()
                 }
-                FILTER.EDGE -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_EDGE),
-                            getFilterMatrix(MATRIX.COLOR_INVERT)
-                    )).buildEffect()
-                }
                 FILTER.BLUR -> {
                     return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
