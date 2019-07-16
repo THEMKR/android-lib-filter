@@ -14,9 +14,10 @@ class MainActivity : AppCompatActivity() {
         // Example of a call to a native method
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                val bitmap1 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.GRAYSCALE)
+                val bitmap1 = getSrcImage()!!
                 val bitmap2 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.INVERT)
-                val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SEPI)
+                val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.EDGE)
+                val bitmap4 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.GRAYSCALE)
 
                 // MERGE COLOR
 //                val bitmap4 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(0F).build()?.applyEffect()
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 imageView1.setImageBitmap(bitmap1)
                 imageView2.setImageBitmap(bitmap2)
                 imageView3.setImageBitmap(bitmap3)
-//                imageView4.setImageBitmap(bitmap4)
+                imageView4.setImageBitmap(bitmap4)
 //                imageView5.setImageBitmap(bitmap5)
 //                imageView6.setImageBitmap(bitmap6)
 //                imageView7.setImageBitmap(bitmap7)
