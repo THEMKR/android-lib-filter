@@ -22,7 +22,8 @@ class LibFilter {
         YELLOW,
         EDGE,
         BLUR,
-        SKETCH;
+        SKETCH,
+        COLOR_SKETCH;
     }
 
     companion object {
@@ -134,14 +135,16 @@ class LibFilter {
                     )).buildEffect()
                 }
                 FILTER.SKETCH -> {
-                    val grayScaleImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE)
-                    )).buildEffect() ?: return bitmap
-                    val invertImage = FilterBuilder.SingleImage().setSrcBitmap(grayScaleImage).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_INVERT)
-                    )).buildEffect() ?: return bitmap
+                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE) ?: bitmap
+                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT) ?: bitmap
                     val invertBlur = applyFilter(invertImage, FILTER.BLUR) ?: bitmap
                     return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect()
+                }
+                FILTER.COLOR_SKETCH -> {
+                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE) ?: bitmap
+                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT) ?: bitmap
+                    val invertBlur = applyFilter(invertImage, FILTER.BLUR) ?: bitmap
+                    return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(invertBlur).buildEffect()
                 }
             }
             return bitmap

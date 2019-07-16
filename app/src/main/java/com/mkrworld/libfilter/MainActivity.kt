@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
                 val bitmap1 = getSrcImage()!!
                 val bitmap2 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH)
                 val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.EDGE)
-                val bitmap4 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.GRAYSCALE)
+                val bitmap4 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH)
 
                 // MERGE COLOR
 //                val bitmap4 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(0F).build()?.applyEffect()
