@@ -21,6 +21,7 @@ class LibFilter {
         VIOLET,
         YELLOW,
         EDGE,
+        BLUR,
         SKETCH;
     }
 
@@ -32,103 +33,118 @@ class LibFilter {
          * @param filter
          */
         fun applyFilter(bitmap: Bitmap, filter: FILTER): Bitmap? {
-            return when (filter) {
+            when (filter) {
                 FILTER.GRAYSCALE -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE))
                     ).buildEffect()
                 }
                 FILTER.INVERT -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_INVERT)
                     )).buildEffect()
                 }
                 FILTER.RED -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_RED)
                     )).buildEffect()
                 }
                 FILTER.BLUE -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_BLUE)
                     )).buildEffect()
                 }
                 FILTER.CONTRASBLUE -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_CONTRAS_BLUE)
                     )).buildEffect()
                 }
                 FILTER.GREEN -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_GREEN)
                     )).buildEffect()
                 }
                 FILTER.CYAN -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_CYAN)
                     )).buildEffect()
                 }
                 FILTER.MAGENTA -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_MAGENTA)
                     )).buildEffect()
                 }
                 FILTER.PINK -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_PINK)
                     )).buildEffect()
                 }
                 FILTER.SEPI -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_SEPIA)
                     )).buildEffect()
                 }
                 FILTER.VIOLET -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_VIOLET)
                     )).buildEffect()
                 }
                 FILTER.YELLOW -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
                             getFilterMatrix(MATRIX.COLOR_YELLOW)
                     )).buildEffect()
                 }
                 FILTER.EDGE -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
                             getFilterMatrix(MATRIX.CONVENTIONAL_EDGE),
                             getFilterMatrix(MATRIX.COLOR_INVERT)
+                    )).buildEffect()
+                }
+                FILTER.BLUR -> {
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR)
                     )).buildEffect()
                 }
                 FILTER.SKETCH -> {
-                    FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_EDGE),
+                    val grayScaleImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE)
+                    )).buildEffect() ?: return bitmap
+                    val invertImage = FilterBuilder.SingleImage().setSrcBitmap(grayScaleImage).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_INVERT)
-                    )).buildEffect()
-                }
-                else -> {
-                    bitmap
+                    )).buildEffect() ?: return bitmap
+                    val invertBlur = applyFilter(invertImage, FILTER.BLUR) ?: bitmap
+                    return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect()
                 }
             }
+            return bitmap
         }
 
         /**

@@ -1,19 +1,3 @@
 # ninja log v5
-1	243	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-243	291	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-1	143	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-143	181	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	185	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-185	219	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	140	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-140	178	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	140	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-140	180	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	133	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-133	172	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	130	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-130	281	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	129	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-129	276	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
-0	367	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
-367	487	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
+0	497	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
+497	657	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df

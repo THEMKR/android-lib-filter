@@ -179,8 +179,8 @@ class FilterBuilder {
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
-        fun build(): Bitmap? {
-            if (isValid()) {
+        fun buildEffect(): Bitmap? {
+            if (!isValid()) {
                 return null
             }
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
@@ -268,8 +268,8 @@ class FilterBuilder {
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
-        fun build(): Bitmap? {
-            if (isValid()) {
+        fun buildEffect(): Bitmap? {
+            if (!isValid()) {
                 return null
             }
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
@@ -360,8 +360,8 @@ class FilterBuilder {
          * @return The creator to create the effect
          * @exception EXCEPTION if something wrong happen
          */
-        fun build(): Bitmap? {
-            if (isValid()) {
+        fun buildEffect(): Bitmap? {
+            if (!isValid()) {
                 return null
             }
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
@@ -369,6 +369,82 @@ class FilterBuilder {
             val imageHeight: Int = srcBitmap!!.height
             var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = MergeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, overlayImageOpacity).applyFilter()
+            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+        }
+
+        /**
+         * Method to check weather the Effect data is valid or not
+         * @return TRUE if data is valid else through Exception
+         */
+        private fun isValid(): Boolean {
+            if (srcBitmap == null) {
+                throw Exception("SOURCE BITMAP NOT FOUND")
+                return false
+            }
+            if (srcBitmap?.isRecycled ?: true) {
+                throw Exception("SOURCE BITMAP IS RECYCLED")
+                return false
+            }
+            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+
+            if (overlayBitmap == null) {
+                throw Exception("OVERLAY BITMAP NOT FOUND")
+                return false
+            }
+            if (overlayBitmap?.isRecycled ?: true) {
+                throw Exception("OVERLAY BITMAP IS RECYCLED")
+                return false
+            }
+            if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
+                throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
+                return false
+            }
+            return true
+        }
+    }
+
+    /**
+     * Builder used to build the Dodge effect
+     */
+    class Dodge {
+        private var srcBitmap: Bitmap? = null
+        private var overlayBitmap: Bitmap? = null
+
+        /**
+         * Method to set the source bitmap
+         * @param srcBitmap
+         */
+        fun setSrcBitmap(srcBitmap: Bitmap): Dodge {
+            this.srcBitmap = srcBitmap
+            return this
+        }
+
+        /**
+         * Method to set the olayver bitmap
+         * @param overlayBitmap
+         */
+        fun setOverlayBitmap(overlayBitmap: Bitmap): Dodge {
+            this.overlayBitmap = overlayBitmap
+            return this
+        }
+
+        /**
+         * Method to create the instance to FilterBuilder
+         * @return The creator to create the effect
+         * @exception EXCEPTION if something wrong happen
+         */
+        fun buildEffect(): Bitmap? {
+            if (!isValid()) {
+                return null
+            }
+            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val imageWidth: Int = srcBitmap!!.width
+            val imageHeight: Int = srcBitmap!!.height
+            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = DodgeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth).applyFilter()
             return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 

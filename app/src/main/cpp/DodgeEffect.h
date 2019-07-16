@@ -53,15 +53,16 @@ private:
      * @return
      */
     uint8_t getDodgeColor(uint8_t front, uint8_t back) {
-        float f = toFloat(front);
-        float b = 1.0 - toFloatBy225(front);
-        float result = f / b;
-        if (result >= 255.0) {
-            return getColorValue(255.0);
-        } else if (result < 0.0) {
-            return getColorValue(0.0);
-        }
-        return getColorValue(result);
+//        float f = toFloat(front);
+//        float b = 1.0 - toFloatBy225(front);
+//        float result = f / b;
+//        if (result >= 255.0) {
+//            return getColorValue(255.0);
+//        } else if (result < 0.0) {
+//            return getColorValue(0.0);
+//        }
+//        return getColorValue(result);
+        return front;
     }
 
 public:
