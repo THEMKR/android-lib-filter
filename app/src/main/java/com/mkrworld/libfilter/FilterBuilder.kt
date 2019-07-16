@@ -67,9 +67,9 @@ class FilterBuilder {
     }
 
     /**
-     * BuilderColor used to build the Color effect
+     * Builder used to aply effect on single Image only
      */
-    class BuilderColor {
+    class SingleImage() {
         private var srcBitmap: Bitmap? = null
         private var filterMatrixArrayList: ArrayList<FilterMatrix>? = null
 
@@ -77,7 +77,7 @@ class FilterBuilder {
          * Method to set the source bitmap
          * @param srcBitmap
          */
-        fun setSrcBitmap(srcBitmap: Bitmap): BuilderColor {
+        fun setSrcBitmap(srcBitmap: Bitmap): SingleImage {
             this.srcBitmap = srcBitmap
             return this
         }
@@ -86,7 +86,7 @@ class FilterBuilder {
          * Method to set the arrayList of the filter matrix
          * @param filterMatrixArrayList
          */
-        fun setFilterMatrixArrayList(filterMatrixArrayList: ArrayList<FilterMatrix>): BuilderColor {
+        fun setFilterMatrixArrayList(filterMatrixArrayList: ArrayList<FilterMatrix>): SingleImage {
             this.filterMatrixArrayList = filterMatrixArrayList
             return this
         }
@@ -103,7 +103,7 @@ class FilterBuilder {
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            val destBitmapIntArray = FilterColorEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
+            val destBitmapIntArray = SingleImageFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
             return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
@@ -137,79 +137,9 @@ class FilterBuilder {
     }
 
     /**
-     * BuilderConventional used to build the Conventional effect
+     * Builder used to build the Overlay effect
      */
-    class BuilderConventional {
-        private var srcBitmap: Bitmap? = null
-        private var filterMatrixArrayList: ArrayList<FilterMatrix>? = null
-
-        /**
-         * Method to set the source bitmap
-         * @param srcBitmap
-         */
-        fun setSrcBitmap(srcBitmap: Bitmap): BuilderConventional {
-            this.srcBitmap = srcBitmap
-            return this
-        }
-
-        /**
-         * Method to set the arrayList of the filter matrix
-         * @param filterMatrixArrayList
-         */
-        fun setFilterMatrixArrayList(filterMatrixArrayList: ArrayList<FilterMatrix>): BuilderConventional {
-            this.filterMatrixArrayList = filterMatrixArrayList
-            return this
-        }
-
-        /**
-         * Method to build the effect and return the new filtered bitmap
-         * @return New Filtered Bitmap
-         * @exception EXCEPTION if something wrong happen
-         */
-        fun buildEffect(): Bitmap? {
-            if (!isValid()) {
-                return null
-            }
-            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
-            val imageWidth: Int = srcBitmap!!.width
-            val imageHeight: Int = srcBitmap!!.height
-            val destBitmapIntArray = FilterConventionalEffect(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
-            return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
-        }
-
-        /**
-         * Method to check weather the Effect data is valid or not
-         * @return TRUE if data is valid else through Exception
-         */
-        private fun isValid(): Boolean {
-            if (srcBitmap == null) {
-                throw Exception("SOURCE BITMAP NOT FOUND")
-                return false
-            }
-            if (srcBitmap?.isRecycled ?: true) {
-                throw Exception("SOURCE BITMAP IS RECYCLED")
-                return false
-            }
-            if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
-                throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
-                return false
-            }
-            if (filterMatrixArrayList == null) {
-                throw Exception("FILTER MATRIX NOT FOUND")
-                return false
-            }
-            if ((filterMatrixArrayList?.size ?: 0) == 0) {
-                throw Exception("FILTER MATRIX SHOULD NOT BE EMPTY")
-                return false
-            }
-            return true
-        }
-    }
-
-    /**
-     * BuilderOverlay used to build the Overlay effect
-     */
-    class BuilderOverlay {
+    class Overlay {
         private var srcBitmap: Bitmap? = null
         private var overlayBitmap: Bitmap? = null
         private var multiplier: Float = 1.0F
@@ -218,7 +148,7 @@ class FilterBuilder {
          * Method to set the source bitmap
          * @param srcBitmap
          */
-        fun setSrcBitmap(srcBitmap: Bitmap): BuilderOverlay {
+        fun setSrcBitmap(srcBitmap: Bitmap): Overlay {
             this.srcBitmap = srcBitmap
             return this
         }
@@ -227,7 +157,7 @@ class FilterBuilder {
          * Method to set the olayver bitmap
          * @param overlayBitmap
          */
-        fun setOverlayBitmap(overlayBitmap: Bitmap): BuilderOverlay {
+        fun setOverlayBitmap(overlayBitmap: Bitmap): Overlay {
             this.overlayBitmap = overlayBitmap
             return this
         }
@@ -236,7 +166,7 @@ class FilterBuilder {
          * Method to set the Multiplier
          * @param multiplier Multiply the color intensity
          */
-        fun setMultiplier(multiplier: Float): BuilderOverlay {
+        fun setMultiplier(multiplier: Float): Overlay {
             this.multiplier = multiplier
             if (this.multiplier < 0F) {
                 this.multiplier = 0F
@@ -256,8 +186,8 @@ class FilterBuilder {
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray? = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
-            val destBitmapIntArray = FilterOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = OverlayImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, multiplier).applyFilter()
             return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
@@ -296,9 +226,9 @@ class FilterBuilder {
     }
 
     /**
-     * BuilderMultiply used to build the Multiply effect
+     * Builder used to build the Multiply effect
      */
-    class BuilderMultiply {
+    class Multiply {
         private var srcBitmap: Bitmap? = null
         private var overlayBitmap: Bitmap? = null
         private var multiplier: Float = 1.0F
@@ -307,7 +237,7 @@ class FilterBuilder {
          * Method to set the source bitmap
          * @param srcBitmap
          */
-        fun setSrcBitmap(srcBitmap: Bitmap): BuilderMultiply {
+        fun setSrcBitmap(srcBitmap: Bitmap): Multiply {
             this.srcBitmap = srcBitmap
             return this
         }
@@ -316,7 +246,7 @@ class FilterBuilder {
          * Method to set the olayver bitmap
          * @param overlayBitmap
          */
-        fun setOverlayBitmap(overlayBitmap: Bitmap): BuilderMultiply {
+        fun setOverlayBitmap(overlayBitmap: Bitmap): Multiply {
             this.overlayBitmap = overlayBitmap
             return this
         }
@@ -325,7 +255,7 @@ class FilterBuilder {
          * Method to set the Multiplier
          * @param multiplier Multiply the color intensity
          */
-        fun setMultiplier(multiplier: Float): BuilderMultiply {
+        fun setMultiplier(multiplier: Float): Multiply {
             this.multiplier = multiplier
             if (this.multiplier < 0F) {
                 this.multiplier = 0F
@@ -345,8 +275,8 @@ class FilterBuilder {
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray? = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
-            val destBitmapIntArray = FilterMultiplierOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, multiplier).applyFilter()
+            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = MultiplyImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, multiplier).applyFilter()
             return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
@@ -385,9 +315,9 @@ class FilterBuilder {
     }
 
     /**
-     * BuilderMerge used to build the Merge effect
+     * Builder used to build the Merge effect
      */
-    class BuilderMerge {
+    class Merge {
         private var srcBitmap: Bitmap? = null
         private var overlayBitmap: Bitmap? = null
         private var overlayImageOpacity: Float = 1.0F
@@ -396,7 +326,7 @@ class FilterBuilder {
          * Method to set the source bitmap
          * @param srcBitmap
          */
-        fun setSrcBitmap(srcBitmap: Bitmap): BuilderMerge {
+        fun setSrcBitmap(srcBitmap: Bitmap): Merge {
             this.srcBitmap = srcBitmap
             return this
         }
@@ -405,7 +335,7 @@ class FilterBuilder {
          * Method to set the olayver bitmap
          * @param overlayBitmap
          */
-        fun setOverlayBitmap(overlayBitmap: Bitmap): BuilderMerge {
+        fun setOverlayBitmap(overlayBitmap: Bitmap): Merge {
             this.overlayBitmap = overlayBitmap
             return this
         }
@@ -414,7 +344,7 @@ class FilterBuilder {
          * Method to set the OverlayImageOpacity
          * @param overlayImageOpacity [0-1] only
          */
-        fun setMultiplier(overlayImageOpacity: Float): BuilderMerge {
+        fun setMultiplier(overlayImageOpacity: Float): Merge {
             this.overlayImageOpacity = overlayImageOpacity
             if (this.overlayImageOpacity < 0F) {
                 this.overlayImageOpacity = 0F
@@ -437,8 +367,8 @@ class FilterBuilder {
             val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray? = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
-            val destBitmapIntArray = FilterMergerOverlayEffect(srcBitmapIntArray, imageWidth, overlayBitmapIntArray!!, overlayImageOpacity).applyFilter()
+            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            val destBitmapIntArray = MergeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, overlayImageOpacity).applyFilter()
             return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 

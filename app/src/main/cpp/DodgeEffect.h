@@ -7,7 +7,7 @@
 
 #include "BaseEffect.h"
 
-class DodgeEffect  : public BaseEffect {
+class DodgeEffect : public BaseEffect {
 
 protected:
 
@@ -21,7 +21,6 @@ protected:
 
     jintArray overlayImageIntArray;
     jint *pointerOverlayImagePixel;
-    jfloat multiplier;
 
     /**
     * Method to initialized the Res. (super) should be called if Override
@@ -49,12 +48,20 @@ private:
 
     /**
      * Method to get the Multiply COlor
-     * @param srcColor
-     * @param overlayColor
+     * @param front
+     * @param back
      * @return
      */
-    uint8_t getMultiplyColor(uint8_t srcColor, uint8_t overlayColor) {
-        return getColorValue(255.0 * toFloatBy225(srcColor) * toFloatBy225(overlayColor) * multiplier);
+    uint8_t getDodgeColor(uint8_t front, uint8_t back) {
+        float f = toFloat(front);
+        float b = 1.0 - toFloatBy225(front);
+        float result = f / b;
+        if (result >= 255.0) {
+            return getColorValue(255.0);
+        } else if (result < 0.0) {
+            return getColorValue(0.0);
+        }
+        return getColorValue(result);
     }
 
 public:
@@ -68,15 +75,14 @@ public:
      * @param effectMatrixArray
      */
     DodgeEffect(JNIEnv *jEnv,
-    jintArray srcImageIntArray,
-            jint imageWidth,
-    jintArray overlayImageIntArray, jfloat multiplier) : BaseEffect() {
+                jintArray srcImageIntArray,
+                jint imageWidth,
+                jintArray overlayImageIntArray) : BaseEffect() {
         this->jEnv = jEnv;
         this->srcImageIntArray = srcImageIntArray;
         this->imageWidth = imageWidth;
 
         this->overlayImageIntArray = overlayImageIntArray;
-        this->multiplier = multiplier;
     }
 
     /**
@@ -93,10 +99,10 @@ public:
             ARGB srcARGB = argbSrc[i];
             ARGB overlayARGB = argbOverlay[i];
             ARGB destARGB = argbDest[i];
-            destARGB.alpha = getMultiplyColor(srcARGB.alpha, overlayARGB.alpha);
-            destARGB.red = getMultiplyColor(srcARGB.red, overlayARGB.red);
-            destARGB.green = getMultiplyColor(srcARGB.green, overlayARGB.green);
-            destARGB.blue = getMultiplyColor(srcARGB.blue, overlayARGB.blue);
+            destARGB.alpha = getDodgeColor(srcARGB.alpha, overlayARGB.alpha);
+            destARGB.red = getDodgeColor(srcARGB.red, overlayARGB.red);
+            destARGB.green = getDodgeColor(srcARGB.green, overlayARGB.green);
+            destARGB.blue = getDodgeColor(srcARGB.blue, overlayARGB.blue);
             argbDest[i] = destARGB;
         }
         finish();

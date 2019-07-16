@@ -40,6 +40,10 @@ public:
     float toFloatBy225(uint8_t value) {
         return (float) value / 255.0;
     }
+
+    float toFloat(uint8_t value) {
+        return (float) value;
+    }
 };
 
 #endif //LIB_FILTER_BASEEFFECT_H

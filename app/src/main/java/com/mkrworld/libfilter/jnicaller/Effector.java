@@ -77,4 +77,14 @@ public class Effector {
      * @return
      */
     public static native int[] setMergingEffect(int[] pixelArray, int width, int[] overlayPixelArray, float overlayImageOpacity);
+
+    /**
+     * Method to apply Multiply Effect
+     *
+     * @param pixelArray
+     * @param width
+     * @param overlayPixelArray
+     * @return
+     */
+    public static native int[] setDodgeEffect(int[] pixelArray, int width, int[] overlayPixelArray);
 }

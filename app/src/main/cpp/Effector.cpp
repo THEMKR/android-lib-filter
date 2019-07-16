@@ -5,6 +5,7 @@
 #include "OverlayEffect.h"
 #include "MultiplyEffect.h"
 #include "MergingEffect.h"
+#include "DodgeEffect.h"
 
 extern "C"
 JNIEXPORT jintArray JNICALL
@@ -107,5 +108,20 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setMergingEffect(JNIEnv *jEnv,
                                          imageWidth,
                                          overlayPixelArray,
                                          multiplier);
+    return effect.applyEffect();
+};
+
+extern "C"
+JNIEXPORT jintArray JNICALL
+Java_com_mkrworld_libfilter_jnicaller_Effector_setDodgeEffect(JNIEnv *jEnv,
+                                                                jclass type,
+                                                                jintArray imagePixelArray,
+                                                                jint imageWidth,
+                                                                jintArray overlayPixelArray) {
+
+    DodgeEffect effect = DodgeEffect(jEnv,
+                                         imagePixelArray,
+                                         imageWidth,
+                                         overlayPixelArray);
     return effect.applyEffect();
 };
