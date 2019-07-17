@@ -2,7 +2,7 @@ package com.mkrworld.libfilter
 
 internal enum class MATRIX {
 
-    COLOR_GRAY_SCALE(FilterCategory.COLOR, 0.33F, floatArrayOf(
+    COLOR_GRAY_SCALE(FilterCategory.COLOR, 0.3F, floatArrayOf(
             1F, 1F, 1F,
             1F, 1F, 1F,
             1F, 1F, 1F

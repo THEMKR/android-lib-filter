@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(p0: View?) {
                 val bitmap1 = getSrcImage()!!
                 val bitmap2 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH)
-                val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.BLUR)
+                val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.P1)
                 val bitmap4 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH)
 
                 // MERGE COLOR
