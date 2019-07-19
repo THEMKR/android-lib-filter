@@ -118,28 +118,21 @@ class LibFilter {
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR)
                     )).buildEffect() ?: bitmap
                 }
                 FILTER.SKETCH -> {
-                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE) ?: bitmap
-                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT) ?: bitmap
-                    val invertBlur = applyFilter(invertImage, FILTER.BLUR) ?: bitmap
+                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE)
+                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT)
+                    val invertBlur = applyFilter(invertImage, FILTER.BLUR)
                     return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
                 FILTER.COLOR_SKETCH -> {
-                    val invertImage = applyFilter(bitmap, FILTER.INVERT) ?: bitmap
-                    val invertBlur = applyFilter(invertImage, FILTER.BLUR) ?: bitmap
+                    val invertImage = applyFilter(bitmap, FILTER.INVERT)
+                    val invertBlur = applyFilter(invertImage, FILTER.BLUR)
                     return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
                 FILTER.P1 -> {
-                    return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(applyFilter(bitmap, FILTER.COLOR_SKETCH)).buildEffect() ?: bitmap
                 }
             }
             return bitmap
