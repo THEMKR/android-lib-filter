@@ -47,290 +47,6 @@ protected:
         jEnv->ReleaseFloatArrayElements(effectMatrixArray, pointerEffectMatrixItem, 0);
     }
 
-    /**
-     * Method to apply Effect having 3X3 Matrix
-     * @return
-     */
-    void applyEffect3() {
-        ARGB *argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
-        ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
-        jint height = srcImagePixelCount / imageWidth;
-        int r = imageWidth - 1;
-        int f = imageWidth;
-        int l = srcImagePixelCount - imageWidth;
-        for (jint index = 0; index < srcImagePixelCount; ++index) {
-            ARGB srcARGB = argbSrc[index];
-            ARGB destARGB = argbDest[index];
-            destARGB.alpha = srcARGB.alpha;
-            int mode = (index % imageWidth);
-
-            if (index < f || mode == 0 || mode == r || index > l) {
-                argbDest[index] = destARGB;
-            } else {
-                jfloat R = 0, G = 0, B = 0;
-
-                jfloat matrixValue = pointerEffectMatrixItem[0];
-                ARGB src = argbSrc[index - imageWidth - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[1];
-                src = argbSrc[index - imageWidth];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[2];
-                src = argbSrc[index - imageWidth + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[3];
-                src = argbSrc[index - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[4];
-                R = R + srcARGB.red * matrixValue;
-                G = G + srcARGB.green * matrixValue;
-                B = B + srcARGB.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[5];
-                src = argbSrc[index + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[6];
-                src = argbSrc[index + imageWidth - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[7];
-                src = argbSrc[index + imageWidth];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[8];
-                src = argbSrc[index + imageWidth + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                R = R * multiplier;
-                G = G * multiplier;
-                B = B * multiplier;
-
-                destARGB.red = getColorValue(R);
-                destARGB.green = getColorValue(G);
-                destARGB.blue = getColorValue(B);
-                argbDest[index] = destARGB;
-            }
-        }
-    }
-
-    /**
-     * Method to apply Effect having 3X3 Matrix
-     * @return
-     */
-    void applyEffect5() {
-        ARGB *argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
-        ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
-        jint height = srcImagePixelCount / imageWidth;
-        int r = imageWidth - 2;
-        int f = 2 * imageWidth;
-        int l = srcImagePixelCount - (2 * imageWidth);
-
-        int wX2 = 2 * imageWidth;
-
-        for (jint index = 0; index < srcImagePixelCount; ++index) {
-            ARGB srcARGB = argbSrc[index];
-            ARGB destARGB = argbDest[index];
-            destARGB.alpha = srcARGB.alpha;
-            int mode = (index % imageWidth);
-
-            if (index < f || mode <= 1 || mode == r || index > l) {
-                argbDest[index] = destARGB;
-            } else {
-                jfloat R = 0, G = 0, B = 0;
-
-                // R1
-                int rowOffset = 0;
-                jfloat matrixValue = pointerEffectMatrixItem[rowOffset];
-                ARGB src = argbSrc[index - wX2 - 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 1];
-                src = argbSrc[index - wX2 - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 2];
-                src = argbSrc[index - wX2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 3];
-                src = argbSrc[index - wX2 + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 4];
-                src = argbSrc[index - wX2 + 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                // R2
-                rowOffset = 5;
-                matrixValue = pointerEffectMatrixItem[rowOffset];
-                src = argbSrc[index - imageWidth - 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 1];
-                src = argbSrc[index - imageWidth - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 2];
-                src = argbSrc[index - imageWidth];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 3];
-                src = argbSrc[index - imageWidth + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 4];
-                src = argbSrc[index - imageWidth + 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                // R3
-                rowOffset = 10;
-                matrixValue = pointerEffectMatrixItem[rowOffset];
-                src = argbSrc[index - 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 1];
-                src = argbSrc[index - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 2];
-                src = argbSrc[index];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 3];
-                src = argbSrc[index + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 4];
-                src = argbSrc[index + 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                // R4
-                rowOffset = 15;
-                matrixValue = pointerEffectMatrixItem[rowOffset];
-                src = argbSrc[index + imageWidth - 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 1];
-                src = argbSrc[index + imageWidth - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 2];
-                src = argbSrc[index + imageWidth];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 3];
-                src = argbSrc[index + imageWidth + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 4];
-                src = argbSrc[index + imageWidth + 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                // R5
-                rowOffset = 20;
-                matrixValue = pointerEffectMatrixItem[rowOffset];
-                src = argbSrc[index + wX2 - 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 1];
-                src = argbSrc[index + wX2 - 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 2];
-                src = argbSrc[index + wX2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 3];
-                src = argbSrc[index + wX2 + 1];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                matrixValue = pointerEffectMatrixItem[rowOffset + 4];
-                src = argbSrc[index + wX2 + 2];
-                R = R + src.red * matrixValue;
-                G = G + src.green * matrixValue;
-                B = B + src.blue * matrixValue;
-
-                R = R * multiplier;
-                G = G * multiplier;
-                B = B * multiplier;
-
-                destARGB.red = getColorValue(R);
-                destARGB.green = getColorValue(G);
-                destARGB.blue = getColorValue(B);
-                argbDest[index] = destARGB;
-            }
-        }
-    }
-
 public:
 
     /**
@@ -361,12 +77,78 @@ public:
      */
     jintArray applyEffect() {
         init();
-        if (effectMatrixSize == 9) {
-            applyEffect3();
-        } else if (effectMatrixSize == 25) {
-            applyEffect5();
-        } else {
-            applyEffect3();
+        ARGB *argbSrc = reinterpret_cast<ARGB *>(pointerSrcImagePixel);
+        ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
+        jint height = srcImagePixelCount / imageWidth;
+        int r = imageWidth - 1;
+        int f = imageWidth;
+        int l = srcImagePixelCount - imageWidth;
+        for (jint index = 0; index < srcImagePixelCount; ++index) {
+            ARGB srcARGB11 = argbSrc[index];
+            ARGB destARGB = argbDest[index];
+            destARGB.alpha = srcARGB11.alpha;
+            int mode = (index % imageWidth);
+
+            if (index < f || mode == 0 || mode == r || index > l) {
+                argbDest[index] = destARGB;
+            } else {
+                jfloat matrixValue0 = pointerEffectMatrixItem[0];
+                jfloat matrixValue1 = pointerEffectMatrixItem[1];
+                jfloat matrixValue2 = pointerEffectMatrixItem[2];
+                jfloat matrixValue3 = pointerEffectMatrixItem[3];
+                jfloat matrixValue4 = pointerEffectMatrixItem[4];
+                jfloat matrixValue5 = pointerEffectMatrixItem[5];
+                jfloat matrixValue6 = pointerEffectMatrixItem[6];
+                jfloat matrixValue7 = pointerEffectMatrixItem[7];
+                jfloat matrixValue8 = pointerEffectMatrixItem[8];
+
+                ARGB srcARGB00 = argbSrc[index - imageWidth - 1];
+                ARGB srcARGB01 = argbSrc[index - imageWidth];
+                ARGB srcARGB02 = argbSrc[index - imageWidth + 1];
+                ARGB srcARGB10 = argbSrc[index - 1];
+                ARGB srcARGB12 = argbSrc[index + 1];
+                ARGB srcARGB20 = argbSrc[index + imageWidth - 1];
+                ARGB srcARGB21 = argbSrc[index + imageWidth];
+                ARGB srcARGB22 = argbSrc[index + imageWidth + 1];
+
+                jfloat R = ((srcARGB00.red * matrixValue0) +
+                            (srcARGB01.red * matrixValue1) +
+                            (srcARGB02.red * matrixValue2) +
+                            (srcARGB10.red * matrixValue3) +
+                            (srcARGB11.red * matrixValue4) +
+                            (srcARGB12.red * matrixValue5) +
+                            (srcARGB20.red * matrixValue6) +
+                            (srcARGB21.red * matrixValue7) +
+                            (srcARGB22.red * matrixValue8)) *
+                           multiplier;
+
+                jfloat G = ((srcARGB00.green * matrixValue0) +
+                            (srcARGB01.green * matrixValue1) +
+                            (srcARGB02.green * matrixValue2) +
+                            (srcARGB10.green * matrixValue3) +
+                            (srcARGB11.green * matrixValue4) +
+                            (srcARGB12.green * matrixValue5) +
+                            (srcARGB20.green * matrixValue6) +
+                            (srcARGB21.green * matrixValue7) +
+                            (srcARGB22.green * matrixValue8)) *
+                           multiplier;
+
+                jfloat B = ((srcARGB00.blue * matrixValue0) +
+                            (srcARGB01.blue * matrixValue1) +
+                            (srcARGB02.blue * matrixValue2) +
+                            (srcARGB10.blue * matrixValue3) +
+                            (srcARGB11.blue * matrixValue4) +
+                            (srcARGB12.blue * matrixValue5) +
+                            (srcARGB20.blue * matrixValue6) +
+                            (srcARGB21.blue * matrixValue7) +
+                            (srcARGB22.blue * matrixValue8)) *
+                           multiplier;
+
+                destARGB.red = getColorValue(R);
+                destARGB.green = getColorValue(G);
+                destARGB.blue = getColorValue(B);
+                argbDest[index] = destARGB;
+            }
         }
         finish();
         return destImageIntArray;

@@ -115,12 +115,10 @@ internal enum class MATRIX {
             -2f, 1f, -2f
     )),
 
-    CONVENTIONAL_BLUR(FilterCategory.CONVENTIONAL, 0.00390625F, floatArrayOf(
-            1F, 4F, 6F, 4F, 1F,
-            4F, 16F, 24F, 16F, 4F,
-            6F, 24F, 36F, 24F, 6F,
-            4F, 16F, 24F, 16F, 4F,
-            1F, 4F, 6F, 4F, 1F
+    CONVENTIONAL_BLUR(FilterCategory.CONVENTIONAL, 0.11111F, floatArrayOf(
+            1F, 1F, 1F,
+            1F, 1F, 1F,
+            1F, 1F, 1F
     )),
 
     CONVENTIONAL_EMBOS(FilterCategory.CONVENTIONAL, floatArrayOf(

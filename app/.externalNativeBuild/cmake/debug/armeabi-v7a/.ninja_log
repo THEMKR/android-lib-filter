@@ -1,3 +1,9 @@
 # ninja log v5
 0	134	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2ecfc5b9ae6fc241
 134	278	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so	3490a556882dcb2e
+0	152	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2ecfc5b9ae6fc241
+152	191	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so	3490a556882dcb2e
+1	113	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2ecfc5b9ae6fc241
+114	136	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so	3490a556882dcb2e
+1	109	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2ecfc5b9ae6fc241
+109	131	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so	3490a556882dcb2e

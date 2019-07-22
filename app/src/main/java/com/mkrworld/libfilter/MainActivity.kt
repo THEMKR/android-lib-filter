@@ -14,31 +14,12 @@ class MainActivity : AppCompatActivity() {
         // Example of a call to a native method
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                val bitmap1 = getSrcImage()!!
-                val bitmap2 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH)
-                val bitmap3 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.P1)
-                val bitmap4 = LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH)
-
-                // MERGE COLOR
-//                val bitmap4 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(0F).build()?.applyEffect()
-//                val bitmap5 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap3!!).setMultiplier(1F).build()?.applyEffect()
-//
-//                // MERGE GRAYSCALE
-//                val bitmap6 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(1F).build()?.applyEffect()
-//                val bitmap7 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0.5F).build()?.applyEffect()
-//                val bitmap8 = FilterBuilder.BuilderColor(FilterCategory.MERGE).setSrcBitmap(bitmap1!!).setOverlayBitmap(bitmap2!!).setMultiplier(0F).build()?.applyEffect()
-
-                imageView1.setImageBitmap(bitmap1)
-                imageView2.setImageBitmap(bitmap2)
-                imageView3.setImageBitmap(bitmap3)
-                imageView4.setImageBitmap(bitmap4)
-//                imageView5.setImageBitmap(bitmap5)
-//                imageView6.setImageBitmap(bitmap6)
-//                imageView7.setImageBitmap(bitmap7)
-//                imageView8.setImageBitmap(bitmap8)
-//
-//                imageView1.setImageBitmap(bitmap7)
-//                imageView2.setImageBitmap(bitmap8)
+                imageView1.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH_1))
+                imageView2.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH_2))
+                imageView3.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH_1))
+                imageView4.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH_2))
+                imageView5.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.BLUR))
+                imageView6.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.GRAYSCALE))
             }
         })
     }
@@ -58,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     fun getSrcImage(): Bitmap? {
         val options = BitmapFactory.Options()
         options.inPreferredConfig = Bitmap.Config.ARGB_8888
-        return BitmapFactory.decodeResource(resources, R.drawable.gh, options)
+        return BitmapFactory.decodeResource(resources, R.drawable.gagan, options)
     }
 
     fun getOverlayImage(): Bitmap? {

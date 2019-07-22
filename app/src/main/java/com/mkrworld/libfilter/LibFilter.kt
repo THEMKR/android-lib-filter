@@ -1,6 +1,7 @@
 package com.mkrworld.libfilter
 
 import android.graphics.Bitmap
+import android.util.Log
 
 /**
  * Class to hold the Per Define Filters or IF You create Some New One then You Should use the [FilterBuilder] for that
@@ -21,9 +22,10 @@ class LibFilter {
         VIOLET,
         YELLOW,
         BLUR,
-        SKETCH,
-        COLOR_SKETCH,
-        P1;
+        SKETCH_1,
+        SKETCH_2,
+        COLOR_SKETCH_1,
+        COLOR_SKETCH_2,
     }
 
     companion object {
@@ -114,25 +116,55 @@ class LibFilter {
                     )).buildEffect() ?: bitmap
                 }
                 FILTER.BLUR -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                    val currentTimeMillis = System.currentTimeMillis()
+                    val blur = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
                             getFilterMatrix(MATRIX.CONVENTIONAL_BLUR)
                     )).buildEffect() ?: bitmap
+                    Log.e("MKR", "BLUR : ${System.currentTimeMillis() - currentTimeMillis}")
+                    return blur
                 }
-                FILTER.SKETCH -> {
-                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE)
-                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT)
-                    val invertBlur = applyFilter(invertImage, FILTER.BLUR)
-                    return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
-                }
-                FILTER.COLOR_SKETCH -> {
+                FILTER.COLOR_SKETCH_1 -> {
+                    val currentTimeMillis = System.currentTimeMillis()
                     val invertImage = applyFilter(bitmap, FILTER.INVERT)
-                    val invertBlur = applyFilter(invertImage, FILTER.BLUR)
+                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    Log.e("MKR", "COLOR_SKETCH_2 : ${System.currentTimeMillis() - currentTimeMillis}")
                     return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
-                FILTER.P1 -> {
+                FILTER.COLOR_SKETCH_2 -> {
+                    val currentTimeMillis = System.currentTimeMillis()
+                    val invertImage = applyFilter(bitmap, FILTER.INVERT)
+                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    Log.e("MKR", "COLOR_SKETCH_2 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
+                }
+                FILTER.SKETCH_1 -> {
+                    val currentTimeMillis = System.currentTimeMillis()
+                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE)
+                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT)
+                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    Log.e("MKR", "SKETCH_2 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
+                }
+                FILTER.SKETCH_2 -> {
+                    val currentTimeMillis = System.currentTimeMillis()
+                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE)
+                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT)
+                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
+                    Log.e("MKR", "SKETCH_1 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
             }
             return bitmap

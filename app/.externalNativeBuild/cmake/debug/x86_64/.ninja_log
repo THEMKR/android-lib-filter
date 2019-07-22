@@ -1,3 +1,7 @@
 # ninja log v5
 0	413	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	8beea6e656e2c9f1
 414	542	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libeffector.so	eee2f97955b0b7e
+0	228	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	8beea6e656e2c9f1
+228	260	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libeffector.so	eee2f97955b0b7e
+0	96	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	8beea6e656e2c9f1
+96	109	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libeffector.so	eee2f97955b0b7e
