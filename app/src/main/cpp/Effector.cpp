@@ -1,7 +1,6 @@
 #include <jni.h>
 #include "ColorEffect.h"
 #include "ConventionalEffect.h"
-#include "ConventionalColorEffect.h"
 #include "OverlayEffect.h"
 #include "MultiplyEffect.h"
 #include "MergingEffect.h"
@@ -29,34 +28,15 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setConventionalEffect(JNIEnv *jEn
                                                                      jintArray imagePixelArray,
                                                                      jint imageWidth,
                                                                      jfloat multiplier,
+                                                                     jfloat thrashHold,
                                                                      jfloatArray effectMatrixArray) {
 
     ConventionalEffect effect = ConventionalEffect(jEnv,
                                                    imagePixelArray,
                                                    imageWidth,
                                                    multiplier,
+                                                   thrashHold,
                                                    effectMatrixArray);
-    return effect.applyEffect();
-};
-
-extern "C"
-JNIEXPORT jintArray JNICALL
-Java_com_mkrworld_libfilter_jnicaller_Effector_setConventionalMultiColorEffect(JNIEnv *jEnv,
-                                                                               jclass type,
-                                                                               jintArray imagePixelArray,
-                                                                               jint imageWidth,
-                                                                               jfloat multiplier,
-                                                                               jfloatArray effectMatrixArray,
-                                                                               jfloatArray srcColorMultiplierArray,
-                                                                               jfloatArray colorEffectMatrixArray) {
-
-    ConventionalColorEffect effect = ConventionalColorEffect(jEnv,
-                                                             imagePixelArray,
-                                                             imageWidth,
-                                                             multiplier,
-                                                             effectMatrixArray,
-                                                             srcColorMultiplierArray,
-                                                             colorEffectMatrixArray);
     return effect.applyEffect();
 };
 
@@ -70,10 +50,10 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setOverlayEffect(JNIEnv *jEnv,
                                                                 jfloat multiplier) {
 
     OverlayEffect effect = OverlayEffect(jEnv,
-                                                         imagePixelArray,
-                                                         imageWidth,
-                                                         overlayPixelArray,
-                                                         multiplier);
+                                         imagePixelArray,
+                                         imageWidth,
+                                         overlayPixelArray,
+                                         multiplier);
     return effect.applyEffect();
 };
 
@@ -114,14 +94,14 @@ Java_com_mkrworld_libfilter_jnicaller_Effector_setMergingEffect(JNIEnv *jEnv,
 extern "C"
 JNIEXPORT jintArray JNICALL
 Java_com_mkrworld_libfilter_jnicaller_Effector_setDodgeEffect(JNIEnv *jEnv,
-                                                                jclass type,
-                                                                jintArray imagePixelArray,
-                                                                jint imageWidth,
-                                                                jintArray overlayPixelArray) {
+                                                              jclass type,
+                                                              jintArray imagePixelArray,
+                                                              jint imageWidth,
+                                                              jintArray overlayPixelArray) {
 
     DodgeEffect effect = DodgeEffect(jEnv,
-                                         imagePixelArray,
-                                         imageWidth,
-                                         overlayPixelArray);
+                                     imagePixelArray,
+                                     imageWidth,
+                                     overlayPixelArray);
     return effect.applyEffect();
 };

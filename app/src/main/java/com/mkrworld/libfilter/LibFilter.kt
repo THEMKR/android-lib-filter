@@ -9,8 +9,6 @@ import android.util.Log
 class LibFilter {
 
     enum class FILTER {
-        GRAYSCALE,
-        INVERT,
         RED,
         BLUE,
         CONTRASBLUE,
@@ -21,11 +19,15 @@ class LibFilter {
         SEPI,
         VIOLET,
         YELLOW,
-        BLUR,
-        SKETCH_1,
-        SKETCH_2,
-        COLOR_SKETCH_1,
-        COLOR_SKETCH_2,
+        EXPREMENT,
+        // ==========================================================================================
+        // FINAL
+        // ==========================================================================================
+        SKETCH_LIGHT,
+        SKETCH_DARK,
+        COLOR_SKETCH_LIGHT,
+        COLOR_SKETCH_DARK,
+        EMBOS
     }
 
     companion object {
@@ -37,16 +39,14 @@ class LibFilter {
          */
         fun applyFilter(bitmap: Bitmap, filter: FILTER): Bitmap {
             when (filter) {
-                FILTER.GRAYSCALE -> {
+                FILTER.EXPREMENT -> {
                     return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE))
-                    ).buildEffect() ?: bitmap
-                }
-                FILTER.INVERT -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_INVERT)
+                            getFilterMatrix(MATRIX.CONVENTIONAL_SHARPEN)
                     )).buildEffect() ?: bitmap
                 }
+                // ==========================================================================================
+                // FINAL
+                // ==========================================================================================
                 FILTER.RED -> {
                     return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
                             getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
@@ -115,57 +115,75 @@ class LibFilter {
                             getFilterMatrix(MATRIX.COLOR_YELLOW)
                     )).buildEffect() ?: bitmap
                 }
-                FILTER.BLUR -> {
+                FILTER.COLOR_SKETCH_LIGHT -> {
                     val currentTimeMillis = System.currentTimeMillis()
-                    val blur = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
-                            getFilterMatrix(MATRIX.CONVENTIONAL_BLUR)
+                    val invertImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_INVERT)
                     )).buildEffect() ?: bitmap
-                    Log.e("MKR", "BLUR : ${System.currentTimeMillis() - currentTimeMillis}")
-                    return blur
-                }
-                FILTER.COLOR_SKETCH_1 -> {
-                    val currentTimeMillis = System.currentTimeMillis()
-                    val invertImage = applyFilter(bitmap, FILTER.INVERT)
-                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    Log.e("MKR", "COLOR_SKETCH_2 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    val invertBlur = getBlurBitmap(invertImage, 3)
+                    Log.e("MKR", "COLOR_SKETCH_DARK : ${System.currentTimeMillis() - currentTimeMillis}")
                     return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
-                FILTER.COLOR_SKETCH_2 -> {
+                FILTER.COLOR_SKETCH_DARK -> {
                     val currentTimeMillis = System.currentTimeMillis()
-                    val invertImage = applyFilter(bitmap, FILTER.INVERT)
-                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    Log.e("MKR", "COLOR_SKETCH_2 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    val invertImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_INVERT)
+                    )).buildEffect() ?: bitmap
+                    val invertBlur = getBlurBitmap(invertImage, 6)
+                    Log.e("MKR", "COLOR_SKETCH_DARK : ${System.currentTimeMillis() - currentTimeMillis}")
                     return FilterBuilder.Dodge().setSrcBitmap(bitmap).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
-                FILTER.SKETCH_1 -> {
+                FILTER.SKETCH_LIGHT -> {
                     val currentTimeMillis = System.currentTimeMillis()
-                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE)
-                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT)
-                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    Log.e("MKR", "SKETCH_2 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    val grayScaleImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE)
+                    )).buildEffect() ?: bitmap
+                    val invertImage = FilterBuilder.SingleImage().setSrcBitmap(grayScaleImage).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_INVERT)
+                    )).buildEffect() ?: bitmap
+                    val invertBlur = getBlurBitmap(invertImage, 3)
+                    Log.e("MKR", "SKETCH_DARK : ${System.currentTimeMillis() - currentTimeMillis}")
                     return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
-                FILTER.SKETCH_2 -> {
+                FILTER.SKETCH_DARK -> {
                     val currentTimeMillis = System.currentTimeMillis()
-                    val grayScaleImage = applyFilter(bitmap, FILTER.GRAYSCALE)
-                    val invertImage = applyFilter(grayScaleImage, FILTER.INVERT)
-                    var invertBlur = applyFilter(invertImage, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    invertBlur = applyFilter(invertBlur, FILTER.BLUR)
-                    Log.e("MKR", "SKETCH_1 : ${System.currentTimeMillis() - currentTimeMillis}")
+                    val grayScaleImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE)
+                    )).buildEffect() ?: bitmap
+                    val invertImage = FilterBuilder.SingleImage().setSrcBitmap(grayScaleImage).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_INVERT)
+                    )).buildEffect() ?: bitmap
+                    val invertBlur = getBlurBitmap(invertImage, 6)
+                    Log.e("MKR", "SKETCH_LIGHT : ${System.currentTimeMillis() - currentTimeMillis}")
                     return FilterBuilder.Dodge().setSrcBitmap(grayScaleImage).setOverlayBitmap(invertBlur).buildEffect() ?: bitmap
                 }
+                FILTER.EMBOS -> {
+                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
+                            getFilterMatrix(MATRIX.CONVENTIONAL_EMBOS)
+                    )).buildEffect() ?: bitmap
+                }
+            }
+            return bitmap
+        }
+
+        /**
+         * Method to get the blur bitmap
+         * @param bitmap
+         * @param level
+         * @return
+         */
+        private fun getBlurBitmap(bitmap: Bitmap, level: Int): Bitmap {
+            var bitmap = bitmap
+            for (count in 0 until level) {
+                Log.e("MKR", "BLUR INDEX : $level  :  $count")
+                bitmap = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
+                        getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                        getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                        getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                        getFilterMatrix(MATRIX.CONVENTIONAL_BLUR),
+                        getFilterMatrix(MATRIX.CONVENTIONAL_BLUR)
+                )).buildEffect() ?: bitmap
             }
             return bitmap
         }

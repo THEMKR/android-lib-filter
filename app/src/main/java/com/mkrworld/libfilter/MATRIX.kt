@@ -127,28 +127,10 @@ internal enum class MATRIX {
             0f, 1f, 2f
     )),
 
-    CONVENTIONAL_SHARP(FilterCategory.CONVENTIONAL, floatArrayOf(
+    CONVENTIONAL_SHARPEN(FilterCategory.CONVENTIONAL, Offset(80F), floatArrayOf(
             0f, -1f, 0f,
             -1f, 5f, -1f,
             0f, -1f, 0f
-    )),
-
-    CONVENTIONAL_GLASS(FilterCategory.CONVENTIONAL, floatArrayOf(
-            1f, 1f, 1f,
-            1f, -7f, 1f,
-            1f, 1f, 1f
-    )),
-
-    CONVENTIONAL_MIKE_FAVORITE(FilterCategory.CONVENTIONAL, floatArrayOf(
-            2f / 9f, 22f / 9f, 1f / 9f,
-            22f / 9f, 1f / 9f, -22f / 9f,
-            1f / 9f, -22f / 9f, -2f / 9f
-    )),
-
-    CONVENTIONAL_LIGHTEN(FilterCategory.CONVENTIONAL, floatArrayOf(
-            0f, 0f, 0f,
-            0f, 12f / 9f, 0f,
-            0f, 0f, 0f
     ));
 
     val filterCategory: FilterCategory

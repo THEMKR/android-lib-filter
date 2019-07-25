@@ -15,13 +15,13 @@ protected:
     jintArray srcImageIntArray;
     jintArray destImageIntArray;
     jint imageWidth;
-    jint effectMatrixSize;
     jint srcImagePixelCount;
     jint *pointerSrcImagePixel;
     jint *pointerDestImagePixel;
 
     jfloatArray effectMatrixArray;
     jfloat multiplier;
+    jfloat thrashHold;
     jfloat *pointerEffectMatrixItem;
 
     /**
@@ -34,7 +34,6 @@ protected:
         pointerDestImagePixel = jEnv->GetIntArrayElements(destImageIntArray, NULL);
 
         pointerEffectMatrixItem = jEnv->GetFloatArrayElements(effectMatrixArray, NULL);
-        effectMatrixSize = jEnv->GetArrayLength(effectMatrixArray);
     }
 
     /**
@@ -61,11 +60,12 @@ public:
                        jintArray srcImageIntArray,
                        jint imageWidth,
                        jfloat multiplier,
+                       jfloat thrashHold,
                        jfloatArray effectMatrixArray) : BaseEffect() {
         this->jEnv = jEnv;
         this->srcImageIntArray = srcImageIntArray;
         this->imageWidth = imageWidth;
-
+        this->thrashHold = thrashHold;
         this->multiplier = multiplier;
         this->effectMatrixArray = effectMatrixArray;
     }

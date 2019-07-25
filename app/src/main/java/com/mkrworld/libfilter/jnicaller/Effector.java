@@ -16,9 +16,10 @@ public class Effector {
      * @param width
      * @param multiplier
      * @param effectMatrix
+     * @param thrashHold
      * @return
      */
-    public static native int[] setConventionalEffect(int[] pixelArray, int width, float multiplier, float[] effectMatrix);
+    public static native int[] setConventionalEffect(int[] pixelArray, int width, float multiplier, float thrashHold, float[] effectMatrix);
 
     /**
      * Method to apply Multiple Color Effect. On a Single Image
@@ -30,20 +31,6 @@ public class Effector {
      * @return
      */
     public static native int[] setColorEffect(int[] pixelArray, int width, float[] colorEffectMultiplierArray, float[] colorEffectMatrixItemArray);
-
-    /**
-     * Method to apply Conventional Effect with further Multiple Color Effect.<br>
-     * First Apply Conventional Effect, Then Apply Multiple Color Effect Simultaneously
-     *
-     * @param pixelArray
-     * @param width
-     * @param conventionalMultiplier
-     * @param conventionalEffectMatrixElementArray
-     * @param colorEffectMultiplierArray
-     * @param colorEffectMatrixItemArray
-     * @return
-     */
-    public static native int[] setConventionalMultiColorEffect(int[] pixelArray, int width, float conventionalMultiplier, float[] conventionalEffectMatrixElementArray, float[] colorEffectMultiplierArray, float[] colorEffectMatrixItemArray);
 
     /**
      * Method to apply Overlay Effect

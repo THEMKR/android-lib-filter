@@ -39,7 +39,7 @@ internal class SingleImageFilter : OnBaseFilter {
                 pixelArray = applyMultiColorFilter(pixelArray, tempColorFilterMatrixArrayList)
                 tempColorFilterMatrixArrayList = null
             }
-            pixelArray = Effector.setConventionalEffect(pixelArray, imageWidth, filterMatrix.multiplier, filterMatrix.matrix)
+            pixelArray = Effector.setConventionalEffect(pixelArray, imageWidth, filterMatrix.multiplier, filterMatrix.offSet.all, filterMatrix.matrix)
         }
 
         // IF LAST ELEMENT IS ALSO HAVE A COLOR FILTER

@@ -21,7 +21,7 @@ protected:
 
     jintArray overlayImageIntArray;
     jint *pointerOverlayImagePixel;
-    jfloat multiplier;
+    jfloat overlayImageOpacity;
 
     /**
     * Method to initialized the Res. (super) should be called if Override
@@ -64,7 +64,7 @@ public:
         this->imageWidth = imageWidth;
 
         this->overlayImageIntArray = overlayImageIntArray;
-        this->multiplier = multiplier;
+        this->overlayImageOpacity = overlayImageOpacity;
     }
 
     /**
@@ -77,16 +77,16 @@ public:
         ARGB *argbOverlay = reinterpret_cast<ARGB *>(pointerOverlayImagePixel);
         ARGB *argbDest = reinterpret_cast<ARGB *>(pointerDestImagePixel);
 
-        jfloat srcMult = 1.0 - multiplier;
+        jfloat srcMult = 1.0 - overlayImageOpacity;
 
         for (int i = 0; i < srcImagePixelCount; ++i) {
             ARGB srcARGB = argbSrc[i];
             ARGB overlayARGB = argbOverlay[i];
             ARGB destARGB = argbDest[i];
-            destARGB.alpha = getColorValue(srcARGB.alpha + getFloat(overlayARGB.alpha, multiplier));
-            destARGB.red = getColorValue(getFloat(srcARGB.red, srcMult) + getFloat(overlayARGB.red, multiplier));
-            destARGB.green = getColorValue(getFloat(srcARGB.green, srcMult) + getFloat(overlayARGB.green, multiplier));
-            destARGB.blue = getColorValue(getFloat(srcARGB.blue, srcMult) + getFloat(overlayARGB.blue, multiplier));
+            destARGB.alpha = getColorValue(srcARGB.alpha + getFloat(overlayARGB.alpha, overlayImageOpacity));
+            destARGB.red = getColorValue(getFloat(srcARGB.red, srcMult) + getFloat(overlayARGB.red, overlayImageOpacity));
+            destARGB.green = getColorValue(getFloat(srcARGB.green, srcMult) + getFloat(overlayARGB.green, overlayImageOpacity));
+            destARGB.blue = getColorValue(getFloat(srcARGB.blue, srcMult) + getFloat(overlayARGB.blue, overlayImageOpacity));
             argbDest[i] = destARGB;
         }
         finish();
