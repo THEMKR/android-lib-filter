@@ -1,6 +1,9 @@
 package com.mkrworld.libfilter
 
 import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.RectF
 import android.util.Log
 
 /**
@@ -9,20 +12,6 @@ import android.util.Log
 class LibFilter {
 
     enum class FILTER {
-        RED,
-        BLUE,
-        CONTRASBLUE,
-        GREEN,
-        CYAN,
-        MAGENTA,
-        PINK,
-        SEPI,
-        VIOLET,
-        YELLOW,
-        EXPREMENT,
-        // ==========================================================================================
-        // FINAL
-        // ==========================================================================================
         SKETCH_LIGHT,
         SKETCH_DARK,
         COLOR_SKETCH_LIGHT,
@@ -33,88 +22,58 @@ class LibFilter {
     companion object {
 
         /**
+         * Method to convert Bitmap into ARGB_8888 format.
+         *
+         * @param bitmap
+         * @param destWidth   New dest width of the Bitmap
+         * @param destHeighgt New dest height of the Bitmap
+         */
+        fun getARGB888Image(bitmap: Bitmap, destWidth: Int, destHeighgt: Int): Bitmap {
+            if (bitmap.config == Bitmap.Config.ARGB_8888 && bitmap.width == destWidth && bitmap.height == destHeighgt) {
+                return bitmap
+            }
+            val newARGBBitmap = Bitmap.createBitmap(destWidth, destHeighgt, Bitmap.Config.ARGB_8888)
+            val canvas = Canvas(newARGBBitmap)
+            val paint = Paint()
+            paint.isAntiAlias = true
+            paint.isFilterBitmap = true
+            canvas.drawBitmap(bitmap, null, RectF(0f, 0f, destWidth.toFloat(), destHeighgt.toFloat()), paint)
+            return newARGBBitmap
+        }
+
+        /**
+         * Method ot convert the Bitmap into INT[] pixel Array
+         *
+         * @param bitmap
+         * @return
+         */
+        fun convertBitmapIntoPixelArray(bitmap: Bitmap): IntArray {
+            val bitmapPixelArray = IntArray(bitmap.width * bitmap.height)
+            bitmap.getPixels(bitmapPixelArray, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
+            return bitmapPixelArray
+        }
+
+        /**
+         * Method to convert the Pixel Array Into the Bitmap
+         *
+         * @param bitmapPixelArray
+         * @param width            Width of the Bitmap
+         * @param height           Height of the Bitmap
+         * @return
+         */
+        fun convertPixelArrayIntoBitmap(bitmapPixelArray: IntArray, width: Int, height: Int): Bitmap {
+            val filteredBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+            filteredBitmap.setPixels(bitmapPixelArray, 0, width, 0, 0, width, height)
+            return filteredBitmap
+        }
+
+        /**
          * Method to apply the filter
          * @param bitmap
          * @param filter
          */
         fun applyFilter(bitmap: Bitmap, filter: FILTER): Bitmap {
             when (filter) {
-                FILTER.EXPREMENT -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.CONVENTIONAL_SHARPEN)
-                    )).buildEffect() ?: bitmap
-                }
-                // ==========================================================================================
-                // FINAL
-                // ==========================================================================================
-                FILTER.RED -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_RED)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.BLUE -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_BLUE)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.CONTRASBLUE -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_CONTRAS_BLUE)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.GREEN -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_GREEN)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.CYAN -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_CYAN)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.MAGENTA -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_MAGENTA)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.PINK -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_PINK)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.SEPI -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_SEPIA)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.VIOLET -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_VIOLET)
-                    )).buildEffect() ?: bitmap
-                }
-                FILTER.YELLOW -> {
-                    return FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
-                            getFilterMatrix(MATRIX.COLOR_GRAY_SCALE),
-                            getFilterMatrix(MATRIX.COLOR_NEUTRALIZER_B),
-                            getFilterMatrix(MATRIX.COLOR_YELLOW)
-                    )).buildEffect() ?: bitmap
-                }
                 FILTER.COLOR_SKETCH_LIGHT -> {
                     val currentTimeMillis = System.currentTimeMillis()
                     val invertImage = FilterBuilder.SingleImage().setSrcBitmap(bitmap).setFilterMatrixArrayList(arrayListOf(
@@ -195,6 +154,17 @@ class LibFilter {
             return FilterMatrix.Builder(matrix.filterCategory)
                     .setMatrix(matrix.matrix)
                     .setMultiplier(matrix.multiplier)
+                    .setOffset(matrix.offset)
+                    .build()
+        }
+
+        /**
+         * Method to get the Filter
+         */
+        private fun getFilterMatrix(matrix: MATRIX, multiplier: Float): FilterMatrix {
+            return FilterMatrix.Builder(matrix.filterCategory)
+                    .setMatrix(matrix.matrix)
+                    .setMultiplier(multiplier)
                     .setOffset(matrix.offset)
                     .build()
         }

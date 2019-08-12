@@ -111,38 +111,38 @@ public:
                 ARGB srcARGB21 = argbSrc[index + imageWidth];
                 ARGB srcARGB22 = argbSrc[index + imageWidth + 1];
 
-                jfloat R = ((srcARGB00.red * matrixValue0) +
-                            (srcARGB01.red * matrixValue1) +
-                            (srcARGB02.red * matrixValue2) +
-                            (srcARGB10.red * matrixValue3) +
-                            (srcARGB11.red * matrixValue4) +
-                            (srcARGB12.red * matrixValue5) +
-                            (srcARGB20.red * matrixValue6) +
-                            (srcARGB21.red * matrixValue7) +
-                            (srcARGB22.red * matrixValue8)) *
-                           multiplier;
+                jfloat R = (((srcARGB00.red * matrixValue0) +
+                             (srcARGB01.red * matrixValue1) +
+                             (srcARGB02.red * matrixValue2) +
+                             (srcARGB10.red * matrixValue3) +
+                             (srcARGB11.red * matrixValue4) +
+                             (srcARGB12.red * matrixValue5) +
+                             (srcARGB20.red * matrixValue6) +
+                             (srcARGB21.red * matrixValue7) +
+                             (srcARGB22.red * matrixValue8)) *
+                            multiplier) + thrashHold;
 
-                jfloat G = ((srcARGB00.green * matrixValue0) +
-                            (srcARGB01.green * matrixValue1) +
-                            (srcARGB02.green * matrixValue2) +
-                            (srcARGB10.green * matrixValue3) +
-                            (srcARGB11.green * matrixValue4) +
-                            (srcARGB12.green * matrixValue5) +
-                            (srcARGB20.green * matrixValue6) +
-                            (srcARGB21.green * matrixValue7) +
-                            (srcARGB22.green * matrixValue8)) *
-                           multiplier;
+                jfloat G = (((srcARGB00.green * matrixValue0) +
+                             (srcARGB01.green * matrixValue1) +
+                             (srcARGB02.green * matrixValue2) +
+                             (srcARGB10.green * matrixValue3) +
+                             (srcARGB11.green * matrixValue4) +
+                             (srcARGB12.green * matrixValue5) +
+                             (srcARGB20.green * matrixValue6) +
+                             (srcARGB21.green * matrixValue7) +
+                             (srcARGB22.green * matrixValue8)) *
+                            multiplier) + thrashHold;
 
-                jfloat B = ((srcARGB00.blue * matrixValue0) +
-                            (srcARGB01.blue * matrixValue1) +
-                            (srcARGB02.blue * matrixValue2) +
-                            (srcARGB10.blue * matrixValue3) +
-                            (srcARGB11.blue * matrixValue4) +
-                            (srcARGB12.blue * matrixValue5) +
-                            (srcARGB20.blue * matrixValue6) +
-                            (srcARGB21.blue * matrixValue7) +
-                            (srcARGB22.blue * matrixValue8)) *
-                           multiplier;
+                jfloat B = (((srcARGB00.blue * matrixValue0) +
+                             (srcARGB01.blue * matrixValue1) +
+                             (srcARGB02.blue * matrixValue2) +
+                             (srcARGB10.blue * matrixValue3) +
+                             (srcARGB11.blue * matrixValue4) +
+                             (srcARGB12.blue * matrixValue5) +
+                             (srcARGB20.blue * matrixValue6) +
+                             (srcARGB21.blue * matrixValue7) +
+                             (srcARGB22.blue * matrixValue8)) *
+                            multiplier) + thrashHold;
 
                 destARGB.red = getColorValue(R);
                 destARGB.green = getColorValue(G);

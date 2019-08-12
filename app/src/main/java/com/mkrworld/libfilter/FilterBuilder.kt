@@ -1,9 +1,6 @@
 package com.mkrworld.libfilter
 
 import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.RectF
 
 /**
  * Class used to build the FilteredImage. User can pass its custom image for that
@@ -12,51 +9,6 @@ import android.graphics.RectF
 class FilterBuilder {
     companion object {
 
-        /**
-         * Method to convert Bitmap into ARGB_8888 format.
-         *
-         * @param bitmap
-         * @param destWidth   New dest width of the Bitmap
-         * @param destHeighgt New dest height of the Bitmap
-         */
-        fun getARGB888Image(bitmap: Bitmap, destWidth: Int, destHeighgt: Int): Bitmap {
-            if (bitmap.config == Bitmap.Config.ARGB_8888 && bitmap.width == destWidth && bitmap.height == destHeighgt) {
-                return bitmap
-            }
-            val newARGBBitmap = Bitmap.createBitmap(destWidth, destHeighgt, Bitmap.Config.ARGB_8888)
-            val canvas = Canvas(newARGBBitmap)
-            val paint = Paint()
-            paint.isAntiAlias = true
-            paint.isFilterBitmap = true
-            canvas.drawBitmap(bitmap, null, RectF(0f, 0f, destWidth.toFloat(), destHeighgt.toFloat()), paint)
-            return newARGBBitmap
-        }
-
-        /**
-         * Method ot convert the Bitmap into INT[] pixel Array
-         *
-         * @param bitmap
-         * @return
-         */
-        fun convertBitmapIntoPixelArray(bitmap: Bitmap): IntArray {
-            val bitmapPixelArray = IntArray(bitmap.width * bitmap.height)
-            bitmap.getPixels(bitmapPixelArray, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
-            return bitmapPixelArray
-        }
-
-        /**
-         * Method to convert the Pixel Array Into the Bitmap
-         *
-         * @param bitmapPixelArray
-         * @param width            Width of the Bitmap
-         * @param height           Height of the Bitmap
-         * @return
-         */
-        fun convertPixelArrayIntoBitmap(bitmapPixelArray: IntArray, width: Int, height: Int): Bitmap {
-            val filteredBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-            filteredBitmap.setPixels(bitmapPixelArray, 0, width, 0, 0, width, height)
-            return filteredBitmap
-        }
     }
 
     /**
@@ -100,11 +52,11 @@ class FilterBuilder {
             if (!isValid()) {
                 return null
             }
-            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val srcBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
             val destBitmapIntArray = SingleImageFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
-            return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return LibFilter.convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
         /**
@@ -183,12 +135,12 @@ class FilterBuilder {
             if (!isValid()) {
                 return null
             }
-            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val srcBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            var overlayBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = OverlayImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, multiplier).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return return LibFilter.convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
         /**
@@ -272,12 +224,12 @@ class FilterBuilder {
             if (!isValid()) {
                 return null
             }
-            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val srcBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            var overlayBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = MultiplyImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, multiplier).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return return LibFilter.convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
         /**
@@ -364,12 +316,12 @@ class FilterBuilder {
             if (!isValid()) {
                 return null
             }
-            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val srcBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            var overlayBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = MergeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, overlayImageOpacity).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return return LibFilter.convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
         /**
@@ -440,12 +392,12 @@ class FilterBuilder {
             if (!isValid()) {
                 return null
             }
-            val srcBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
+            val srcBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(srcBitmap!!, srcBitmap!!.width, srcBitmap!!.height))
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
-            var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
+            var overlayBitmapIntArray: IntArray = LibFilter.convertBitmapIntoPixelArray(LibFilter.getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = DodgeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return return LibFilter.convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
         }
 
         /**

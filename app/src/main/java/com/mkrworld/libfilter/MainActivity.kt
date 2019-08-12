@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 imageView1.setImageBitmap(getSrcImage()!!)
-                imageView2.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH_LIGHT))
-                imageView3.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH_DARK))
-                imageView4.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH_DARK))
-                imageView5.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.EXPREMENT))
+                //imageView2.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH_LIGHT))
+                //imageView3.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.SKETCH_DARK))
+                //imageView4.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.COLOR_SKETCH_DARK))
+                //imageView5.setImageBitmap(LibFilter.applyFilter(getSrcImage()!!, LibFilter.FILTER.EXPREMENT))
             }
         })
     }
