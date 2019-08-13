@@ -1,41 +1,41 @@
-
 {
-	"buildFiles" : 
-	[
-		"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
-	],
-	"cleanCommands" : 
-	[
-		"/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86 --target clean"
-	],
-	"cppFileExtensions" : [ "cpp" ],
-	"libraries" : 
-	{
-		"effector-Release-x86" : 
-		{
-			"abi" : "x86",
-			"artifactName" : "effector",
-			"buildCommand" : "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86 --target effector",
-			"buildType" : "release",
-			"files" : 
-			[
-				
-				{
-					"flags" : "  --target=i686-none-linux-android16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Deffector_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O2 -DNDEBUG  -fPIC    -c ",
-					"src" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
-					"workingDirectory" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86"
-				}
-			],
-			"output" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/x86/libeffector.so",
-			"toolchain" : "1599694811968845668"
-		}
-	},
-	"toolchains" : 
-	{
-		"1599694811968845668" : 
-		{
-			"cCompilerExecutable" : "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
-			"cppCompilerExecutable" : "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
-		}
-	}
+  "stringTable": {
+    "0": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86",
+    "1": "--target=i686-none-linux-android16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Deffector_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -frtti -fexceptions -O2 -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "/home/administrator/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
+    "/home/administrator/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/administrator/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86\" --target clean"
+  ],
+  "libraries": {
+    "effector-Release-x86": {
+      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/x86\" --target effector",
+      "buildType": "release",
+      "toolchain": "4085477858",
+      "abi": "x86",
+      "artifactName": "effector",
+      "files": [
+        {
+          "src": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/x86/libeffector.so"
+    }
+  },
+  "toolchains": {
+    "4085477858": {
+      "cppCompilerExecutable": "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
 }
