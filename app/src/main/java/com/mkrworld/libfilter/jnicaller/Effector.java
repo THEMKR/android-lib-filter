@@ -33,7 +33,7 @@ public class Effector {
     public static native int[] setColorEffect(int[] pixelArray, int width, float[] colorEffectMultiplierArray, float[] colorEffectMatrixItemArray);
 
     /**
-     * Method to apply Overlay Effect
+     * Method to apply OverlayEffectBuilder Effect
      *
      * @param pixelArray
      * @param width
@@ -44,7 +44,7 @@ public class Effector {
     public static native int[] setOverlayEffect(int[] pixelArray, int width, int[] overlayPixelArray, float multiplier);
 
     /**
-     * Method to apply Multiply Effect
+     * Method to apply MultiplyEffectBuilder Effect
      *
      * @param pixelArray
      * @param width
@@ -55,7 +55,7 @@ public class Effector {
     public static native int[] setMultiplyEffect(int[] pixelArray, int width, int[] overlayPixelArray, float multiplier);
 
     /**
-     * Method to apply Multiply Effect
+     * Method to apply MultiplyEffectBuilder Effect
      *
      * @param pixelArray
      * @param width
@@ -66,7 +66,7 @@ public class Effector {
     public static native int[] setMergingEffect(int[] pixelArray, int width, int[] overlayPixelArray, float overlayImageOpacity);
 
     /**
-     * Method to apply Multiply Effect
+     * Method to apply MultiplyEffectBuilder Effect
      *
      * @param pixelArray
      * @param width

@@ -1,0 +1,26 @@
+# ninja log v5
+0	100	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+100	247	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	127	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+127	163	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+1	100	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+100	114	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	142	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+142	334	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+1	129	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+129	163	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+1	126	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+126	156	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	133	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+133	321	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	119	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+120	159	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	122	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+122	303	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+1	129	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+129	161	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	20	0	build.ninja	23eb2ec56cbca7fe
+1	81	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+81	95	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
+0	79	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	2f9e71bdf6697aa7
+79	97	0	../../../../build/intermediates/cmake/debug/obj/x86/libeffector.so	3f9917a7d5498750
