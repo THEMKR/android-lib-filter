@@ -7,3 +7,5 @@
 235	250	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so	6bc88c79cf71124b
 1	341	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	63482dd9ba665aff
 341	377	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so	200611349857fb7f
+1	353	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	63482dd9ba665aff
+353	395	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so	200611349857fb7f
