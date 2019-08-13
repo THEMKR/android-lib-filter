@@ -31,3 +31,6 @@
 131	275	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
 0	137	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
 137	178	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df
+0	21	0	build.ninja	3f403a458959c497
+0	81	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	bad9731fe5edc797
+81	101	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libeffector.so	af76fcca4db266df

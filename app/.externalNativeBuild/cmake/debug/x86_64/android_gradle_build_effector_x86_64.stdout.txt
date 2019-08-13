@@ -1,2 +1,6 @@
+[1/1] Re-running CMake...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/x86_64
 [1/2] Building CXX object CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o
 [2/2] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/x86_64/libeffector.so
