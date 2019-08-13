@@ -1,41 +1,41 @@
+
 {
-  "stringTable": {
-    "0": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a",
-    "1": "--target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Deffector_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -frtti -fexceptions -O0 -fno-limit-debug-info -fPIC"
-  },
-  "buildFiles": [
-    "/home/administrator/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
-    "/home/administrator/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
-    "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
-  ],
-  "cleanCommands": [
-    "/home/administrator/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a\" --target clean"
-  ],
-  "libraries": {
-    "effector-Debug-armeabi-v7a": {
-      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a\" --target effector",
-      "buildType": "debug",
-      "toolchain": "4085477858",
-      "abi": "armeabi-v7a",
-      "artifactName": "effector",
-      "files": [
-        {
-          "src": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
-          "flagsOrdinal": 1,
-          "workingDirectoryOrdinal": 0
-        }
-      ],
-      "headers": [],
-      "output": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so"
-    }
-  },
-  "toolchains": {
-    "4085477858": {
-      "cppCompilerExecutable": "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
-    }
-  },
-  "cFileExtensions": [],
-  "cppFileExtensions": [
-    "cpp"
-  ]
+	"buildFiles" : 
+	[
+		"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"effector-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "effector",
+			"buildCommand" : "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a --target effector",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Deffector_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
+					"workingDirectory" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/debug/armeabi-v7a"
+				}
+			],
+			"output" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so",
+			"toolchain" : "1599694811968845668"
+		}
+	},
+	"toolchains" : 
+	{
+		"1599694811968845668" : 
+		{
+			"cCompilerExecutable" : "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
 }

@@ -1,16 +1,14 @@
 {
   "buildFiles": [
-    "/home/administrator/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake",
-    "/home/administrator/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
     "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/home/administrator/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a\" --target clean"
+    "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target clean"
   ],
   "libraries": {
     "effector-Release-arm64-v8a": {
       "artifactName": "effector",
-      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build \"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a\" --target effector",
+      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.externalNativeBuild/cmake/release/arm64-v8a --target effector",
       "abi": "arm64-v8a",
       "output": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so"
     }
