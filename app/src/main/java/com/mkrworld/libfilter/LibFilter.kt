@@ -116,7 +116,7 @@ class LibFilter {
             val imageWidth: Int = srcBitmap!!.width
             val imageHeight: Int = srcBitmap!!.height
             val destBitmapIntArray = SingleImageFilter(srcBitmapIntArray, imageWidth, filterMatrixArrayList!!).applyFilter()
-            return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return convertPixelArrayIntoBitmap(destBitmapIntArray, imageWidth, imageHeight)
         }
 
         /**
@@ -126,23 +126,18 @@ class LibFilter {
         private fun isValid(): Boolean {
             if (srcBitmap == null) {
                 throw Exception("SOURCE BITMAP NOT FOUND")
-                return false
             }
             if (srcBitmap?.isRecycled ?: true) {
                 throw Exception("SOURCE BITMAP IS RECYCLED")
-                return false
             }
             if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
             if (filterMatrixArrayList == null) {
                 throw Exception("FILTER MATRIX NOT FOUND")
-                return false
             }
             if ((filterMatrixArrayList?.size ?: 0) == 0) {
                 throw Exception("FILTER MATRIX SHOULD NOT BE EMPTY")
-                return false
             }
             return true
         }
@@ -200,7 +195,7 @@ class LibFilter {
             val imageHeight: Int = srcBitmap!!.height
             var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = OverlayImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, multiplier).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return convertPixelArrayIntoBitmap(destBitmapIntArray, imageWidth, imageHeight)
         }
 
         /**
@@ -210,28 +205,22 @@ class LibFilter {
         private fun isValid(): Boolean {
             if (srcBitmap == null) {
                 throw Exception("SOURCE BITMAP NOT FOUND")
-                return false
             }
             if (srcBitmap?.isRecycled ?: true) {
                 throw Exception("SOURCE BITMAP IS RECYCLED")
-                return false
             }
             if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
 
             if (overlayBitmap == null) {
                 throw Exception("OVERLAY BITMAP NOT FOUND")
-                return false
             }
             if (overlayBitmap?.isRecycled ?: true) {
                 throw Exception("OVERLAY BITMAP IS RECYCLED")
-                return false
             }
             if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
             return true
         }
@@ -289,7 +278,7 @@ class LibFilter {
             val imageHeight: Int = srcBitmap!!.height
             var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = MultiplyImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, multiplier).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return convertPixelArrayIntoBitmap(destBitmapIntArray, imageWidth, imageHeight)
         }
 
         /**
@@ -299,28 +288,22 @@ class LibFilter {
         private fun isValid(): Boolean {
             if (srcBitmap == null) {
                 throw Exception("SOURCE BITMAP NOT FOUND")
-                return false
             }
             if (srcBitmap?.isRecycled ?: true) {
                 throw Exception("SOURCE BITMAP IS RECYCLED")
-                return false
             }
             if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
 
             if (overlayBitmap == null) {
                 throw Exception("OVERLAY BITMAP NOT FOUND")
-                return false
             }
             if (overlayBitmap?.isRecycled ?: true) {
                 throw Exception("OVERLAY BITMAP IS RECYCLED")
-                return false
             }
             if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
             return true
         }
@@ -381,7 +364,7 @@ class LibFilter {
             val imageHeight: Int = srcBitmap!!.height
             var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = MergeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth, overlayImageOpacity).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return convertPixelArrayIntoBitmap(destBitmapIntArray, imageWidth, imageHeight)
         }
 
         /**
@@ -391,28 +374,22 @@ class LibFilter {
         private fun isValid(): Boolean {
             if (srcBitmap == null) {
                 throw Exception("SOURCE BITMAP NOT FOUND")
-                return false
             }
             if (srcBitmap?.isRecycled ?: true) {
                 throw Exception("SOURCE BITMAP IS RECYCLED")
-                return false
             }
             if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
 
             if (overlayBitmap == null) {
                 throw Exception("OVERLAY BITMAP NOT FOUND")
-                return false
             }
             if (overlayBitmap?.isRecycled ?: true) {
                 throw Exception("OVERLAY BITMAP IS RECYCLED")
-                return false
             }
             if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
             return true
         }
@@ -457,7 +434,7 @@ class LibFilter {
             val imageHeight: Int = srcBitmap!!.height
             var overlayBitmapIntArray: IntArray = convertBitmapIntoPixelArray(getARGB888Image(overlayBitmap!!, imageWidth, imageHeight))
             val destBitmapIntArray = DodgeImageFilter(srcBitmapIntArray, overlayBitmapIntArray, imageWidth).applyFilter()
-            return return convertPixelArrayIntoBitmap(destBitmapIntArray!!, imageWidth, imageHeight)
+            return convertPixelArrayIntoBitmap(destBitmapIntArray, imageWidth, imageHeight)
         }
 
         /**
@@ -467,28 +444,22 @@ class LibFilter {
         private fun isValid(): Boolean {
             if (srcBitmap == null) {
                 throw Exception("SOURCE BITMAP NOT FOUND")
-                return false
             }
             if (srcBitmap?.isRecycled ?: true) {
                 throw Exception("SOURCE BITMAP IS RECYCLED")
-                return false
             }
             if ((srcBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("SOURCE BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
 
             if (overlayBitmap == null) {
                 throw Exception("OVERLAY BITMAP NOT FOUND")
-                return false
             }
             if (overlayBitmap?.isRecycled ?: true) {
                 throw Exception("OVERLAY BITMAP IS RECYCLED")
-                return false
             }
             if ((overlayBitmap?.width ?: 0) <= 0 || (srcBitmap?.height ?: 0) <= 0) {
                 throw Exception("OVERLAY BITMAP SHOULD NOT BE EMPTY")
-                return false
             }
             return true
         }

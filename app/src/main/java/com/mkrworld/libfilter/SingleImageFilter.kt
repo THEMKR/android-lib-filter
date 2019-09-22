@@ -23,7 +23,6 @@ internal class SingleImageFilter : OnBaseFilter {
 
     override fun applyFilter(): IntArray {
         var pixelArray = pixelArray
-        val l = System.currentTimeMillis()
         var tempColorFilterMatrixArrayList: ArrayList<FilterMatrix>? = null
         for (filterMatrix in filterMatrixArrayList) {
             // CHECK WEATHER THE THIS FILTER IS COLOR FILTER OR NOT
@@ -45,7 +44,6 @@ internal class SingleImageFilter : OnBaseFilter {
         // IF LAST ELEMENT IS ALSO HAVE A COLOR FILTER
         if (tempColorFilterMatrixArrayList != null) {
             pixelArray = applyMultiColorFilter(pixelArray, tempColorFilterMatrixArrayList)
-            tempColorFilterMatrixArrayList = null
         }
         return pixelArray
     }
@@ -56,7 +54,6 @@ internal class SingleImageFilter : OnBaseFilter {
      * @param filterMatrixArrayList
      */
     private fun applyMultiColorFilter(pixelArray: IntArray, filterMatrixArrayList: ArrayList<FilterMatrix>): IntArray {
-        val l = System.currentTimeMillis()
         val filterMatrixFloatArray = ArrayList<Float>()
         val multiplierFloatArray = ArrayList<Float>()
         for (filterMatrix in filterMatrixArrayList) {
