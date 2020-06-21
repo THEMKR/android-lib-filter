@@ -54,7 +54,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 build CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o: CXX_COMPILER__effector ../../../../src/main/cpp/Effector.cpp
   DEFINES = -Deffector_EXPORTS
   DEP_FILE = CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o.d
-  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC
+  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC
   IN_ABS = /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp
   OBJECT_DIR = CMakeFiles/effector.dir
   OBJECT_FILE_DIR = CMakeFiles/effector.dir/src/main/cpp
@@ -67,8 +67,8 @@ build CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o: CXX_COMPILER__effecto
 # Link the shared library ../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so
 
 build ../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libeffector.so: CXX_SHARED_LIBRARY_LINKER__effector CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o
-  LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info
-  LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments -Wl,-z,noexecstack
+  LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info
+  LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments
   LINK_LIBRARIES = -latomic -lm
   OBJECT_DIR = CMakeFiles/effector.dir
   POST_BUILD = :

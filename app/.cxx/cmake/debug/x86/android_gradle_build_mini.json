@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/debug/x86 --target clean"
+  ],
+  "libraries": {
+    "effector-Debug-x86": {
+      "artifactName": "effector",
+      "buildCommand": "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/debug/x86 --target effector",
+      "abi": "x86",
+      "output": "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/debug/obj/x86/libeffector.so"
+    }
+  }
+}

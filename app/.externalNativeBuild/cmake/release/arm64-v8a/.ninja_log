@@ -2,3 +2,5 @@
 0	21	0	build.ninja	e53e1d7eb220ab69
 0	221	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	63482dd9ba665aff
 221	245	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so	200611349857fb7f
+0	202	0	CMakeFiles/effector.dir/src/main/cpp/Effector.cpp.o	63482dd9ba665aff
+202	232	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libeffector.so	200611349857fb7f

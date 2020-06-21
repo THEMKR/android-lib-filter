@@ -1,0 +1,41 @@
+
+{
+	"buildFiles" : 
+	[
+		"/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/armeabi-v7a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"effector-Release-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "effector",
+			"buildCommand" : "/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/armeabi-v7a --target effector",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Deffector_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -frtti -fexceptions -Oz -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/src/main/cpp/Effector.cpp",
+					"workingDirectory" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/armeabi-v7a"
+				}
+			],
+			"output" : "/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/armeabi-v7a/libeffector.so",
+			"toolchain" : "1599694811968845668"
+		}
+	},
+	"toolchains" : 
+	{
+		"1599694811968845668" : 
+		{
+			"cCompilerExecutable" : "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/administrator/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}
