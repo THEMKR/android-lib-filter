@@ -5,47 +5,7 @@
   },
   {
     "level": "INFO",
-    "message": "rebuilding JSON /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64/android_gradle_build.json due to:"
-  },
-  {
-    "level": "INFO",
-    "message": "- force flag, will remove stale json folder"
-  },
-  {
-    "level": "INFO",
-    "message": "- expected json /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64/android_gradle_build.json file is not present, will remove stale json folder"
-  },
-  {
-    "level": "INFO",
-    "message": "- missing previous command file /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64/build_command.txt, will remove stale json folder"
-  },
-  {
-    "level": "INFO",
-    "message": "- command changed from previous, will remove stale json folder"
-  },
-  {
-    "level": "INFO",
-    "message": "created folder \u0027/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64\u0027"
-  },
-  {
-    "level": "INFO",
-    "message": "executing cmake Executable : /home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake\narguments : \n-H/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app\n-B/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64\n-DANDROID_ABI\u003dx86_64\n-DANDROID_PLATFORM\u003dandroid-16\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/x86_64\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DANDROID_NDK\u003d/home/administrator/Android/Sdk/ndk-bundle\n-DCMAKE_CXX_FLAGS\u003d-frtti -fexceptions\n-DCMAKE_TOOLCHAIN_FILE\u003d/home/administrator/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/ninja\n-GAndroid Gradle - Ninja\njvmArgs : \n\n"
-  },
-  {
-    "level": "INFO",
-    "message": "Executable : /home/administrator/Android/Sdk/cmake/3.6.4111459/bin/cmake\narguments : \n-H/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app\n-B/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64\n-DANDROID_ABI\u003dx86_64\n-DANDROID_PLATFORM\u003dandroid-16\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/build/intermediates/cmake/release/obj/x86_64\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DANDROID_NDK\u003d/home/administrator/Android/Sdk/ndk-bundle\n-DCMAKE_CXX_FLAGS\u003d-frtti -fexceptions\n-DCMAKE_TOOLCHAIN_FILE\u003d/home/administrator/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d/home/administrator/Android/Sdk/cmake/3.6.4111459/bin/ninja\n-GAndroid Gradle - Ninja\njvmArgs : \n\n"
-  },
-  {
-    "level": "INFO",
-    "message": "done executing cmake"
-  },
-  {
-    "level": "INFO",
-    "message": "write build output /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64/build_output.txt"
-  },
-  {
-    "level": "INFO",
-    "message": "write command file /home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64/build_command.txt"
+    "message": "JSON \u0027/home/administrator/Documents/ANDROID/LIB/android-lib-filter/app/.cxx/cmake/release/x86_64/android_gradle_build.json\u0027 was up-to-date"
   },
   {
     "level": "INFO",
